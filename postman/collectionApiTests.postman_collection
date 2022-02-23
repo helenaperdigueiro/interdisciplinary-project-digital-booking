@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "01236dd8-0999-4f34-adde-bc7eaf68b929",
+		"name": "Digital Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"POST Category Status ok\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"POST Category has Body\", function () {\r",
+							"     pm.response.to.be.withBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"POST Category return JSON\", function () {\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"POST Category request body is equal response json\", () => {\r",
+							"\r",
+							"  const responseJson = pm.response.json();\r",
+							"  const requestBody = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"  pm.expect(responseJson.title).to.eql(requestBody.title);\r",
+							"  pm.expect(responseJson.description).to.eql(requestBody.description);\r",
+							"  pm.expect(responseJson.urlImage).to.eql(requestBody.urlImage);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Title 1\",\r\n    \"description\": \"Description 1\",\r\n    \"urlImage\": \"public/images/img1.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category PUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"PUT Category Status ok\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"PUT Category has Body\", function () {\r",
+							"     pm.response.to.be.withBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"PUT Category return JSON\", function () {\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"PUT Category request body is equal response json\", () => {\r",
+							"\r",
+							"  const responseJson = pm.response.json();\r",
+							"  const requestBody = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"  pm.expect(responseJson.title).to.eql(requestBody.title);\r",
+							"  pm.expect(responseJson.description).to.eql(requestBody.description);\r",
+							"  pm.expect(responseJson.urlImage).to.eql(requestBody.urlImage);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Title 1 Edited\",\r\n    \"description\": \"Description 1 Edited\",\r\n    \"urlImage\": \"public/images/img1Edited.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/category/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category GET BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"GET By ID Category Status ok\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"GET By ID Category has Body\", function () {\r",
+							"     pm.response.to.be.withBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"GET By ID Category return JSON\", function () {\r",
+							"     pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category GET ALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"GET ALL Category Status ok\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"GET ALL Category has Body\", function () {\r",
+							"     pm.response.to.be.withBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"GET ALL Category return JSON\", function () {\r",
+							"     pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category DELETE BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DELETE By ID Category Status ok\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"DELETE By ID Category has Body\", function () {\r",
+							"     pm.response.to.be.withBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"DELETE By ID Category return Deleted\", function () {\r",
+							"     pm.response.to.have.body(\"Deleted\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
