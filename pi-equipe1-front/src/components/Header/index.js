@@ -12,7 +12,6 @@ const Header = () => {
                 <button id="login">login</button>
                 <button id="login">registrar</button>
             </div>
-
         </div>
     )
 }
