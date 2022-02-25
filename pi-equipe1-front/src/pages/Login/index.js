@@ -43,7 +43,8 @@ const Login = () => {
           }, 400);
         }}
       >
-        <Form>
+        
+        <Form className="acessForm">
           <label htmlFor="email">Email</label>
           <Field className="field" name="email" type="email" />
           <ErrorMessage name="email">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>

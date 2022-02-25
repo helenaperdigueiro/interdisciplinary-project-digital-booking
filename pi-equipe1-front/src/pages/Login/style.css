@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 
-Form {
+.acessForm {
     display: flex;
     flex-direction: column;
     width: 16rem;
