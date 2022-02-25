@@ -1,9 +1,10 @@
+import './style.css';
+import "react-datepicker/dist/react-datepicker.css";
 import React, { useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { Formik, Field, Form } from 'formik';
 import ptBr from "date-fns/locale/pt-BR"
-import "react-datepicker/dist/react-datepicker.css";
-import './style.css';
+
 
 registerLocale("ptBr", ptBr);
 

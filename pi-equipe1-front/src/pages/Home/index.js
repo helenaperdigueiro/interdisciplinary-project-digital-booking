@@ -1,5 +1,6 @@
 import DatePickerField from './components/Search';
 import Categories from './components/Categories';
+import Recommendations from './components/Recommendations';
 import './style.css';
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <>
         <DatePickerField />
         <Categories />
+        <Recommendations />
         </>
     )
 }
