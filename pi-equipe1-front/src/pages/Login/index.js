@@ -26,7 +26,7 @@ const Login = () => {
             .min(7, 'Sua senha precisa ter no mínimo 6 caracteres')
             .required('obrigatório'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values) => {
           setTimeout(() => {
 
             if (values.email === userTest.email) {
@@ -39,11 +39,9 @@ const Login = () => {
             } else {
               alert("Por favor, tente novamente, suas credenciais são inválidas");
             }
-            setSubmitting(false);
           }, 400);
         }}
       >
-        
         <Form className="acessForm">
           <label htmlFor="email">Email</label>
           <Field className="field" name="email" type="email" />
