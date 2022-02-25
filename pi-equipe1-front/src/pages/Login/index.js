@@ -2,15 +2,13 @@ import './style.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext';
-import { useContext } from 'react';
+import { useUserContext } from '../../contexts/UserContext';
 
 const Login = () => {
-  const context = useContext(UserContext);
-  console.log(context);
-  const navigate = useNavigate();
 
- let signed = {logged: false};
+  const { setUser } = useUserContext();
+
+  const navigate = useNavigate();
 
   let userTest = {
     email: "ca_haka@gmail.com",
@@ -21,7 +19,7 @@ const Login = () => {
     <div id="contact">
       <h2>Iniciar sessão</h2>
       <Formik
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ email: 'ca_haka@gmail.com', password: 'cahakas' }}
         validationSchema={Yup.object({
           email: Yup.string().email('email inválido').required('obrigatório'),
           password: Yup.string()
@@ -30,19 +28,21 @@ const Login = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
+
             if (values.email === userTest.email) {
-              signed.logged = true;
-              localStorage.setItem('signed', JSON.stringify(signed));
+
+              localStorage.setItem('signed', JSON.stringify([values.email]));
+              setUser([values.email])
+
               navigate("/");
+
             } else {
               alert("Por favor, tente novamente, suas credenciais são inválidas");
             }
-            // alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
         }}
       >
-        
         <Form>
           <label htmlFor="email">Email</label>
           <Field className="field" name="email" type="email" />
@@ -54,7 +54,7 @@ const Login = () => {
 
           <button className="buttonForm" type="submit">Inicar sessão</button>
           <div className="textNotes"><p className='text'>Ainda não tem uma conta?</p>
-          <Link to="/registro"><p className='textLink'>Registre-se</p></Link></div>
+            <Link to="/registro"><p className='textLink'>Registre-se</p></Link></div>
         </Form>
       </Formik>
     </div>

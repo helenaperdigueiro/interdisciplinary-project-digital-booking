@@ -1,25 +1,19 @@
-import { createContext, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
-export const UserContext = createContext();
+const UserContext = createContext();
 
-const UserContextProvider = ({ children }) => {
+export default function UserProvider({ children }) {
+    
+    const storage = localStorage.getItem('signed');
+    const [user, setUser] = useState(storage);
 
-
-        // let signed = localStorage.getItem("signed")
-        // ? JSON.parse(localStorage.getItem("signed"))
-        // : [];
-
-        let signed = JSON.parse(localStorage.getItem("signed"));
-
-        useEffect(() => {
-            localStorage.setItem('signed', JSON.stringify(signed));
-          });
-
-    return (
-        <UserContext.Provider value={{ signed }}>
-            {children}
-        </UserContext.Provider>
-    )
+    return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
 }
 
-export default UserContextProvider;
+export function useUserContext() {
+
+    const context = useContext(UserContext);
+    const { user, setUser } = context;
+
+    return { user, setUser }
+}

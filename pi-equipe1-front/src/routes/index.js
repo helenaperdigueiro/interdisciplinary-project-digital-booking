@@ -5,21 +5,21 @@ import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from '../pages/Register';
-import UserContextProvider from '../contexts/UserContext';
+import UserProvider from '../contexts/UserContext';
 
 const RouteList = () => (
     <BrowserRouter>
-    <HelmetProvider>
-        <UserContextProvider>
-        <Header />
-        <Routes>
-            <Route path='/' element={<Home />}/>
-            <Route path='/login' element={<Login />}/>
-            <Route path='/registro' element={<Register />}/>
-        </Routes>
-        <Footer />
-        </UserContextProvider>
-    </HelmetProvider>
+        <HelmetProvider>
+            <UserProvider>
+                <Header />
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/registro' element={<Register />} />
+                </Routes>
+                <Footer />
+            </UserProvider>
+        </HelmetProvider>
     </BrowserRouter>
 );
 
