@@ -12,6 +12,7 @@
     border-radius: 0.5rem;
     box-shadow: 0 0.5rem 1rem #b8b8b8;
     overflow: hidden;
+    height: 18rem;
 }
 
 .recommendation img {
@@ -22,6 +23,12 @@
 
 .recommendationInfo {
     padding: 1rem;
+}
+
+.recommendationInfo button {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
 }
 
 @media only screen and (min-width: 600px) {

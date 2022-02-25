@@ -1,4 +1,5 @@
 import './style.css';
+import { Link } from 'react-router-dom';
 
 const Recommendations = () => {
     const hotels = [
@@ -79,6 +80,7 @@ const Recommendations = () => {
                         <h3>{hotel.title}</h3>
                         <p>{hotel.location}</p>
                         <p>{hotel.description}</p>
+                        <Link to="/"><button>Ver detalhes</button></Link>
                     </div>
                 </div>
                 
