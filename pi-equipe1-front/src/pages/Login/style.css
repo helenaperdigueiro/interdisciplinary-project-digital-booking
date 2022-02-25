@@ -1,6 +1,6 @@
 #contact {
-    height: 100%;
-    /* padding-top: 4rem; */
+    height: 100vh;
+    /* padding-top: 5rem; */
     display: flex;
     justify-content: center;
     align-items: center;
