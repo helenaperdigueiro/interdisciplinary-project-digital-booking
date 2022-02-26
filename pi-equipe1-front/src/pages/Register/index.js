@@ -6,21 +6,22 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     return (
         <div id="register">
-            <h2>Cadastro</h2>
+            <h2 className='formTitle'>Cadastro</h2>
             <Formik
                 initialValues={{ name: '', surname: '', email: '',emailConfirmation: '', password: '' }}
                 validationSchema={Yup.object({
                     name: Yup.string()
                         .max(15, 'Deve conter no máximo 15 letras')
-                        .required('obrigatório'),
+                        .required('Obrigatório'),
                     surname: Yup.string()
                         .max(20, 'Deve conter no máximo 20 letras')
-                        .required('obrigatório'),
-                    email: Yup.string().email('email inválido').required('obrigatório'),
-                    emailConfirmation: Yup.string().oneOf([Yup.ref('email'), null], 'emails tem coincidir'),
+                        .required('Obrigatório'),
+                    email: Yup.string().email('Email inválido').required('Obrigatório'),
+                    emailConfirmation: Yup.string().oneOf([Yup.ref('email'), null], 'Email não coincide')
+                    .required('Obrigatório'),
                     password: Yup.string()
-                        .min(7, 'Sua senha precisa ter no mínimo 6 caracteres')
-                        .required('obrigatório'),
+                        .min(7, 'A senha deve ter no mínimo 7 caracteres')
+                        .required('Obrigatório'),
                 })}
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
@@ -32,23 +33,33 @@ const Register = () => {
                 <Form>
                     <label htmlFor="name">Nome</label>
                     <Field className="field" name="name" type="text" />
-                    <ErrorMessage name="name">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                    <div className="errorMessage">
+                    <ErrorMessage name="name">{msg => msg ? msg : ""}</ErrorMessage>
+                    </div>
 
                     <label htmlFor="surname">Sobrenome</label>
                     <Field className="field" name="surname" type="text" />
-                    <ErrorMessage name="surname">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                    <div className="errorMessage">
+                    <ErrorMessage name="surname">{msg => msg ? msg : ""}</ErrorMessage>
+                    </div>
 
                     <label htmlFor="email">Email</label>
                     <Field className="field" name="email" type="email" />
-                    <ErrorMessage name="email">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                    <div className="errorMessage">
+                    <ErrorMessage name="email">{msg => msg ? msg : ""}</ErrorMessage>
+                    </div>
 
-                    <label htmlFor="emailConfirmation">Repetir email</label>
+                    <label htmlFor="emailConfirmation">Confirmar email</label>
                     <Field className="field" name="emailConfirmation" type="email" />
-                    <ErrorMessage name="emailConfirmation">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                    <div className="errorMessage">
+                    <ErrorMessage name="emailConfirmation">{msg => msg ? msg : ""}</ErrorMessage>
+                    </div>
 
                     <label htmlFor="password">Senha</label>
                     <Field className="field" name="password" type="password" />
-                    <ErrorMessage name="password">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                    <div className="errorMessage">
+                    <ErrorMessage name="password">{msg => msg ? msg : ""}</ErrorMessage>
+                    </div>
 
                     <button className="buttonForm" type="submit">Registrar</button>
                     <div className="textNotes"><p className='text'>Já tem uma conta? Faça</p>

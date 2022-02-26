@@ -10,7 +10,7 @@ const Login = () => {
   console.log(context);
   const navigate = useNavigate();
 
- let signed = {logged: false};
+  let signed = { logged: false };
 
   let userTest = {
     email: "ca_haka@gmail.com",
@@ -19,14 +19,13 @@ const Login = () => {
 
   return (
     <div id="contact">
-      <h2>Iniciar sessão</h2>
+      <h2 className='formTitle'>Iniciar sessão</h2>
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={Yup.object({
-          email: Yup.string().email('email inválido').required('obrigatório'),
+          email: Yup.string().email('Email inválido').required('Obrigatório'),
           password: Yup.string()
-            .min(7, 'Sua senha precisa ter no mínimo 6 caracteres')
-            .required('obrigatório'),
+            .required('Obrigatório'),
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
@@ -42,19 +41,23 @@ const Login = () => {
           }, 400);
         }}
       >
-        
+
         <Form>
           <label htmlFor="email">Email</label>
           <Field className="field" name="email" type="email" />
-          <ErrorMessage name="email">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+          <div className="errorMessage">
+            <ErrorMessage name="email">{msg => msg ? msg : ""}</ErrorMessage>
+          </div>
 
           <label htmlFor="password">Senha</label>
           <Field className="field" name="password" type="password" />
-          <ErrorMessage name="password">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+          <div className="errorMessage">
+            <ErrorMessage name="password">{msg => msg ? msg : ""}</ErrorMessage>
+          </div>
 
-          <button className="buttonForm" type="submit">Inicar sessão</button>
+          <button className="buttonForm" type="submit">Iniciar sessão</button>
           <div className="textNotes"><p className='text'>Ainda não tem uma conta?</p>
-          <Link to="/registro"><p className='textLink'>Registre-se</p></Link></div>
+            <Link to="/registro"><p className='textLink'>Registre-se</p></Link></div>
         </Form>
       </Formik>
     </div>

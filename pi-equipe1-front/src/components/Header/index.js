@@ -15,7 +15,8 @@ const Header = () => {
             <Link to="/"><img id="logo" src="https://cdn-icons-png.flaticon.com/512/1659/1659303.png" alt="logo" /></Link>
             <Link to="/" id="moto"><p>feels like</p><h4>home.</h4></Link>
         </div>
-            <div className="headerIII">Oi Carol!
+        
+            <div className="headerIII"><div id="avatar">CH</div>Olá, Carol!
                 <button onClick={ () => {signed.logged = false; localStorage.setItem('signed', JSON.stringify(signed))}} className="access">Sair</button>
             </div>
             </div>
