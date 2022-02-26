@@ -1,9 +1,9 @@
 import RouteList from './routes';
 
-const App= () => {
+const App = () => {
   return (
     <>
-    <RouteList />
+      <RouteList />
     </>
   );
 }

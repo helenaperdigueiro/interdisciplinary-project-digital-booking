@@ -2,15 +2,13 @@ import './style.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext';
-import { useContext } from 'react';
+import { useUserContext } from '../../contexts/UserContext';
 
 const Login = () => {
-  const context = useContext(UserContext);
-  console.log(context);
-  const navigate = useNavigate();
 
-  let signed = { logged: false };
+  const { setUser } = useUserContext();
+
+  const navigate = useNavigate();
 
   let userTest = {
     email: "ca_haka@gmail.com",
@@ -21,28 +19,29 @@ const Login = () => {
     <div id="contact">
       <h2 className='formTitle'>Iniciar sessão</h2>
       <Formik
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ email: 'ca_haka@gmail.com', password: 'cahakas' }}
         validationSchema={Yup.object({
           email: Yup.string().email('Email inválido').required('Obrigatório'),
           password: Yup.string()
             .required('Obrigatório'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values) => {
           setTimeout(() => {
+
             if (values.email === userTest.email) {
-              signed.logged = true;
-              localStorage.setItem('signed', JSON.stringify(signed));
+
+              localStorage.setItem('signed', JSON.stringify([values.email]));
+              setUser([values.email])
+
               navigate("/");
+
             } else {
               alert("Por favor, tente novamente, suas credenciais são inválidas");
             }
-            // alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
           }, 400);
         }}
       >
-
-        <Form>
+        <Form className="acessForm">
           <label htmlFor="email">Email</label>
           <Field className="field" name="email" type="email" />
           <div className="errorMessage">

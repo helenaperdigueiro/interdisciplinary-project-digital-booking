@@ -30,7 +30,7 @@ const Register = () => {
                     }, 400);
                 }}
             >
-                <Form>
+                <Form className="acessForm">
                     <label htmlFor="name">Nome</label>
                     <Field className="field" name="name" type="text" />
                     <div className="errorMessage">
