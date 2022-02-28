@@ -13,25 +13,27 @@ const Search = () => {
 
     return (
         <div id="search">
+            
             <div id="searchBrowserTitle">
                 <h1>Buscar ofertas em hotéis, casas e muito mais</h1>
             </div>
+            
             <Formik
-                initialValues={{
-                    city: '',
-                    checkDate: [startDate, endDate],
+                initialValues={{ city: '', startDate: {startDate}, endDate: {endDate},
                 }}
 
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
-                        alert(JSON.stringify(values));
+                        alert(JSON.stringify(values, null, 2));
                         setSubmitting(false);
                     }, 400);
                 }}
             >
                 <Form id="formSearch">
                     <Field className="location" name="city" type="text" placeholder="Cidade" />
+                    
                     <div className="date">
+                        
                         <DatePicker
                             placeholderText="Check in - Check out"
                             selectsRange={true}
@@ -39,13 +41,14 @@ const Search = () => {
                             minDate={new Date()}
                             startDate={startDate}
                             endDate={endDate}
-                            // monthsShown={2}
+                            // monthsShown={2}n
                             onChange={(update) => {
                                 setDateRange(update);
                             }}
                             locale="ptBr"
                         />
                     </div>
+                    
                     <button className="buttonSearch" type="submit">Buscar</button>
                 </Form>
             </Formik>
