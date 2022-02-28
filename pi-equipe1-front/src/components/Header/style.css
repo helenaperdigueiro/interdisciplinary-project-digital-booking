@@ -1,31 +1,5 @@
-#header {
-    display: flex;
-    justify-content: space-between;
-    height: 4rem;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    background: white;
-    /* background: rgb(222, 206, 222); */
-    padding: 0.3rem 1rem 0.3rem;
+.bg-light {
     box-shadow: 0px 1px 12px #00000014;
-    background-size: 0 2px, 100% 2px;
-    /* background:     linear-gradient(
-        to right,
-        rgb(157, 0, 255),
-        rgb(82, 2, 242),
-        rgb(9, 153, 197)
-    ); */
-    background-position: 100% 100%, 0 100%;
-    background-repeat: no-repeat;
-}
-
-#headerII {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 0.5rem;
-    color: black;
 }
 
 #logo {
@@ -34,20 +8,18 @@
 
 #moto {
     color: black;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.headerIII {
-    display: flex;
-    align-items: center;
-    padding: 0.3rem 1rem 0.3rem;
-    gap: 1rem;
+#moto p {
+    margin-bottom: -10%;
 }
 
 .access {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    /* width: 4rem; */
-    height: 2.5rem;
+    /* height: 2.5rem; */
     cursor: pointer;
     color: rgb(78, 78, 78);
     border: none;
@@ -73,14 +45,16 @@
 .access:hover {
     color: black;
     background-size: 0 2px, 100% 2px;  
-}
+} 
 
 #avatar {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2rem;
-    height: 2rem;
+    width: 1.8rem;
+    height: 1.8rem;
     border-radius: 50%;
-    background: rgb(196, 196, 196);
+    background: rgb(59, 169, 194);
+    color: white;
+    font-size: 13px;
 }
