@@ -3,6 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../contexts/UserContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -16,20 +17,19 @@ const Login = () => {
   }
 
   return (
-    <div id="contact">
-      <h2>Iniciar sessão</h2>
+    <div id="login">
+      <h2 className='formTitle'>Iniciar sessão</h2>
       <Formik
         initialValues={{ email: 'ca_haka@gmail.com', password: 'cahakas' }}
         validationSchema={Yup.object({
-          email: Yup.string().email('email inválido').required('obrigatório'),
+          email: Yup.string().email('Email inválido').required('Obrigatório'),
           password: Yup.string()
-            .min(7, 'Sua senha precisa ter no mínimo 6 caracteres')
-            .required('obrigatório'),
+            .required('Obrigatório'),
         })}
         onSubmit={(values) => {
           setTimeout(() => {
 
-            if (values.email === userTest.email) {
+            if (values.email === userTest.email && values.password === userTest.password) {
 
               localStorage.setItem('signed', JSON.stringify([values.email]));
               setUser([values.email])
@@ -37,7 +37,15 @@ const Login = () => {
               navigate("/");
 
             } else {
-              alert("Por favor, tente novamente, suas credenciais são inválidas");
+              Swal.fire({
+                icon: 'error',
+                title: 'Ops!',
+                text: 'Por favor, tente novamente, suas credenciais são inválidas',
+                confirmButtonColor: 'rgb(87, 169, 194)',
+                imageWidth: 100,
+                width: 350,
+                height: 150,
+              })
             }
           }, 400);
         }}
@@ -45,13 +53,17 @@ const Login = () => {
         <Form className="acessForm">
           <label htmlFor="email">Email</label>
           <Field className="field" name="email" type="email" />
-          <ErrorMessage name="email">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+          <div className="errorMessage">
+            <ErrorMessage name="email">{msg => msg ? msg : ""}</ErrorMessage>
+          </div>
 
           <label htmlFor="password">Senha</label>
           <Field className="field" name="password" type="password" />
-          <ErrorMessage name="password">{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+          <div className="errorMessage">
+            <ErrorMessage name="password">{msg => msg ? msg : ""}</ErrorMessage>
+          </div>
 
-          <button className="buttonForm" type="submit">Inicar sessão</button>
+          <button className="buttonForm" type="submit">Iniciar sessão</button>
           <div className="textNotes"><p className='text'>Ainda não tem uma conta?</p>
             <Link to="/registro"><p className='textLink'>Registre-se</p></Link></div>
         </Form>
