@@ -1,5 +1,5 @@
 #searchByCategory {
-    margin: 5rem 1rem 2rem;
+    margin: 1rem 1rem 2rem;
 }
 
 #searchByCategoryTitle {
@@ -39,6 +39,6 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
     #searchByCategory {
-        margin: 5rem 3rem;
+        margin: 1rem 3rem;
     }
 }
