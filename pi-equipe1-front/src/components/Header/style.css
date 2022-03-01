@@ -18,9 +18,11 @@
     margin-bottom: -10%;
 }
 
+#moto b {
+    color: var(--secondary-color);
+}
+
 .access {
-    /* height: 2.5rem; */
-    cursor: pointer;
     color: rgb(78, 78, 78);
     border: none;
     font-size: 16px;
@@ -44,17 +46,30 @@
 
 .access:hover {
     color: black;
-    background-size: 0 2px, 100% 2px;  
-} 
+    background-size: 0 2px, 100% 2px;
+}
+.logout {
+    cursor: pointer;
+    color: rgb(78, 78, 78);
+    border: none;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0);
+}
 
 #avatar {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     background: rgb(59, 169, 194);
     color: white;
-    font-size: 13px;
+    font-size: 12px;
 }
+
+/* @media only screen and (min-width: 767px) {
+    .access:hover {
+        background-size: 0 2px, 100% 2px;
+    }
+} */

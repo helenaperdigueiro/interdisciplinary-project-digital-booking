@@ -9,7 +9,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds. Sleep. Scream at teh bath ptracy eat an easter feather as if it were a bird then burp victoriously, but tender or find empty spot in cupboard and sleep all day."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
         },
         {
             id: 2,
@@ -17,7 +17,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds. Sleep. Scream at teh bath ptracy eat an easter feather as if it were a bird then burp victoriously, but tender or find empty spot in cupboard and sleep all day."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
         },
         {
             id: 3,
@@ -67,25 +67,30 @@ const Recommendations = () => {
             location: "Buenos Aires",
             description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds. Sleep. Scream at teh bath ptracy eat an easter feather as if it were a bird then burp victoriously, but tender or find empty spot in cupboard and sleep all day."
         }
-        ];
+    ];
 
-    return(
+    return (
         <div id="recommendations">
-            {hotels.map(hotel => 
-                
-                <div key={hotel.id} id={`recommendation${hotel.id}`} className="recommendation">
-                    <img src={hotel.img} alt="" />
-                    <div className="recommendationInfo">
-                        <p>{hotel.category}</p>
-                        <h3>{hotel.title}</h3>
-                        <p>{hotel.location}</p>
-                        <p>{hotel.description}</p>
-                        <Link to="/"><button>Ver detalhes</button></Link>
+            <h3>Recomendações</h3>
+
+            <div id="recommendationsList">
+
+                {hotels.map(hotel =>
+
+                    <div key={hotel.id} id={`recommendation${hotel.id}`} className="recommendation">
+                        <img src={hotel.img} alt="" />
+                        <div className="recommendationInfo">
+                            <p>{hotel.category}</p>
+                            <h4>{hotel.title}</h4>
+                            <p>{hotel.location}</p>
+                            <p>{hotel.description}</p>
+                            <Link to="/"><button>Ver detalhes</button></Link>
+                        </div>
                     </div>
-                </div>
-                
+
                 )}
-                
+
+            </div>
         </div>
     );
 }

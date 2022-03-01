@@ -13,6 +13,10 @@
     row-gap: 1rem;
 }
 
+#categories p {
+    font-size: 14px;
+}
+
 .category {
     border-radius: 0.5rem;
     box-shadow: 0 0.5rem 1rem #b8b8b8;
@@ -27,6 +31,10 @@
     height: 4rem;
     padding: 0.5rem;
 }
+
+/* .categoryInfo h5{
+    margin-bottom: 0.1rem;
+} */
 
 @media only screen and (min-width: 600px) {
     #categories {
