@@ -1,9 +1,13 @@
 #recommendations {
+    margin: 2rem 1rem 10rem;
+}
+
+#recommendationsList {
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 1rem;
     row-gap: 1rem;
-    margin: 2rem 1rem 10rem;
+    /* margin: 2rem 1rem 10rem; */
 }
 
 .recommendation {
@@ -30,19 +34,26 @@
     width: 100%;
     margin-top: 1rem;
     padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    background: var(--primary-color);
 }
 
 @media only screen and (min-width: 600px) {
     .recommendation {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
+        /* grid-template-rows: 1fr; */
         height: 18rem;
     }
 }
 
 @media only screen and (min-width: 1200px) {
-    #recommendations {
+    #recommendationsList {
         grid-template-columns: 1fr 1fr;
+        /* margin: 2rem 3rem 10rem; */
+    }
+    #recommendations {
         margin: 2rem 3rem 10rem;
     }
 }

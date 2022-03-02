@@ -1,6 +1,6 @@
 #search {
     background-color: #545776;
-    margin-top: 4rem;
+    margin-top: 3.8rem;
     padding: 1rem;
 }
 
@@ -44,7 +44,9 @@
     height: 2rem;
     border-radius: 0.2rem;
     border: none;
-    background: #1DBEB4;
+    /* background: #1dbeb4; */
+    background: var(--secondary-color);
+
     font-size: 0.9rem;
     color: white;
     text-align: center;
