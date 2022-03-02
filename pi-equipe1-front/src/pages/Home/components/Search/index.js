@@ -24,7 +24,7 @@ const Search = () => {
 
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
+                        alert(JSON.stringify(values, null, 2, startDate));
                         setSubmitting(false);
                     }, 400);
                 }}
@@ -35,6 +35,7 @@ const Search = () => {
                     <div className="date">
                         
                         <DatePicker
+            
                             placeholderText="Check in - Check out"
                             selectsRange={true}
                             dateFormat="dd/MM/yyyy"
