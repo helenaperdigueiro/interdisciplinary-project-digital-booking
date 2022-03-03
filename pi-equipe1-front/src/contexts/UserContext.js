@@ -13,6 +13,11 @@ export default function UserProvider({ children }) {
 export function useUserContext() {
 
     const context = useContext(UserContext);
+
+    if(!context){
+        return {context};
+    }
+
     const { user, setUser } = context;
 
     return { user, setUser }

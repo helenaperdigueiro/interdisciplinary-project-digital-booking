@@ -25,7 +25,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds. Sleep. Scream at teh bath ptracy eat an easter feather as if it were a bird then burp victoriously, but tender or find empty spot in cupboard and sleep all day."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
         },
         {
             id: 4,
@@ -33,7 +33,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds. Sleep. Scream at teh bath ptracy eat an easter feather as if it were a bird then burp victoriously, but tender or find empty spot in cupboard and sleep all day."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
         },
         {
             id: 5,
@@ -41,7 +41,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds. Sleep. Scream at teh bath ptracy eat an easter feather as if it were a bird then burp victoriously, but tender or find empty spot in cupboard and sleep all day."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
         },
         {
             id: 6,
@@ -49,7 +49,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds. Sleep. Scream at teh bath ptracy eat an easter feather as if it were a bird then burp victoriously, but tender or find empty spot in cupboard and sleep all day."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
         },
         {
             id: 7,
@@ -57,7 +57,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds. Sleep. Scream at teh bath ptracy eat an easter feather as if it were a bird then burp victoriously, but tender or find empty spot in cupboard and sleep all day."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
         },
         {
             id: 8,
@@ -65,7 +65,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds. Sleep. Scream at teh bath ptracy eat an easter feather as if it were a bird then burp victoriously, but tender or find empty spot in cupboard and sleep all day."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
         }
     ];
 
@@ -78,7 +78,9 @@ const Recommendations = () => {
                 {hotels.map(hotel =>
 
                     <div key={hotel.id} id={`recommendation${hotel.id}`} className="recommendation">
+                        
                         <img src={hotel.img} alt="" />
+                        
                         <div className="recommendationInfo">
                             <p>{hotel.category}</p>
                             <h4>{hotel.title}</h4>
