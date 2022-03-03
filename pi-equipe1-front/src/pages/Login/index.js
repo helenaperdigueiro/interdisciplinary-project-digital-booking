@@ -2,12 +2,37 @@ import './style.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-import { useUserContext } from '../../contexts/UserContext';
+// import { useUserContext } from '../../contexts/UserContext';
 import Swal from 'sweetalert2';
 
-const Login = () => {
+const sleep = ms => new Promise(r => setTimeout(r, ms))
 
-  const { setUser } = useUserContext();
+export const Login = ({ onSubmit }) => {
+
+  // const { setUser } = useUserContext();
+
+  const handleSubmit = async values => {
+    if (values.email === userTest.email && values.password === userTest.password) {
+
+      localStorage.setItem('signed', JSON.stringify([values.email]));
+      // setUser([values.email])
+
+      navigate("/");
+
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Ops!',
+        text: 'Por favor, tente novamente, suas credenciais são inválidas',
+        confirmButtonColor: 'rgb(87, 169, 194)',
+        imageWidth: 100,
+        width: 350,
+        height: 150,
+      })
+    }
+    await sleep(500)
+    onSubmit(values)
+  }
 
   const navigate = useNavigate();
 
@@ -20,50 +45,28 @@ const Login = () => {
     <div id="login">
       <h2 className='formTitle'>Iniciar sessão</h2>
       <Formik
-        initialValues={{ email: 'ca_haka@gmail.com', password: 'cahakas' }}
+        initialValues={{ email: '', password: '' }}
         validationSchema={Yup.object({
           email: Yup.string().email('Email inválido').required('Obrigatório'),
           password: Yup.string()
             .required('Obrigatório'),
         })}
-        onSubmit={(values) => {
-          setTimeout(() => {
-
-            if (values.email === userTest.email && values.password === userTest.password) {
-
-              localStorage.setItem('signed', JSON.stringify([values.email]));
-              setUser([values.email])
-
-              navigate("/");
-
-            } else {
-              Swal.fire({
-                icon: 'error',
-                title: 'Ops!',
-                text: 'Por favor, tente novamente, suas credenciais são inválidas',
-                confirmButtonColor: 'rgb(87, 169, 194)',
-                imageWidth: 100,
-                width: 350,
-                height: 150,
-              })
-            }
-          }, 400);
-        }}
+        onSubmit={handleSubmit}
       >
         <Form className="acessForm">
           <label htmlFor="email">Email</label>
-          <Field className="field" name="email" type="email" />
+          <Field id="email" className="field" name="email" type="email" placeholder="email" />
           <div className="errorMessage">
             <ErrorMessage name="email">{msg => msg ? msg : ""}</ErrorMessage>
           </div>
 
-          <label htmlFor="password">Senha</label>
-          <Field className="field" name="password" type="password" />
+          <label htmlFor="password">password</label>
+          <Field id="password" className="field" name="password" type="password" placeholder="password"/>
           <div className="errorMessage">
             <ErrorMessage name="password">{msg => msg ? msg : ""}</ErrorMessage>
           </div>
 
-          <button className="buttonForm" type="submit">Iniciar sessão</button>
+          <button className="buttonForm" type="submit">submit</button>
           <div className="textNotes"><p className='text'>Ainda não tem uma conta?</p>
             <Link to="/registro"><p className='textLink'>Registre-se</p></Link></div>
         </Form>
@@ -72,4 +75,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+// export default Login;
