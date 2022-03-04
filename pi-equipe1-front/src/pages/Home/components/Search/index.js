@@ -18,11 +18,11 @@ const Search = () => {
     return (
         <div id="search">
             <div>
-                <Media queries={{
+                {/* <Media queries={{
                     small: "(max-width: 599px)",
                     medium: "(min-width: 600px) and (max-width: 1199px)",
                     large: "(min-width: 1200px)"
-                }}>
+                }}> */}
                     {matches => (
                         <>
                             {matches.small && <p>I am small!</p>}
@@ -63,7 +63,7 @@ const Search = () => {
                             <button className="buttonSearch" type="submit">Buscar</button>
                         </Form>
                     </Formik>
-                </Media>
+                {/* </Media> */}
             </div>
         </div>
     );
