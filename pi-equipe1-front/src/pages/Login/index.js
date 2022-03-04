@@ -2,21 +2,19 @@ import './style.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-import { useUserContext } from '../../contexts/UserContext';
 import Swal from 'sweetalert2';
 
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
 const Login = ({ onSubmit }) => {
 
-  // const { setUser } = useUserContext();
+  const navigate = useNavigate();
 
   const handleSubmit = async values => {
+
     if (values.email === userTest.email && values.password === userTest.password) {
 
       localStorage.setItem('signed', JSON.stringify([values.email]));
-      // setUser([values.email])
-
       navigate("/");
 
     } else {
@@ -35,12 +33,7 @@ const Login = ({ onSubmit }) => {
     onSubmit(values)
   }
 
-  const navigate = useNavigate();
-
-  let userTest = {
-    email: "ca_haka@gmail.com",
-    password: "cahakas"
-  }
+  let userTest = { email: "ca_haka@gmail.com", password: "cahakas" }
 
   return (
     <div id="login">
