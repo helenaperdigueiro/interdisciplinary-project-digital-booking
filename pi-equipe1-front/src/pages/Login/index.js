@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
-export const Login = ({ onSubmit }) => {
+const Login = ({ onSubmit }) => {
 
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ export const Login = ({ onSubmit }) => {
         confirmButtonColor: 'rgb(87, 169, 194)',
         imageWidth: 100,
         width: 350,
-        // height: 150,
+        height: 150,
       })
       values.email = ''
       values.password = ''
@@ -35,7 +35,7 @@ export const Login = ({ onSubmit }) => {
   }
 
   let userTest = { email: "ca_haka@gmail.com", password: "cahakas" }
-  
+
   return (
     <div id="login">
       <h2 className='formTitle'>Iniciar sessão</h2>
@@ -69,3 +69,5 @@ export const Login = ({ onSubmit }) => {
     </div>
   );
 };
+
+export default Login;

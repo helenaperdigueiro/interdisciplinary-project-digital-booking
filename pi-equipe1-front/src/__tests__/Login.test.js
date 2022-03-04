@@ -2,7 +2,7 @@ import { getByText, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { BrowserRouter } from 'react-router-dom';
 
-import { Login } from '.././pages/Login'
+import Login from '.././pages/Login'
 
 test('login with correct info', async () => {
 
