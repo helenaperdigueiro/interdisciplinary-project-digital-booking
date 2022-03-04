@@ -22,7 +22,7 @@ const Search = () => {
                     small: "(max-width: 599px)",
                     medium: "(min-width: 600px) and (max-width: 1199px)",
                     large: "(min-width: 1200px)"
-                }}> */}
+                }}>
                     {matches => (
                         <>
                             {matches.small && <p>I am small!</p>}
@@ -52,7 +52,7 @@ const Search = () => {
                                     minDate={new Date()}
                                     startDate={startDate}
                                     endDate={endDate}
-                                    // monthsShown={matches.medium ? 2:1}
+                                    monthsShown={2}
                                     onChange={(update) => {
                                         setDateRange(update);
                                     }}

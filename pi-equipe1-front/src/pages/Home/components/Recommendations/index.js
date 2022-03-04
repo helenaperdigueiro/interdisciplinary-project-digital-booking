@@ -85,7 +85,8 @@ const Recommendations = () => {
                             <p>{hotel.category}</p>
                             <h4>{hotel.title}</h4>
                             <p>{hotel.location}</p>
-                            <p>{hotel.description}</p>
+                            <p >{hotel.description}</p>
+                            
                             <Link to="/"><button>Ver detalhes</button></Link>
                         </div>
                     </div>

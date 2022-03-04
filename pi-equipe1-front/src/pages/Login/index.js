@@ -3,10 +3,18 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useUserContext } from '../../contexts/UserContext';
 
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
 const Login = ({ onSubmit }) => {
+
+  const { setUser } = useUserContext();
+    
+  // useEffect(() => {
+  //     setUser(localStorage.getItem("signed"));
+  //     return;
+  // }, [setUser])
 
   const navigate = useNavigate();
 
@@ -15,6 +23,7 @@ const Login = ({ onSubmit }) => {
     if (values.email === userTest.email && values.password === userTest.password) {
 
       localStorage.setItem('signed', JSON.stringify([values.email]));
+      setUser([values.email])
       navigate("/");
 
     } else {

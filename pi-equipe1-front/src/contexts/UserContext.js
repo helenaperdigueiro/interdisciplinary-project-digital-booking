@@ -4,7 +4,13 @@ const UserContext = createContext();
 
 export default function UserProvider({ children }) {
     
-    const [user, setUser] = useState();
+    const storage = localStorage.getItem('signed');
+    const [user, setUser] = useState(storage);
+
+    // useEffect(() => {
+    //     setUser(localStorage.getItem("signed"));
+    //     return;
+    // }, [setUser])
 
     return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
 }
@@ -13,9 +19,9 @@ export function useUserContext() {
 
     const context = useContext(UserContext);
 
-    if(!context){
-        return {context};
-    }
+    // if(!context){
+    //     return {context};
+    // }
 
     const { user, setUser } = context;
 
