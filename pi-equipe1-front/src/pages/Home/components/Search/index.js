@@ -18,7 +18,7 @@ const Search = () => {
     return (
         <div id="search">
             <div>
-                <Media queries={{
+                {/* <Media queries={{
                     small: "(max-width: 599px)",
                     medium: "(min-width: 600px) and (max-width: 1199px)",
                     large: "(min-width: 1200px)"
@@ -29,7 +29,7 @@ const Search = () => {
                             {matches.medium && <p>I am medium!</p>}
                             {matches.large && <p>I am large!</p>}
                         </>
-                    )}
+                    )} */}
 
                     <div id="searchBrowserTitle">
                         <h1>Buscar ofertas em hotéis, casas e muito mais</h1>
@@ -63,7 +63,7 @@ const Search = () => {
                             <button className="buttonSearch" type="submit">Buscar</button>
                         </Form>
                     </Formik>
-                </Media>
+                {/* </Media> */}
             </div>
         </div>
     );

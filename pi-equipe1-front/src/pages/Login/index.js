@@ -2,12 +2,12 @@ import './style.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-// import { useUserContext } from '../../contexts/UserContext';
+import { useUserContext } from '../../contexts/UserContext';
 import Swal from 'sweetalert2';
 
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
-export const Login = ({ onSubmit }) => {
+const Login = ({ onSubmit }) => {
 
   // const { setUser } = useUserContext();
 
@@ -27,7 +27,6 @@ export const Login = ({ onSubmit }) => {
         confirmButtonColor: 'rgb(87, 169, 194)',
         imageWidth: 100,
         width: 350,
-        height: 150,
       })
       values.email = ''
       values.password = ''
@@ -77,4 +76,4 @@ export const Login = ({ onSubmit }) => {
   );
 };
 
-// export default Login;
+export default Login;

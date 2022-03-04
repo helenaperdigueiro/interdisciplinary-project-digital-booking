@@ -1,8 +1,8 @@
-import { getByText, render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Login } from '.././pages/Login'
+import Login from '.././pages/Login';
 
 test('login with correct info', async () => {
 
@@ -34,13 +34,13 @@ test('login with incorrect info', async () => {
 
   userEvent.click(screen.getByRole('button', { name: /submit/i }))
 
-  // await waitFor(() => {
-  //   expect(screen.getByText('Por favor, tente novamente, suas credenciais são inválidas')).toBeInTheDocument()
-  // })
+  await waitFor(() => {
+    expect(screen.getByText('Por favor, tente novamente, suas credenciais são inválidas')).toBeInTheDocument()
+  })
 
-  await waitFor(() => 
-    expect(handleSubmit).toHaveBeenCalledWith({
-      email: '', password: '',
-    }),
-  )
+  // await waitFor(() => 
+  //   expect(handleSubmit).toHaveBeenCalledWith({
+  //     email: '', password: '',
+  //   }),
+  // )
 })
