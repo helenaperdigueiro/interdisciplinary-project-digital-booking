@@ -94,7 +94,7 @@ const Recommendations = () => {
                 )}
 
             </div>
-            <h2>Testando Jenkins</h2>
+            <h2>Testando Jenkins 2</h2>
         </div>
     );
 }
