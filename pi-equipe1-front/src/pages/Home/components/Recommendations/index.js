@@ -9,7 +9,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds"
         },
         {
             id: 2,
@@ -17,7 +17,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds"
         },
         {
             id: 3,
@@ -25,7 +25,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds"
         },
         {
             id: 4,
@@ -33,7 +33,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds"
         },
         {
             id: 5,
@@ -41,7 +41,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds"
         },
         {
             id: 6,
@@ -49,7 +49,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds"
         },
         {
             id: 7,
@@ -57,7 +57,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Fall in then scramble in a mad panic to get out meowsiers."
         },
         {
             id: 8,
@@ -65,7 +65,7 @@ const Recommendations = () => {
             category: "Hotel",
             title: "Hermitage Hotel",
             location: "Buenos Aires",
-            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds..."
+            description: "Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers. Chirp at birds Jump up to edge of bath, fall in then scramble in a mad panic to get out meowsiers."
         }
     ];
 
@@ -85,7 +85,7 @@ const Recommendations = () => {
                             <p>{hotel.category}</p>
                             <h4>{hotel.title}</h4>
                             <p>{hotel.location}</p>
-                            <p >{hotel.description}</p>
+                            <p className="description">{hotel.description}</p>
                             
                             <Link to="/"><button>Ver detalhes</button></Link>
                         </div>

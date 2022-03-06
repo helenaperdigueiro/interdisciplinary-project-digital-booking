@@ -17,7 +17,7 @@ const Search = () => {
 
     return (
         <div id="search">
-            <div>
+            {/* <div> */}
                 {/* <Media queries={{
                     small: "(max-width: 599px)",
                     medium: "(min-width: 600px) and (max-width: 1199px)",
@@ -40,6 +40,7 @@ const Search = () => {
                             city: '', startDate: null, endDate: null,
                         }}
                     >
+                        {/* <div id="teste"> */}
                         <Form id="formSearch">
                             <Field className="location" name="city" type="text" placeholder="Cidade" />
 
@@ -62,9 +63,10 @@ const Search = () => {
 
                             <button className="buttonSearch" type="submit">Buscar</button>
                         </Form>
+                        {/* </div> */}
                     </Formik>
                 {/* </Media> */}
-            </div>
+            {/* </div> */}
         </div>
     );
 };

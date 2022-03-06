@@ -16,10 +16,12 @@
 
 #moto p {
     margin-bottom: -10%;
+    font-size: 17px;
 }
 
 #moto b {
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 17px;
 }
 
 .access {
