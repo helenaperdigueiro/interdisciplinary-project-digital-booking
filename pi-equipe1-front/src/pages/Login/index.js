@@ -63,13 +63,13 @@ const Login = ({ onSubmit }) => {
             <ErrorMessage name="email">{msg => msg ? msg : ""}</ErrorMessage>
           </div>
 
-          <label htmlFor="password">password</label>
+          <label htmlFor="password">Senha</label>
           <Field id="password" className="field" name="password" type="password" placeholder="password" />
           <div className="errorMessage">
             <ErrorMessage name="password">{msg => msg ? msg : ""}</ErrorMessage>
           </div>
 
-          <button className="buttonForm" type="submit">submit</button>
+          <button className="buttonForm" type="submit">Entrar</button>
           <div className="textNotes"><p className='text'>Ainda não tem uma conta?</p>
             <Link to="/registro"><p className='textLink'>Registre-se</p></Link></div>
         </Form>
