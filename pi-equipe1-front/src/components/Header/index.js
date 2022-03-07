@@ -13,7 +13,7 @@ const Header = () => {
         return (
             <Navbar id="header" className="fixed-top px-3 d-flex" collapseOnSelect expand="md" bg="light" variant="light">
                 <Navbar.Brand as={Link} to="/"><img id="logo" src="https://cdn-icons-png.flaticon.com/512/1659/1659303.png" alt="logo" /></Navbar.Brand>
-                <Nav.Link className="p-0 me-auto" as={Link} to="/"><div id="moto"><p>feels like</p><b> home.</b></div></Nav.Link>
+                <Nav.Link className="p-0 me-auto" as={Link} to="/"><div id="moto"><p>sinta-se em</p><b> casa.</b></div></Nav.Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav">
                     <FontAwesomeIcon
                         icon={faBars} color="#3ba9c2" size="lg" />
@@ -35,7 +35,7 @@ const Header = () => {
     return (
         <Navbar className="fixed-top px-3" collapseOnSelect expand="md" bg="light" variant="light">
             <Navbar.Brand className="me auto" as={Link} to="/"><img id="logo" src="https://cdn-icons-png.flaticon.com/512/1659/1659303.png" alt="logo" /></Navbar.Brand>
-            <Nav.Link className="p-0 me-auto" as={Link} to="/"><div id="moto"><p>feels like</p><b> home.</b></div></Nav.Link>
+            <Nav.Link className="p-0 me-auto" as={Link} to="/"><div id="moto"><p>sinta-se em</p><b> casa.</b></div></Nav.Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav d-flex" className="justify-content-end">
                 <Nav >

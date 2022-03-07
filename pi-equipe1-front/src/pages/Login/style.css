@@ -53,7 +53,7 @@ label {
     display: flex;
     column-gap: 0.3rem;
     font-size: 13px;
-    text-decoration: none;
+    /* text-decoration: none; */
     color: rgb(53, 53, 53);
 }
 

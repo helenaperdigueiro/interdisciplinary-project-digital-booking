@@ -1,24 +1,28 @@
 #search {
-    background-color: #545776;
+    background: center / cover no-repeat url(https://images.unsplash.com/photo-1529034502960-57f42a966080?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80);
     margin-top: 3.8rem;
-    padding: 1rem;
 }
 
 #searchBrowserTitle {
     display: flex;
     justify-content: center;
-    color: rgb(247, 245, 245);
+    color: #f7f5f5;
+    text-shadow: 5px 5px 5px #222;
+    padding: 1rem 1rem 1rem;
 }
 
 #formSearch {
     display: grid;
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
     grid-template-areas: 
     "location"
     "date"
     "buttonSearch";
     column-gap: 1rem;
     row-gap: 0.5rem;
+    background: white;
+    padding: 1rem;
+    background-color: #eeeeeea1;
 }
 
 #formSearch input {
@@ -51,6 +55,11 @@
     text-align: center;
     cursor: pointer;
     grid-area: buttonSearch;
+    font-weight: bold;
+}
+
+.buttonSearch:hover {
+    opacity: 0.9;
 }
 
 .react-datepicker {
@@ -121,9 +130,15 @@
 }
 
 @media only screen and (min-width: 760px) {
+    #search {
+        padding: 0rem 1rem 0;
+        /* margin-bottom: 1rem; */
+    }
+
     #formSearch {
         grid-template-areas: "location location date date buttonSearch";
         justify-content: center;
+        border-radius: 0.5rem 0.5rem 0rem 0rem;
     }
 
     .buttonSearch {
@@ -135,7 +150,11 @@
     } 
 }
 
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 1200px) {
+    #search {
+        padding: 0rem 3rem 0;
+    }
+
     #formSearch {
         grid-template-areas: "location location date date buttonSearch";
         justify-content: center;

@@ -4,11 +4,18 @@ import Recommendations from './components/Recommendations';
 import './style.css';
 
 const Home = () => {
+    // const { setUser } = useUserContext();
+    
+    // useEffect(() => {
+    //     setUser(localStorage.getItem("signed"));
+    //     return;
+    // }, [setUser])
+
     return (
         <>
-        <Search />
-        <Categories />
-        <Recommendations />
+            <Search />
+            <Categories />
+            <Recommendations />
         </>
     )
 }
