@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
-export const Login = ({ onSubmit }) => {
+const Login = ({ onSubmit }) => {
 
   // const { setUser } = useUserContext();
 
@@ -77,4 +77,4 @@ export const Login = ({ onSubmit }) => {
   );
 };
 
-// export default Login;
+export default Login;
