@@ -1,12 +1,12 @@
 #recommendations {
-    margin: 2rem 1rem 10rem;
+    margin: 2rem 1rem 5rem;
 }
 
 #recommendationsList {
     display: grid;
     grid-template-columns: 1fr;
-    column-gap: 1rem;
-    row-gap: 1rem;
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
     /* margin: 2rem 1rem 10rem; */
 }
 
@@ -26,6 +26,10 @@
     object-fit: cover;
 }
 
+.recommendation p {
+    font-family: 'Oxygen', sans-serif;
+}
+
 .recommendationInfo {
     padding: 1rem;
 }
@@ -40,11 +44,29 @@
     background: var(--primary-color);
 }
 
+.recommendationInfo button:hover {
+    opacity: 0.9;
+}
+
+.description {
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
 @media only screen and (min-width: 600px) {
     .recommendation {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         height: 18rem;
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    #recommendations {
+        margin: 2rem 3rem 5rem;
     }
 }
 
@@ -54,6 +76,6 @@
         /* margin: 2rem 3rem 10rem; */
     }
     #recommendations {
-        margin: 2rem 3rem 10rem;
+        margin: 2rem 5rem 5rem;
     }
 }

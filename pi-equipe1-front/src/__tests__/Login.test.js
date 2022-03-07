@@ -10,10 +10,10 @@ test('login with correct info', async () => {
 
   render(<BrowserRouter><UserProvider><Login onSubmit={handleSubmit} /></UserProvider></BrowserRouter>)
 
-  userEvent.type(screen.getByLabelText(/email/i), 'ca_haka@gmail.com')
-  userEvent.type(screen.getByLabelText(/password/i), 'cahakas')
+  userEvent.type(screen.getByLabelText(/Email/i), 'ca_haka@gmail.com')
+  userEvent.type(screen.getByLabelText(/Senha/i), 'cahakas')
 
-  userEvent.click(screen.getByRole('button', { name: /submit/i }))
+  userEvent.click(screen.getByRole('button', { name: /Entrar/i }))
 
   await waitFor(() =>
     expect(handleSubmit).toHaveBeenCalledWith({
@@ -29,10 +29,10 @@ test('login with incorrect info', async () => {
 
   render(<BrowserRouter><UserProvider><Login onSubmit={handleSubmit} /></UserProvider></BrowserRouter>)
 
-  userEvent.type(screen.getByLabelText(/email/i), 'ca_haka@gmail.co')
-  userEvent.type(screen.getByLabelText(/password/i), 'cahakas')
+  userEvent.type(screen.getByLabelText(/Email/i), 'ca_haka@gmail.co')
+  userEvent.type(screen.getByLabelText(/Senha/i), 'cahakas')
 
-  userEvent.click(screen.getByRole('button', { name: /submit/i }))
+  userEvent.click(screen.getByRole('button', { name: /entrar/i }))
 
   await waitFor(() => {
     expect(screen.getByText('Por favor, tente novamente, suas credenciais são inválidas')).toBeInTheDocument()

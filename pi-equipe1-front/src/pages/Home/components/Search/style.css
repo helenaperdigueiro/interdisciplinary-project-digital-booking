@@ -1,24 +1,28 @@
 #search {
-    background-color: #545776;
+    background: center / cover no-repeat url(https://images.unsplash.com/photo-1529034502960-57f42a966080?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80);
     margin-top: 3.8rem;
-    padding: 1rem;
 }
 
 #searchBrowserTitle {
     display: flex;
     justify-content: center;
-    color: rgb(247, 245, 245);
+    color: #f7f5f5;
+    text-shadow: 5px 5px 5px #222;
+    padding: 1rem 1rem 1rem;
 }
 
 #formSearch {
     display: grid;
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
     grid-template-areas: 
     "location"
     "date"
     "buttonSearch";
     column-gap: 1rem;
     row-gap: 0.5rem;
+    background: white;
+    padding: 1rem;
+    background-color: #eeeeeea1;
 }
 
 #formSearch input {
@@ -46,12 +50,60 @@
     border: none;
     /* background: #1dbeb4; */
     background: var(--secondary-color);
-
     font-size: 0.9rem;
     color: white;
     text-align: center;
     cursor: pointer;
     grid-area: buttonSearch;
+    font-weight: bold;
+}
+
+.buttonSearch:hover {
+    opacity: 0.9;
+}
+
+.react-datepicker {
+    border: none;
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+}
+
+.react-datepicker__header {
+    background-color: rgb(251, 251, 251);
+    border-bottom: 1px solid #ffffff;
+    padding: 0.3rem 0;
+    font-size: 0.7rem;
+}
+
+.react-datepicker__navigation-icon::before {
+    /* border-color: rgb(149, 149, 149); */
+    top: 0.8rem;
+}
+
+.react-datepicker-popper[data-placement^=bottom] {
+    padding-top: 0.15rem;;
+}
+
+.react-datepicker__current-month {
+    text-align: left;
+    color: rgb(78, 76, 76);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 0.4rem 1.8rem;
+}
+
+.react-datepicker__day, .react-datepicker__day-name {
+    margin: 0.07rem; 
+}
+
+.react-datepicker__day-name {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.react-datepicker__day--keyboard-selected, .react-datepicker__day--in-range {
+    border-radius: 0.3rem;
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
 @media only screen and (min-width: 350px) {
@@ -67,6 +119,7 @@
 }
 
 @media only screen and (min-width: 600px) {
+ 
     #formSearch {
         grid-template-areas: "location date buttonSearch";
     }
@@ -77,9 +130,15 @@
 }
 
 @media only screen and (min-width: 760px) {
+    #search {
+        padding: 0rem 1rem 0;
+        /* margin-bottom: 1rem; */
+    }
+
     #formSearch {
         grid-template-areas: "location location date date buttonSearch";
         justify-content: center;
+        border-radius: 0.5rem 0.5rem 0rem 0rem;
     }
 
     .buttonSearch {
@@ -91,7 +150,11 @@
     } 
 }
 
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 1200px) {
+    #search {
+        padding: 0rem 3rem 0;
+    }
+
     #formSearch {
         grid-template-areas: "location location date date buttonSearch";
         justify-content: center;
