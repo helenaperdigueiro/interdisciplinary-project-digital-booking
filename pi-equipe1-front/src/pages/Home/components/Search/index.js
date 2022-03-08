@@ -3,6 +3,8 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import { Formik, Field, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import ptBr from "date-fns/locale/pt-BR"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import "react-datepicker/dist/react-datepicker.css";
 import './style.css';
 
@@ -11,11 +13,10 @@ registerLocale("ptBr", ptBr);
 const Search = () => {
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
-
+    const mediaQuery = useMediaQuery({ minWidth: 600 });
+    
     console.log(startDate);
-    console.log(endDate);
-
-    const mediaQuery = useMediaQuery({ minWidth: 600 })
+    console.log(endDate);    
 
     return (
         <div id="search">
@@ -23,18 +24,13 @@ const Search = () => {
                 <h1>Buscar ofertas em hotéis, casas e muito mais</h1>
             </div>
 
-            <Formik
-                initialValues={{
-                    city: '', startDate: null, endDate: null,
-                }}
-            >
+            <Formik initialValues={{ city: '', startDate: null, endDate: null }} >
                 <Form id="formSearch">
                     <Field className="location" name="city" type="text" placeholder="Cidade" />
+                    {/* <FontAwesomeIcon icon={faLocationDot} /> */}
 
                     <div className="date">
-
                         <DatePicker
-
                             placeholderText="Check in - Check out"
                             selectsRange={true}
                             dateFormat="dd/MM/yyyy"
