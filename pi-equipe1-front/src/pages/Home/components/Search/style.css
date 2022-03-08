@@ -61,6 +61,49 @@
     opacity: 0.9;
 }
 
+.react-datepicker {
+    border: none;
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+}
+
+.react-datepicker__header {
+    background-color: rgb(251, 251, 251);
+    border-bottom: 1px solid #ffffff;
+    padding: 0.3rem 0;
+    font-size: 0.7rem;
+}
+
+.react-datepicker__navigation-icon::before {
+    top: 0.8rem;
+}
+
+.react-datepicker-popper[data-placement^=bottom] {
+    padding-top: 0.15rem;;
+}
+
+.react-datepicker__current-month {
+    text-align: left;
+    color: rgb(78, 76, 76);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 0.4rem 1.8rem;
+}
+
+.react-datepicker__day, .react-datepicker__day-name {
+    margin: 0.07rem; 
+}
+
+.react-datepicker__day-name {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.react-datepicker__day--keyboard-selected, .react-datepicker__day--in-range {
+    border-radius: 0.3rem;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
 @media only screen and (min-width: 350px) {
     #formSearch {
         grid-template-areas: 
@@ -74,6 +117,7 @@
 }
 
 @media only screen and (min-width: 600px) {
+ 
     #formSearch {
         grid-template-areas: "location date buttonSearch";
     }
