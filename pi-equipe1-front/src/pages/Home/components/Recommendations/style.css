@@ -7,7 +7,6 @@
     grid-template-columns: 1fr;
     column-gap: 1.5rem;
     row-gap: 1.5rem;
-    /* margin: 2rem 1rem 10rem; */
 }
 
 .recommendation {
@@ -36,7 +35,6 @@
 
 .recommendationInfo button {
     width: 100%;
-    /* margin-top: 1rem; */
     padding: 0.5rem;
     border-radius: 0.5rem;
     border: none;
@@ -73,7 +71,6 @@
 @media only screen and (min-width: 1200px) {
     #recommendationsList {
         grid-template-columns: 1fr 1fr;
-        /* margin: 2rem 3rem 10rem; */
     }
     #recommendations {
         margin: 2rem 5rem 5rem;

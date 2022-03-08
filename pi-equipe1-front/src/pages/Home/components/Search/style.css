@@ -1,6 +1,8 @@
 #search {
-    background: center / cover no-repeat url(https://images.unsplash.com/photo-1529034502960-57f42a966080?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80);
-    margin-top: 3.8rem;
+    background: #001122;
+    margin-top: 3.5rem;
+    overflow: hidden;
+    background: var(--secondary-color);
 }
 
 #searchBrowserTitle {
@@ -8,19 +10,17 @@
     justify-content: center;
     color: #f7f5f5;
     text-shadow: 5px 5px 5px #222;
-    padding: 1rem 1rem 1rem;
+    padding: 0.2rem 1rem 1rem;
 }
 
 #formSearch {
     display: grid;
-    /* padding-top: 1rem; */
     grid-template-areas: 
     "location"
     "date"
     "buttonSearch";
     column-gap: 1rem;
     row-gap: 0.5rem;
-    background: white;
     padding: 1rem;
     background-color: #eeeeeea1;
 }
@@ -48,7 +48,6 @@
     height: 2rem;
     border-radius: 0.2rem;
     border: none;
-    /* background: #1dbeb4; */
     background: var(--primary-color);
     font-size: 0.9rem;
     color: white;
@@ -70,7 +69,7 @@
     }
 
     .buttonSearch {
-        width:auto;
+        width: auto;
     }
 }
 
@@ -80,14 +79,13 @@
     }
 
     .buttonSearch {
-        width:auto;
+        width: auto;
     } 
 }
 
 @media only screen and (min-width: 760px) {
     #search {
         padding: 0rem 1rem 0;
-        /* margin-bottom: 1rem; */
     }
 
     #formSearch {

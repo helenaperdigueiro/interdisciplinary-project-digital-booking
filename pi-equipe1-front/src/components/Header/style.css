@@ -1,13 +1,21 @@
-.bg-light {
-    box-shadow: 0px 1px 12px #00000014;
+.bg-dark  {
+    background-color: #001122 !important;
 }
 
 #logo {
     width: 2rem;
 }
 
+.navbar-brand {
+    margin-right: 0.5rem;
+}
+
+#brand h2 {
+    margin: 0;
+}
+
 #moto {
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 16px;
     display: flex;
     justify-content: center;
@@ -16,18 +24,18 @@
 
 #moto p {
     margin-bottom: -10%;
-    font-size: 17px;
+    font-size: 1rem;
 }
 
 #moto b {
     color: var(--primary-color);
-    font-size: 17px;
+    font-size: 1rem;
 }
 
 .access {
-    color: rgb(78, 78, 78);
+    color: rgb(255, 255, 255);
     border: none;
-    font-size: 16px;
+    font-size: 1rem;
     background:
     linear-gradient(
       to right,
@@ -36,9 +44,9 @@
     ),
     linear-gradient(
       to right,
-      rgb(157, 0, 255),
-      rgb(82, 2, 242),
-      rgb(9, 153, 197)
+      #f49a50,
+      var(--primary-color),
+      #001e3c
   );
   background-size: 100% 2px, 0 2px;
   background-position: 100% 100%, 0 100%;
@@ -52,7 +60,7 @@
 }
 .logout {
     cursor: pointer;
-    color: rgb(78, 78, 78);
+    color: rgb(255, 255, 255);
     border: none;
     font-size: 16px;
     background: rgba(0, 0, 0, 0);
@@ -65,13 +73,7 @@
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    background: rgb(59, 169, 194);
+    background: var(--primary-color);
     color: white;
     font-size: 12px;
 }
-
-/* @media only screen and (min-width: 767px) {
-    .access:hover {
-        background-size: 0 2px, 100% 2px;
-    }
-} */

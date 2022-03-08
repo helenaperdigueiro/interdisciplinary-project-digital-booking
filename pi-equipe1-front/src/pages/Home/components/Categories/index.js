@@ -7,7 +7,7 @@ const Categories = () => {
                 <h2>Buscar por tipo de acomodação</h2>
                 <p>Escolha a sua preferência</p>
             </div>
-            
+
             <div id="categories">
                 <div className="category">
                     <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />

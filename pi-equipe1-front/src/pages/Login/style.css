@@ -13,7 +13,7 @@
 }
 
 .formTitle {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .field {
@@ -37,7 +37,7 @@ label {
     height: 1.5rem;
     border-radius: 0.2rem;
     border: none;
-    background: rgb(87, 169, 194);
+    background: var(--primary-color);
     color: white;
     cursor: pointer;
 }
@@ -53,10 +53,9 @@ label {
     display: flex;
     column-gap: 0.3rem;
     font-size: 13px;
-    /* text-decoration: none; */
     color: rgb(53, 53, 53);
 }
 
 .textLink {
-    color: rgb(59, 169, 194);
+    color: var(--primary-color);
 }

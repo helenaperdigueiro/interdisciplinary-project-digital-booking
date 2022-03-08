@@ -78,23 +78,20 @@ const Recommendations = () => {
                 {hotels.map(hotel =>
 
                     <div key={hotel.id} id={`recommendation${hotel.id}`} className="recommendation">
-                        
+
                         <img src={hotel.img} alt="" />
-                        
+
                         <div className="recommendationInfo">
                             <p>{hotel.category}</p>
                             <h4>{hotel.title}</h4>
                             <p>{hotel.location}</p>
                             <p className="description">{hotel.description}</p>
-                            
+
                             <Link to="/"><button>Ver detalhes</button></Link>
                         </div>
                     </div>
-
                 )}
-
             </div>
-            <h2>Testando Jenkins 4</h2>
         </div>
     );
 }

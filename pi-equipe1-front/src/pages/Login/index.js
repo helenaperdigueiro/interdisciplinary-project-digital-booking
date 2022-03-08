@@ -10,11 +10,6 @@ const sleep = ms => new Promise(r => setTimeout(r, ms))
 const Login = ({ onSubmit }) => {
 
   const { setUser } = useUserContext();
-    
-  // useEffect(() => {
-  //     setUser(localStorage.getItem("signed"));
-  //     return;
-  // }, [setUser])
 
   const navigate = useNavigate();
 
@@ -31,12 +26,10 @@ const Login = ({ onSubmit }) => {
         icon: 'error',
         title: 'Ops!',
         text: 'Por favor, tente novamente, suas credenciais são inválidas',
-        confirmButtonColor: 'rgb(87, 169, 194)',
+        confirmButtonColor: 'var(--primary-color)',
         imageWidth: 100,
         width: 350,
       })
-      values.email = ''
-      values.password = ''
     }
     await sleep(500)
     onSubmit(values)
@@ -52,26 +45,27 @@ const Login = ({ onSubmit }) => {
         validationSchema={Yup.object({
           email: Yup.string().email('Email inválido').required('Obrigatório'),
           password: Yup.string()
+            .min(7, 'A senha deve ter no mínimo 7 caracteres')
             .required('Obrigatório'),
         })}
         onSubmit={handleSubmit}
       >
         <Form className="acessForm">
           <label htmlFor="email">Email</label>
-          <Field id="email" className="field" name="email" type="email" placeholder="email" />
+          <Field id="email" className="field" name="email" type="email" />
           <div className="errorMessage">
             <ErrorMessage name="email">{msg => msg ? msg : ""}</ErrorMessage>
           </div>
 
-          <label htmlFor="password">password</label>
-          <Field id="password" className="field" name="password" type="password" placeholder="password" />
+          <label htmlFor="password">Senha</label>
+          <Field id="password" className="field" name="password" type="password" />
           <div className="errorMessage">
             <ErrorMessage name="password">{msg => msg ? msg : ""}</ErrorMessage>
           </div>
 
-          <button className="buttonForm" type="submit">submit</button>
+          <button className="buttonForm" type="submit">Entrar</button>
           <div className="textNotes"><p className='text'>Ainda não tem uma conta?</p>
-            <Link to="/registro"><p className='textLink'>Registre-se</p></Link></div>
+            <Link to="/cadastro"><p className='textLink'>Cadastre-se</p></Link></div>
         </Form>
       </Formik>
     </div>

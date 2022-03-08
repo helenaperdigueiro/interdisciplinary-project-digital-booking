@@ -1,5 +1,6 @@
 #register {
     height: 100vh;
+    padding-top: 0.9rem;
     display: flex;
     justify-content: center;
     align-items: center;

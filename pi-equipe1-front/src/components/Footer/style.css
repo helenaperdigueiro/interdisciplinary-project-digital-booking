@@ -1,13 +1,32 @@
-#footer {
+#footerWave {
     width: 100%;
-    height: 3rem;
+    height: 6rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    /* gap: 0; */
     position: fixed;
     bottom: 0;
-    background: white;
-    padding: 0.3rem 1rem 0.3rem;
-    box-shadow: 0px -1px 12px #00000014;
+}
+
+#footerWave svg {
+    display: block;
+}
+
+/* path {
+    fill: var(--secondary-color);
+    stroke: var(--secondary-color);
+    stroke-width: 8px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+  } */
+
+#footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    padding: 0.3rem 1rem 0.5rem;
+    color: white;
 }
 
 #footerII {
@@ -29,5 +48,5 @@
 }
 
 .icons {
-    color: rgb(59, 169, 194);
+    color: white;
 }
