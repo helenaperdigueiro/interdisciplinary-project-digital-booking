@@ -30,9 +30,15 @@
     height: 2rem;
     padding-left: 0.3rem;
     border: none;
-    background-color: rgb(247, 245, 245);
     color: rgb(142, 142, 142);
     border-radius: 0.2rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important;
 }
 
 .location {
