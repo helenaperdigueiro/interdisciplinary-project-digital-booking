@@ -1,7 +1,7 @@
 package com.digitalbooking.controller;
 
-import com.digitalbooking.model.Category;
-import com.digitalbooking.service.CategoryService;
+import com.digitalbooking.model.Product;
+import com.digitalbooking.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,30 +9,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
-public class CategoryController {
+@RequestMapping("/product")
+public class ProductController {
 
     @Autowired
-    private CategoryService service;
+    private ProductService service;
 
     @PostMapping
-    public ResponseEntity<Category> save(@RequestBody Category category){
-        return ResponseEntity.status(201).body(service.save(category));
+    public ResponseEntity<Product> save(@RequestBody Product product){
+        return ResponseEntity.status(201).body(service.save(product));
 
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Category> editById(@RequestBody Category category, @PathVariable Integer id) {
+    public ResponseEntity<Product> editById(@RequestBody Product category, @PathVariable Integer id) {
         return ResponseEntity.ok(service.editById(category, id));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Category> getById(@PathVariable Integer id){
+    public ResponseEntity<Product> getById(@PathVariable Integer id){
         return ResponseEntity.ok(service.getById(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> findAll(){
+    public ResponseEntity<List<Product>> findAll(){
         return ResponseEntity.ok(service.findAll());
     }
 
