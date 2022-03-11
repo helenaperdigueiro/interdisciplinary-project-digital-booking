@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -21,4 +22,7 @@ public class Category {
 
     @Column(length = 300, nullable = false)
     private String urlImage;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    private List<Product> products;
 }
