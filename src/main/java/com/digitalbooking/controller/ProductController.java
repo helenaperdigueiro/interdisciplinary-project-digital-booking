@@ -36,6 +36,16 @@ public class ProductController {
         return ResponseEntity.ok(service.findAll());
     }
 
+    @GetMapping("/cidade/{city}")
+    public ResponseEntity<List<Product>> getByCity(@PathVariable String city) {
+        return ResponseEntity.ok(service.findByCity(city));
+    }
+
+    @GetMapping("/categoria/{category}")
+    public ResponseEntity<List<Product>> getByCategory(@PathVariable String category) {
+        return ResponseEntity.ok(service.findByCategory(category));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Integer id){
         service.deleteById(id);
