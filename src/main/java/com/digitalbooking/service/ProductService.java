@@ -44,11 +44,11 @@ public class ProductService {
         repository.deleteById(idProduct);
     }
 
-    public List<Product> findByCity(String city) {
-        return repository.findByCity(city);
-    }
-
-    public List<Product> findByCategory(String category) {
-        return repository.findByCategory(category);
-    }
+//    public List<Product> findByCity(String city) {
+//        return repository.findByCity(city);
+//    }
+//
+//    public List<Product> findByCategory(String category) {
+//        return repository.findByCategory(category);
+//    }
 }

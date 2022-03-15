@@ -8,6 +8,4 @@ import java.util.List;
 
 @Repository
 public interface IProductRepository extends JpaRepository<Product, Integer> {
-    List<Product> findByCity(String city);
-    List<Product> findByCategory(String category);
 }
