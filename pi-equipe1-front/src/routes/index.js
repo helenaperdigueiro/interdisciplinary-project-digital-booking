@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from '../pages/Register';
 import UserProvider from '../contexts/UserContext';
+import Product from '../pages/Product';
 
 const RouteList = () => (
     <BrowserRouter>
@@ -16,6 +17,7 @@ const RouteList = () => (
                     <Route path='/' element={<Home />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/cadastro' element={<Register />} />
+                    <Route path='/produto' element={<Product />} />
                 </Routes>
                 <Footer />
             </UserProvider>

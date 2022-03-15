@@ -13,10 +13,7 @@ registerLocale("ptBr", ptBr);
 const Search = () => {
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
-    const mediaQuery = useMediaQuery({ minWidth: 600 });
-    
-    console.log(startDate);
-    console.log(endDate);    
+    const mediaQuery = useMediaQuery({ minWidth: 600 }); 
 
     return (
         <div id="search">
