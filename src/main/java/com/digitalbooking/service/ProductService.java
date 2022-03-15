@@ -13,7 +13,7 @@ public class ProductService {
     @Autowired
     private IProductRepository repository;
 
-    public Product save(Product product){
+    public Product save(Product product) {
 
         return repository.save(product);
     }
@@ -32,11 +32,11 @@ public class ProductService {
                 });
     }
 
-    public Product getById(Integer idProduct){
+    public Product getById(Integer idProduct) {
         return repository.getById(idProduct);
     }
 
-    public List<Product> findAll(){
+    public List<Product> findAll() {
         return repository.findAll();
     }
 
@@ -44,11 +44,11 @@ public class ProductService {
         repository.deleteById(idProduct);
     }
 
-//    public List<Product> findByCity(String city) {
-//        return repository.findByCity(city);
-//    }
-//
-//    public List<Product> findByCategory(String category) {
-//        return repository.findByCategory(category);
-//    }
+    public List<Product> findByCity(String name) {
+        return repository.findByCity(name);
+    }
+
+    public List<Product> findByCategory(String title) {
+        return repository.findByCategory(title);
+    }
 }

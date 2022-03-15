@@ -16,7 +16,7 @@ public class ProductController {
     private ProductService service;
 
     @PostMapping
-    public ResponseEntity<Product> save(@RequestBody Product product){
+    public ResponseEntity<Product> save(@RequestBody Product product) {
         return ResponseEntity.status(201).body(service.save(product));
 
     }
@@ -27,27 +27,27 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getById(@PathVariable Integer id){
+    public ResponseEntity<Product> getById(@PathVariable Integer id) {
         return ResponseEntity.ok(service.getById(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> findAll(){
+    public ResponseEntity<List<Product>> findAll() {
         return ResponseEntity.ok(service.findAll());
     }
 
-//    @GetMapping("/city/{city}")
-//    public ResponseEntity<List<Product>> findByCity(@PathVariable String city) {
-//        return ResponseEntity.ok(service.findByCity(city));
-//    }
-//
-//    @GetMapping("/category/{category}")
-//    public ResponseEntity<List<Product>> findByCategory(@PathVariable String category) {
-//        return ResponseEntity.ok(service.findByCategory(category));
-//    }
+    @GetMapping("/city/{name}")
+    public ResponseEntity<List<Product>> findByCity(@PathVariable String name) {
+        return ResponseEntity.ok(service.findByCity(name));
+    }
+
+    @GetMapping("/category/{title}")
+    public ResponseEntity<List<Product>> findByCategory(@PathVariable String title) {
+        return ResponseEntity.ok(service.findByCategory(title));
+    }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Integer id){
+    public ResponseEntity<String> deleteById(@PathVariable Integer id) {
         service.deleteById(id);
         return ResponseEntity.ok("Deleted");
     }
