@@ -5,6 +5,16 @@
     background: var(--secondary-color);
 }
 
+.location {
+    background-image: url('./location-dot-solid.svg');
+    /* background-size:contain !important; */
+    background-size: 0.9rem;
+    background-repeat: no-repeat;
+    text-indent: 1.3rem;
+    background-position: 1.5% 50%;
+}
+
+
 #searchBrowserTitle {
     display: flex;
     justify-content: center;
@@ -47,6 +57,14 @@ input:-webkit-autofill:active{
 
 .date {
     grid-area: date;
+}
+
+.date input{
+    background-image: url('./calendar-days-solid.svg') !important;
+    background-size: 0.9rem;
+    background-repeat: no-repeat !important;
+    text-indent: 1.3rem !important;
+    background-position: 2% 50%;
 }
 
 .buttonSearch {
