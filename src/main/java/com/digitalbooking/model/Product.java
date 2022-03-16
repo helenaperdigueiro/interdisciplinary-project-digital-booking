@@ -42,7 +42,7 @@ public class Product {
     private City city;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "characteristic_product")
+    @JoinTable(name = "product_characteristic")
     @JsonIgnore
     private List<Characteristic> characteristics;
 
