@@ -24,6 +24,6 @@
     opacity: 50%;
 }
 
-#informationsProduct h3, #informationsProduct p {
+#informationsTitle p, #informationsTitle h3 {
     margin: 0;
 }
