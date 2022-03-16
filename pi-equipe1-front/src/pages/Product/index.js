@@ -3,7 +3,7 @@ import './style.css';
 
 const Product = () => {
     return(
-        <Calendar></Calendar>
+        <Calendar />
     )
 }
 
