@@ -9,7 +9,7 @@ const Home = () => {
             <Categories />
             <Recommendations />
         </>
-    )
-}
+    );
+};
 
 export default Home;
