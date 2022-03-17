@@ -7,12 +7,13 @@ import "react-datepicker/dist/react-datepicker.css";
 const Calendar = () => {
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
-    const mediaQuery = useMediaQuery({ minWidth: 600 });
+    const mediaQuery = useMediaQuery({ minWidth: 750 });
 
     return (
         <div className="availableDates">
             <h2>Datas disponíveis</h2>
-            <div className="calendar">
+            <div className="calendarSelection">
+                <div className="calendar">
                 <DatePicker
                     selectsRange={true}
                     dateFormat="dd/MM/yyyy"
@@ -26,6 +27,7 @@ const Calendar = () => {
                     locale="ptBr"
                     inline
                 />
+                </div>
                 <div className="selection">
                     <p>Adicione as datas da sua viagem para obter preços exatos</p>
                     <button>Iniciar reserva</button>
