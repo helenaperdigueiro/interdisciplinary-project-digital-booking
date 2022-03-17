@@ -17,13 +17,13 @@ const Location = () => {
                 </div>
             </div>
 
-            <div id="rating">
+            {/* <div id="rating">
                 <Rating
                     emptySymbol={"fa fa-star fa-2x"}
                     fullSymbol="fa fa-star fa-2x"
                     fractions={2}
                 />
-            </div>
+            </div> */}
         </>
     );
 };
