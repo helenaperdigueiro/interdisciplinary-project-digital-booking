@@ -1,0 +1,29 @@
+#productTitle {
+    display: flex;
+    color: #f7f5f5;
+    background: #001122;
+    margin-top: 3.4rem;
+    /* margin-top: 4rem; */
+    overflow: hidden;
+    background: var(--secondary-color); 
+}
+
+#informationsTitle {
+    padding: 0.5rem 0 0.5rem 1rem;
+}
+
+#previousButton {
+    color: white;
+    height: 100%;
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 1rem;
+}
+
+#previousButton:hover svg {
+    opacity: 50%;
+}
+
+#informationsTitle p, #informationsTitle h3 {
+    margin: 0;
+}

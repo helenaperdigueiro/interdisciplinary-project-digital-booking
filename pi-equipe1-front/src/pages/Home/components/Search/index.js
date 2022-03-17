@@ -1,12 +1,10 @@
+import './style.css';
 import React, { useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { Formik, Field, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import ptBr from "date-fns/locale/pt-BR"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import "react-datepicker/dist/react-datepicker.css";
-import './style.css';
 
 registerLocale("ptBr", ptBr);
 
@@ -24,7 +22,6 @@ const Search = () => {
             <Formik initialValues={{ city: '', startDate: null, endDate: null }} >
                 <Form id="formSearch">
                     <Field className="location" name="city" type="text" placeholder="Cidade" />
-                    {/* <FontAwesomeIcon icon={faLocationDot} /> */}
 
                     <div className="date">
                         <DatePicker

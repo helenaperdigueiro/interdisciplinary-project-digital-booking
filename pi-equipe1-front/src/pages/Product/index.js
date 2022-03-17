@@ -1,10 +1,14 @@
-import Calendar from './components/Calendar';
 import './style.css';
+import ProductTitle from './components/ProductTitle';
+import Calendar from './components/Calendar';
 
 const Product = () => {
-    return(
-        <Calendar />
-    )
-}
+    return (
+        <>
+            <ProductTitle />
+            <Calendar />
+        </>
+    );
+};
 
 export default Product;

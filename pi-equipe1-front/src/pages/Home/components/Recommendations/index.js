@@ -1,7 +1,13 @@
 import './style.css';
 import { Link } from 'react-router-dom';
+import useAxios from '../../../../hooks/useAxios';
 
 const Recommendations = () => {
+
+    const recommendedProducts = useAxios('/product');
+    const categories = useAxios('/category');
+    console.log(recommendedProducts);
+    console.log(categories);
     const hotels = [
         {
             id: 1,
