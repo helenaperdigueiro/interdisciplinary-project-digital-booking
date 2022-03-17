@@ -83,6 +83,27 @@
     }   
 }
 
+@media only screen and (min-width: 480px) {
+    #locationProduct {
+        padding: 0.5rem 1rem;
+    }
+    
+    #ratingInformation {
+        align-items: center;
+        flex-direction: row;
+        width: auto;
+        padding-left: 0.5rem;
+    }
+    
+    #ratingInformation p {
+        height: 1rem;
+    }
+
+    #grade {
+        margin-bottom: 0;
+    }
+}
+
 @media only screen and (min-width: 750px) {
     #locationProduct {
         padding: 0.5rem 2rem;
@@ -102,10 +123,7 @@
         align-items: center;
         justify-content: center;
         flex-direction:row;
+        padding-left: 1rem;
         width: auto;
-    }
-
-    #ratingInformation p {
-        height: 1rem;
     }
 }
