@@ -27,6 +27,7 @@ public class Category {
     private String urlImage;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    @JsonIgnoreProperties("products")
     private List<Product> products;
 
 }

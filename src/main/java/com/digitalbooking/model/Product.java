@@ -13,8 +13,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idProduct")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idProduct")
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
 
     @Id
@@ -28,22 +28,22 @@ public class Product {
     private String description;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    @JsonIgnore
+    @JsonIgnoreProperties("product")
     private List<Image> images;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @JsonIgnore
+    @JsonIgnoreProperties("products")
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")
-    @JsonIgnore
+    @JsonIgnoreProperties("products")
     private City city;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "product_characteristic")
-    @JsonIgnore
+    @JsonIgnoreProperties("products")
     private List<Characteristic> characteristics;
 
 }
