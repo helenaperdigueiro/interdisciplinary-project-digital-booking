@@ -1,0 +1,29 @@
+#locationArea {
+    display: flex;
+    color: #000000;
+    overflow: hidden;
+    background: #e7e8e9; 
+}
+
+#locationIcon {
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+}
+
+#locationIcon svg {
+    color: var(--primary-color);
+    height: 1.5rem;
+}
+
+#informationsAdress {
+    padding: 0.5rem 1rem;
+}
+
+#informationsAdress p {
+    margin: 0;
+}
+
+#rating {
+    background-color: aqua;
+}
