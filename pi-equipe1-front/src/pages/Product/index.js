@@ -9,8 +9,8 @@ const Product = () => {
         <>
             <ProductTitle />
             <Location />
-            <Calendar />
             <Characteristic/>
+            <Calendar />
         </>
     );
 };
