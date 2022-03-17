@@ -4,6 +4,7 @@ const Policy = () => {
 
     return (
         <>
+        
         </>
     );
 };

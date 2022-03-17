@@ -8,15 +8,14 @@ const ProductTitle = () => {
         <div id="productTitle">
             <Link to="/">
                 <button id="previousButton">
-                    <FontAwesomeIcon icon={faChevronLeft} />
+                    <FontAwesomeIcon icon={ faChevronLeft } />
                 </button>
             </Link>
 
             <div id="informationsTitle">
                 <p>Hotel</p>
                 <h3>Bermitage Hotel</h3>
-            </div>
-           
+            </div>           
         </div>
     );
 };
