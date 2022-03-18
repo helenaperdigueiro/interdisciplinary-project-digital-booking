@@ -4,11 +4,11 @@ import Recommendations from './components/Recommendations';
 
 const Home = () => {
     return (
-        <>
+        <div id="home">
             <Search />
             <Categories />
             <Recommendations />
-        </>
+        </div>
     );
 };
 

@@ -11,8 +11,8 @@ export const ProductContextProvider = props => {
     // const product = useAxios(`/product/${productId}`);
     const product = useAxios('/product');
 
-    console.log(productId);
-    console.log(product);
+    // console.log(productId);
+    // console.log(product);
 
     // const deleteItem = id => {
     //     deleteItemsAxios(id).then(() => {

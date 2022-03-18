@@ -6,8 +6,11 @@ import { useMediaQuery } from 'react-responsive';
 import ptBr from "date-fns/locale/pt-BR"
 import "react-datepicker/dist/react-datepicker.css";
 import AutoComplete from './Autocomplete/index';
+import { Link } from 'react-router-dom';
 
 registerLocale("ptBr", ptBr);
+
+let aquiVaiACidade = 'errado';
 
 const Search = () => {
     const [dateRange, setDateRange] = useState([null, null]);
@@ -42,7 +45,7 @@ const Search = () => {
                         />
                     </div>
 
-                    <button className="buttonSearch" type="submit">Buscar</button>
+                    <Link to={`/produtos/city/${aquiVaiACidade}`}><button className="buttonSearch" type="submit">Buscar</button></Link>
                 </Form>
             </Formik>
         </div>

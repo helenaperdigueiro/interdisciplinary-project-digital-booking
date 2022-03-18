@@ -12,9 +12,13 @@ const useAxios = (url) => {
                 setData(response.data);
             } catch (error) {
                 Swal.fire({
-                    title: 'Error',
+                    title: "Ops!",
                     icon: 'error',
-                    text: 'Failed to load / Erro na chamada',
+                    text: 'Algo deu errado',
+                    html:
+                        'Algo deu <b>errado!</b>' +
+                        '<br>' +
+                        error,
                     confirmButtonColor: '#000000'
                 })
             }

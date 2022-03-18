@@ -15,13 +15,9 @@ import Policy from './components/Policy';
 const Product = () => {
 
     const { productId } = useParams();
-    console.log(productId);
     const product = useAxios(`/product/${productId}`);
 
     // const { productInfo, setProductInfo } = useContext(ProductContext);
-
-    console.log(product);
-
     // let product2 = setProductInfo(product);
 
 

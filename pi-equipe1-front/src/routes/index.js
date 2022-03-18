@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Register from '../pages/Register';
 import UserProvider from '../contexts/UserContext';
 import { ProductContextProvider } from '../contexts/ProductContext';
+import Products from '../pages/Products';
 import Product from '../pages/Product';
 
 const RouteList = () => (
@@ -19,6 +20,7 @@ const RouteList = () => (
                         <Route path='/' element={<Home />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/cadastro' element={<Register />} />
+                        <Route path='/produtos/:filter/:productsBy' element={<Products />} />
                         <Route path='/produto/:productId' element={<Product />} />
                     </Routes>
                     <Footer />

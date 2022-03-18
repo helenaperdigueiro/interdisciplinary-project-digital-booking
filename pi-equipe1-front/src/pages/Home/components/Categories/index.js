@@ -1,9 +1,10 @@
 import './style.css';
 import useAxios from '../../../../hooks/useAxios';
+import { Link } from 'react-router-dom';
 
 const Categories = () => {
 
-    const categories = useAxios('/category');
+    const categories  = useAxios('/category');
 
     return (
             <div id="searchByCategory">
@@ -14,13 +15,13 @@ const Categories = () => {
 
             <div id="categories">
             {categories.map(category => 
-                <div key={category.idCategory} className="category">
+                <Link to={`/produtos/category/${category.title}`}><div key={category.idCategory} className="category">
                     <img src={category.urlImage} alt="" />
                     <div className="categoryInfo">
                         <h5>{category.title}</h5>
-                        <p>{546 * category.idCategory} {category.title}S</p>
+                        <p>{546 * category.idCategory} resultados</p>
                     </div>
-                </div>
+                </div></Link>
              )}
             </div>
         </div>
