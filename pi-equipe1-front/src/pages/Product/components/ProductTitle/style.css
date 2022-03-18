@@ -3,13 +3,13 @@
     color: #f7f5f5;
     background: #001122;
     margin-top: 3.4rem;
-    /* margin-top: 4rem; */
     overflow: hidden;
-    background: var(--secondary-color); 
+    background: var(--secondary-color);
+    padding-left: 1rem;
 }
 
 #informationsTitle {
-    padding: 0.5rem 0 0.5rem 1rem;
+    padding: 0.5rem 1rem;
 }
 
 #previousButton {
@@ -17,7 +17,6 @@
     height: 100%;
     background-color: transparent;
     border-color: transparent;
-    margin-left: 1rem;
 }
 
 #previousButton:hover svg {
@@ -30,4 +29,10 @@
 
 #informationsTitle h3 {
     font-weight: bold;
+}
+
+@media only screen and (min-width: 750px) {
+    #productTitle {
+        padding-left: 2rem;
+    }
 }

@@ -8,6 +8,9 @@ import Calendar from './components/Calendar';
 import Characteristic from './components/Characteristic';
 import { Helmet } from 'react-helmet-async';
 import { useContext } from 'react';
+import Description from './components/Description';
+import Image from './components/Image';
+import Policy from './components/Policy';
 
 const Product = () => {
 
@@ -35,8 +38,11 @@ const Product = () => {
             </Helmet>
             <ProductTitle />
             <Location />
-            <Characteristic />
+            <Image />
+            <Description />
+            <Characteristic/>
             <Calendar />
+            <Policy />
         </>
     );
 };

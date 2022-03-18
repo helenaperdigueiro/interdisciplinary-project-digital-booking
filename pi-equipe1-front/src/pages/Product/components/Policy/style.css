@@ -1,0 +1,33 @@
+#policyContainer {
+    margin-bottom: 5rem;
+    padding: 2rem;
+}
+
+#policyTitle {
+    margin-bottom: 2rem;
+    border-bottom: 1px var(--primary-color) solid;
+}
+
+#policyDescription {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+}
+
+#policyDescription p {
+    margin-bottom: 0;
+}
+
+@media only screen and (min-width: 700px) {
+    #policyDescription {
+        grid-template-columns: 2fr 3fr 3fr;
+        column-gap: 2.5rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    #policyDescription {
+        grid-template-columns: 1fr 2fr 2fr;
+        column-gap: 5rem;
+    }
+}
