@@ -10,8 +10,7 @@ input {
     left: auto;
     right: auto;
     margin-top: .5rem;
-   
-    background-color: transparent;
+    background-color: white;
     border: none;
   }
   .dropdown-item {
@@ -43,7 +42,7 @@ input {
   } */
 
   .dropdown-item:hover {
-    background-color: #F7770F!important;
+    background-color: var(--light-grey)!important;
   }
 
   @media (min-width: 0) {

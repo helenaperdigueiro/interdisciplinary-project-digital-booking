@@ -5,7 +5,7 @@ import { Formik, Field, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import ptBr from "date-fns/locale/pt-BR"
 import "react-datepicker/dist/react-datepicker.css";
-import AutoComplete from './autocomplete/index';
+import AutoComplete from './Autocomplete/index';
 
 registerLocale("ptBr", ptBr);
 
@@ -21,9 +21,9 @@ const Search = () => {
             </div>
 
             <Formik initialValues={{ city: '', startDate: null, endDate: null }} >
-                <Form id="formSearch">
-                    <Field className="location" name="city" type="text" placeholder="Cidade" />
-                    <AutoComplete />
+                <Form className="formSearch">
+                    {/* <Field className="location" name="city" type="text" placeholder="Cidade" /> */}
+                    <div className="location"><AutoComplete /></div>
                     <div className="date">
                         <DatePicker
                             placeholderText="Check in - Check out"

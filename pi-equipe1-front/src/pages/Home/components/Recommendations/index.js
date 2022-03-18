@@ -5,9 +5,7 @@ import useAxios from '../../../../hooks/useAxios';
 const Recommendations = () => {
 
     const recommendedProducts = useAxios('/product');
-    const categories = useAxios('/category');
     console.log(recommendedProducts);
-    console.log(categories);
     const hotels = [
         {
             id: 1,
@@ -81,22 +79,22 @@ const Recommendations = () => {
 
             <div id="recommendationsList">
 
-                {hotels.map(hotel =>
+                {recommendedProducts.map(product =>
 
-                    <div key={hotel.id} id={`recommendation${hotel.id}`} className="recommendation">
+                    <div key={product.idProduct} id={`recommendation${product.id}`} className="recommendation">
 
-                        <img src={hotel.img} alt="" />
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" alt="" />
 
                         <div className="recommendationInfo">
-                            <p>{hotel.category}</p>
-                            <h4>{hotel.title}</h4>
-                            <p>{hotel.location}</p>
-                            <p className="description">{hotel.description}</p>
-
-                            <Link to="/"><button>Ver detalhes</button></Link>
+                            <p>HOTEL{product.category}</p>
+                            <h4>{product.name}</h4>
+                            <p>Cidade{product.city}</p>
+                            <p className="description">{product.description}</p>
+                            <Link to={`/produto/${product.idProduct}`}><button>Ver detalhes</button></Link>
                         </div>
                     </div>
                 )}
+
             </div>
         </div>
     );

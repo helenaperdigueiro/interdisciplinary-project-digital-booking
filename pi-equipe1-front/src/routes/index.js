@@ -6,20 +6,23 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from '../pages/Register';
 import UserProvider from '../contexts/UserContext';
+import { ProductContextProvider } from '../contexts/ProductContext';
 import Product from '../pages/Product';
 
 const RouteList = () => (
     <BrowserRouter>
         <HelmetProvider>
             <UserProvider>
-                <Header />
-                <Routes>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/login' element={<Login />} />
-                    <Route path='/cadastro' element={<Register />} />
-                    <Route path='/produto' element={<Product />} />
-                </Routes>
-                <Footer />
+                <ProductContextProvider>
+                    <Header />
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/cadastro' element={<Register />} />
+                        <Route path='/produto/:productId' element={<Product />} />
+                    </Routes>
+                    <Footer />
+                </ProductContextProvider>
             </UserProvider>
         </HelmetProvider>
     </BrowserRouter>

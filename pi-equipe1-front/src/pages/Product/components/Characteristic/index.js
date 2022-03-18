@@ -6,7 +6,6 @@ import useAxios from '../../../../hooks/useAxios';
 const Characteristic = () => {
 
     const products = useAxios('/product');
-    console.log(products);
 
     return (
         <>

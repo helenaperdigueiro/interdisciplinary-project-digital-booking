@@ -79,3 +79,22 @@
         grid-template-columns: 3fr 2fr;
     }
 }
+
+
+
+/* {recommendedProducts.map(product =>
+
+    <div key={product.idProduct} id={`recommendation${product.id}`} className="recommendation">
+
+        <img src={recommendedProducts.image} alt="" /> 
+
+        <div className="recommendationInfo">
+            <p>{recommendedProducts.category}</p>
+            <h4>{product.name}</h4>
+            <p>{recommendedProducts.location}</p>
+            <p className="description">{product.description}</p>
+
+            <Link to="/"><button>Ver detalhes</button></Link>
+        </div>
+    </div>
+)} */
