@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -44,6 +45,6 @@ public class Product {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "product_characteristic")
     @JsonIgnoreProperties("products")
-    private List<Characteristic> characteristics;
+    private Set<Characteristic> characteristics;
 
 }
