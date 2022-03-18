@@ -43,7 +43,7 @@ public class Product {
     private City city;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "product_characteristic")
+    @JoinTable(name = "product_characteristic", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "characteristic_id"))
     @JsonIgnoreProperties("products")
     private Set<Characteristic> characteristics;
 
