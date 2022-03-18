@@ -4,7 +4,7 @@ import useAxios from '../../../../hooks/useAxios';
 const Description = () => {
 
     // const product = useAxios('/product');
-    const hotel = {
+    const product = {
         city: {
             name: "Buenos Aires"
         },
@@ -13,8 +13,8 @@ const Description = () => {
 
     return (
         <div id="description">
-            <h3>Fique no coração de {hotel.city.name}</h3>
-            <p>{hotel.description}</p>
+            <h3>Fique no coração de {product.city.name}</h3>
+            <p>{product.description}</p>
         </div>
     );
 };

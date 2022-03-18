@@ -86,9 +86,9 @@ const Recommendations = () => {
                         <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" alt="" />
 
                         <div className="recommendationInfo">
-                            <p>HOTEL{product.category}</p>
+                            <p>HOTEL{product.category.title}</p>
                             <h4>{product.name}</h4>
-                            <p>Cidade{product.city}</p>
+                            <p>Cidade{product.city.name}</p>
                             <p className="description">{product.description}</p>
                             <Link to={`/produto/${product.idProduct}`}><button>Ver detalhes</button></Link>
                         </div>
