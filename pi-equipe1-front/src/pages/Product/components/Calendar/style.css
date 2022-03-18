@@ -76,11 +76,24 @@
     font-weight: bold;
 }
 
-@media only screen and (min-width: 750px) {
-    .selection {
-        grid-template-columns: 1fr 1fr;
-        column-gap: 2rem;
+@media only screen and (min-width: 370px) {
+    .react-datepicker__header {
+        padding: 0.8rem;
+        font-size: 1rem;
     }
+    .react-datepicker__navigation-icon::before {
+        top: 1rem;
+    }
+    .react-datepicker__current-month {
+        font-size: 1rem;
+    }
+    .react-datepicker__day, .react-datepicker__day-name {
+        margin: 0.4rem;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 750px) {
     .react-datepicker__header {
         padding: 1rem;
         font-size: 1rem;
@@ -88,11 +101,9 @@
     .react-datepicker__navigation-icon::before {
         top: 1rem;
     }
-    
     .react-datepicker__current-month {
         font-size: 1rem;
     }
-    
     .react-datepicker__day, .react-datepicker__day-name {
         margin: 0.5rem;
         font-size: 1rem;
@@ -107,22 +118,3 @@
         grid-template-columns: 1fr;
     }
 }
-
-
-
-/* {recommendedProducts.map(product =>
-
-    <div key={product.idProduct} id={`recommendation${product.id}`} className="recommendation">
-
-        <img src={recommendedProducts.image} alt="" /> 
-
-        <div className="recommendationInfo">
-            <p>{recommendedProducts.category}</p>
-            <h4>{product.name}</h4>
-            <p>{recommendedProducts.location}</p>
-            <p className="description">{product.description}</p>
-
-            <Link to="/"><button>Ver detalhes</button></Link>
-        </div>
-    </div>
-)} */
