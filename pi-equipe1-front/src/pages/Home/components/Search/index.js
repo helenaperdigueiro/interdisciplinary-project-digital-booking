@@ -10,12 +10,12 @@ import { Link } from 'react-router-dom';
 
 registerLocale("ptBr", ptBr);
 
-let aquiVaiACidade = 'errado';
-
 const Search = () => {
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
-    const mediaQuery = useMediaQuery({ minWidth: 600 }); 
+    const mediaQuery = useMediaQuery({ minWidth: 600 });
+    const [selectedCity, setSelectedCity] = useState("");
+    const isValid = selectedCity && startDate && endDate;
 
     return (
         <div id="search">
@@ -26,7 +26,7 @@ const Search = () => {
             <Formik initialValues={{ city: '', startDate: null, endDate: null }} >
                 <Form className="formSearch">
                     {/* <Field className="location" name="city" type="text" placeholder="Cidade" /> */}
-                    <div className="location"><AutoComplete /></div>
+                    <div className="location"><AutoComplete onChange={(value) => { setSelectedCity(value.name) }}/></div>
                     <div className="date">
                         <DatePicker
                             placeholderText="Check in - Check out"
@@ -45,7 +45,7 @@ const Search = () => {
                         />
                     </div>
 
-                    <Link to={`/cidade/${aquiVaiACidade}`}><button className="buttonSearch" type="submit">Buscar</button></Link>
+                    <Link to={`/produtos/city/${selectedCity}`}><button className="buttonSearch" type="submit" disabled={!isValid}>Buscar</button></Link>
                 </Form>
             </Formik>
         </div>

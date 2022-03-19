@@ -10,11 +10,7 @@ api(`/city`).then((response) => {
     console.error(error)
 })
 
-const AutoComplete = () => {
-
-    const onChange = (value) => {
-        // value - input value
-    }
+const AutoComplete = ({onChange}) => {
 
     return (
         <Downshift onChange={onChange} itemToString={dataCity => (dataCity ? dataCity.name : '')}>
