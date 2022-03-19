@@ -1,13 +1,16 @@
 import './style.css';
 import React, { useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
-import { Formik, Field, Form } from 'formik';
+import { Formik, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import ptBr from "date-fns/locale/pt-BR"
 import "react-datepicker/dist/react-datepicker.css";
-import AutoComplete from './autocomplete/index';
+import AutoComplete from './Autocomplete/index';
+import { Link } from 'react-router-dom';
 
 registerLocale("ptBr", ptBr);
+
+let aquiVaiACidade = 'errado';
 
 const Search = () => {
     const [dateRange, setDateRange] = useState([null, null]);
@@ -21,9 +24,9 @@ const Search = () => {
             </div>
 
             <Formik initialValues={{ city: '', startDate: null, endDate: null }} >
-                <Form id="formSearch">
-                    <Field className="location" name="city" type="text" placeholder="Cidade" />
-                    <AutoComplete />
+                <Form className="formSearch">
+                    {/* <Field className="location" name="city" type="text" placeholder="Cidade" /> */}
+                    <div className="location"><AutoComplete /></div>
                     <div className="date">
                         <DatePicker
                             placeholderText="Check in - Check out"
@@ -42,7 +45,7 @@ const Search = () => {
                         />
                     </div>
 
-                    <button className="buttonSearch" type="submit">Buscar</button>
+                    <Link to={`/produtos/city/${aquiVaiACidade}`}><button className="buttonSearch" type="submit">Buscar</button></Link>
                 </Form>
             </Formik>
         </div>

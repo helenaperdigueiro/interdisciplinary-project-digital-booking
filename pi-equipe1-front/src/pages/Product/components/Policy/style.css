@@ -1,0 +1,35 @@
+#policyContainer {
+    margin-bottom: 5rem;
+    padding: 2rem 0rem 2rem;
+}
+
+#policyTitle {
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px var(--primary-color) solid;
+}
+
+#policyDescription {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    padding: 0rem 2rem 0rem;
+}
+
+#policyDescription p {
+    margin-bottom: 0;
+}
+
+@media only screen and (min-width: 700px) {
+    #policyDescription {
+        grid-template-columns: 2fr 3fr 3fr;
+        column-gap: 2.5rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    #policyDescription {
+        grid-template-columns: 1fr 2fr 2fr;
+        column-gap: 5rem;
+    }
+}

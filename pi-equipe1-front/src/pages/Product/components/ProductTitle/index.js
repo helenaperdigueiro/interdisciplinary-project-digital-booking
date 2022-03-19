@@ -1,9 +1,15 @@
 import './style.css';
+import { useParams } from 'react-router-dom';
+import useAxios from '../../../../hooks/useAxios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const ProductTitle = () => {
+
+    const { productId } = useParams();
+    const product = useAxios(`/product/${productId}`);
+
     return (
         <div id="productTitle">
             <Link to="/">
@@ -14,7 +20,7 @@ const ProductTitle = () => {
 
             <div id="informationsTitle">
                 <p>Hotel</p>
-                <h3>Bermitage Hotel</h3>
+                <h3>{product.name}</h3>
             </div>           
         </div>
     );

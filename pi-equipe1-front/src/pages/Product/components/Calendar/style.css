@@ -73,14 +73,31 @@
     color: white;
     text-align: center;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
+}
+
+.selection button:hover {
+    opacity: 0.9;
+}
+
+@media only screen and (min-width: 370px) {
+    .react-datepicker__header {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+    .react-datepicker__navigation-icon::before {
+        top: 1rem;
+    }
+    .react-datepicker__current-month {
+        font-size: 1rem;
+    }
+    .react-datepicker__day, .react-datepicker__day-name {
+        margin: 0.4rem;
+        font-size: 1rem;
+    }
 }
 
 @media only screen and (min-width: 750px) {
-    .selection {
-        grid-template-columns: 1fr 1fr;
-        column-gap: 2rem;
-    }
     .react-datepicker__header {
         padding: 1rem;
         font-size: 1rem;
@@ -88,11 +105,9 @@
     .react-datepicker__navigation-icon::before {
         top: 1rem;
     }
-    
     .react-datepicker__current-month {
         font-size: 1rem;
     }
-    
     .react-datepicker__day, .react-datepicker__day-name {
         margin: 0.5rem;
         font-size: 1rem;

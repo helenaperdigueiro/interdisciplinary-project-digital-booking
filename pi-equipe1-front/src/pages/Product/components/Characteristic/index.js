@@ -1,17 +1,16 @@
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSink, faSnowflake, faCar, faWifi, faPaw, faTv, faPersonSwimming } from '@fortawesome/free-solid-svg-icons';
-import useAxios from '../../../../hooks/useAxios';
+// import useAxios from '../../../../hooks/useAxios';
 
 const Characteristic = () => {
 
-    const products = useAxios('/product');
-    console.log(products);
+    // const products = useAxios('/product');
 
     return (
         <>
             <div id="charTitle">
-                <h5>O que este lugar oferece?</h5>
+                <h4>O que este lugar oferece?</h4>
             </div>
             <div id="characteristics">
                 <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={faSink} size="lg" /> <p>Cozinha</p></div>
