@@ -8,7 +8,8 @@ import { Helmet } from 'react-helmet-async';
 
 const Products = () => {
     const { filter, productsBy } = useParams();
-    const products = useAxios(`/product/${filter}/${productsBy}`);
+    
+    const products = useAxios(`/product/${filter === 'categoria' ? 'category' : 'city'}/${productsBy}`);
 
     console.log(products);
 
@@ -28,8 +29,10 @@ const Products = () => {
                     <h3>{productsBy}</h3>
                 </div>
             </div>
+            {/* <div id="categorydDescription">
+                <h4>{filter === 'categoria' ? products[1].category.description : " "}</h4>
+            </div> */}
             <div id="products">
-
                 <div id="recommendationsList">
 
                     {products.map(product =>

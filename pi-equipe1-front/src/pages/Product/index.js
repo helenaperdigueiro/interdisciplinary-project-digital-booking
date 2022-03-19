@@ -4,12 +4,11 @@ import useAxios from '../../hooks/useAxios';
 import { ProductContext } from '../../contexts/ProductContext';
 import ProductTitle from './components/ProductTitle';
 import Location from './components/Location';
-import Calendar from './components/Calendar';
+import Image from './components/Image';
+import Description from './components/Description';
 import Characteristic from './components/Characteristic';
 import { Helmet } from 'react-helmet-async';
-import { useContext } from 'react';
-import Description from './components/Description';
-import Image from './components/Image';
+import Calendar from './components/Calendar';
 import Policy from './components/Policy';
 
 const Product = () => {
