@@ -10,6 +10,8 @@ const Products = () => {
     const { filter, productsBy } = useParams();
     const products = useAxios(`/product/${filter}/${productsBy}`);
 
+    console.log(products);
+
     return (
         <>
             <Helmet>

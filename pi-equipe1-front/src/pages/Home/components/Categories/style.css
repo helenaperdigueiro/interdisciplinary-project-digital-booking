@@ -14,6 +14,10 @@
     padding-top: 1rem;
 }
 
+#searchByCategoryTitle h2 {
+    font-weight: 600;
+}
+
 #categories {
     display: grid;
     grid-template-columns: 1fr;
@@ -40,6 +44,10 @@
 .categoryInfo {
     height: 4rem;
     padding: 0.5rem;
+}
+
+.categoryInfo h5 {
+    font-weight: 700;
 }
 
 @media only screen and (min-width: 600px) {

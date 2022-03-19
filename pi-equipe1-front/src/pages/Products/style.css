@@ -1,5 +1,5 @@
 #products {
-    margin: 2rem 3rem 5rem;
+    margin: 2rem 1rem 5rem;
 }
 
 #productsTitle {
@@ -10,4 +10,10 @@
     overflow: hidden;
     background: var(--secondary-color);
     padding-left: 1rem;
+}
+
+@media only screen and (min-width: 760px) {
+    #products {
+        margin: 2rem 3rem 5rem;
+    }
 }

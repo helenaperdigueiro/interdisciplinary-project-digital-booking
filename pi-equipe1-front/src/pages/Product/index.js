@@ -21,7 +21,6 @@ const Product = () => {
     // let product2 = setProductInfo(product);
 
 
-
     // useEffect(() => {
     //     localStorage.setItem('ProductInfo', JSON.stringify([product]));
     //     setProductInfo([product]);

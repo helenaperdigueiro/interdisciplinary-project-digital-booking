@@ -5,7 +5,7 @@ const Policy = () => {
     return (
         <div id="policyContainer">
             <div id="policyTitle">
-                <h3>O que você precisa saber</h3>
+                <h4>O que você precisa saber</h4>
             </div>
             <div id="policyDescription">
                 <div id="houseRules">

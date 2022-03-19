@@ -1,9 +1,7 @@
 import './style.css';
-import useAxios from '../../../../hooks/useAxios';
 
 const Description = () => {
 
-    // const product = useAxios('/product');
     const product = {
         city: {
             name: "Buenos Aires"

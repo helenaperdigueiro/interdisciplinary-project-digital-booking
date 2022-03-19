@@ -19,7 +19,7 @@ const Categories = () => {
                     <img src={category.urlImage} alt="" />
                     <div className="categoryInfo">
                         <h5>{category.title}</h5>
-                        <p>{546 * category.idCategory} resultados</p>
+                        <p>{3 * (543 - (category.idCategory * 63))} resultados</p>
                     </div>
                 </div></Link>
              )}

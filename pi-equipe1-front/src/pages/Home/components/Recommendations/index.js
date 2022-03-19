@@ -19,13 +19,17 @@ const Recommendations = () => {
 
     shuffle(recommendedProducts);
 
+    let randomProducts = recommendedProducts.slice(0, 8);
+
+
+
     return (
         <div id="recommendations">
             <h3>Recomendações</h3>
 
             <div id="recommendationsList">
 
-                {recommendedProducts.map(product =>
+                {randomProducts.map(product =>
 
                     <div key={product.idProduct} id={`recommendation${product.id}`} className="recommendation">
 

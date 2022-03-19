@@ -78,7 +78,7 @@ input:-webkit-autofill:active{
     text-align: center;
     cursor: pointer;
     grid-area: buttonSearch;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .buttonSearch:hover {
