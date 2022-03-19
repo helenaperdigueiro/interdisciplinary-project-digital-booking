@@ -5,9 +5,11 @@ import { ProductContext } from '../../contexts/ProductContext';
 import ProductTitle from './components/ProductTitle';
 import Location from './components/Location';
 import Image from './components/Image';
+import Description from './components/Description';
 import Characteristic from './components/Characteristic';
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async';
 import Calendar from './components/Calendar';
+import Policy from './components/Policy';
 
 const Product = () => {
 
@@ -31,9 +33,10 @@ const Product = () => {
             <ProductTitle />
             <Location />
             <Image />
+            <Description />
             <Characteristic/>
             <Calendar />
-
+            <Policy />
         </>
     );
 };
