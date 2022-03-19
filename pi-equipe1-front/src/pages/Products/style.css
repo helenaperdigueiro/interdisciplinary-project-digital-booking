@@ -12,8 +12,17 @@
     padding-left: 1rem;
 }
 
+#categorydDescription {
+    margin: 1rem 1rem 0.5rem;
+    font-size: 1rem;
+}
+
 @media only screen and (min-width: 760px) {
     #products {
         margin: 2rem 3rem 5rem;
+    }
+
+    #categorydDescription {
+        /* margin: 1rem 2rem 2rem; */
     }
 }

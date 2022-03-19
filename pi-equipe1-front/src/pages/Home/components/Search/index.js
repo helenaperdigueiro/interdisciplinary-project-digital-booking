@@ -45,7 +45,7 @@ const Search = () => {
                         />
                     </div>
 
-                    <Link to={`/produtos/city/${aquiVaiACidade}`}><button className="buttonSearch" type="submit">Buscar</button></Link>
+                    <Link to={`/cidade/${aquiVaiACidade}`}><button className="buttonSearch" type="submit">Buscar</button></Link>
                 </Form>
             </Formik>
         </div>
