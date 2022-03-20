@@ -15,7 +15,7 @@ const Categories = () => {
 
             <div id="categories">
             {categories.map(category => 
-                <Link to={`/produtos/category/${category.title}`}><div key={category.idCategory} className="category">
+                <Link key={category.idCategory} to={`/categoria/${category.title}`}><div  className="category">
                     <img src={category.urlImage} alt="" />
                     <div className="categoryInfo">
                         <h5>{category.title}</h5>

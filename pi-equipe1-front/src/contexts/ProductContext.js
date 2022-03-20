@@ -1,15 +1,15 @@
 import { createContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import useAxios from "../hooks/useAxios";
+// import { useParams } from "react-router-dom";
+// import useAxios from "../hooks/useAxios";
 
 export const ProductContext = createContext([]);
 
 export const ProductContextProvider = props => {
     const [productInfo, setProductInfo] = useState([]);
 
-    const { productId } = useParams();
+    // const { productId } = useParams();
     // const product = useAxios(`/product/${productId}`);
-    const product = useAxios('/product');
+    // const product = useAxios('/product');
 
     // console.log(productId);
     // console.log(product);
