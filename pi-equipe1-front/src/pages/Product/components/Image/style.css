@@ -1,68 +1,5 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
-#galleryThumbnail {
-    display: grid;
-    grid-template-areas:
-        "thumbnailProduct1 thumbnailProduct1 thumbnailProduct2 thumbnailProduct3"
-        "thumbnailProduct1 thumbnailProduct1 thumbnailProduct4 thumbnailProduct5";
-    padding: 1rem 2rem;
-    column-gap: 0.3rem;
-    row-gap: 0.3rem;
-    position: relative;
-}
-
-.thumbnailProduct1 {
-    grid-area: thumbnailProduct1;
-}
-
-.thumbnailProduct2{
-    grid-area: thumbnailProduct2;    
-}
-
-.thumbnailProduct3{
-    grid-area: thumbnailProduct3;
-}
-
-.thumbnailProduct4{
-    grid-area: thumbnailProduct4;  
-}
-
-.thumbnailProduct5{
-    grid-area: thumbnailProduct5;  
-}
-
-.thumbnailImage {
-    width: 100%;
-    border-radius: 0.5rem;
-    object-fit: cover;
-}
-
-#galleryModal {
-    display: flex;
-    justify-content: right;
-    padding-right:2rem;
-    z-index: 4;
-}
-
-.modalButton {
-    width: 7rem;
-    height: 1.5rem;
-    border-radius: 0.2rem;
-    border: none;
-    background-color: transparent;
-    font-weight: 500;
-    color: white;
-    cursor: pointer;
-    z-index: 2;
-    position: absolute;
-    right: 2rem;
-    bottom: 2rem;
-}
-
-.modalButton:hover {
-    opacity: 50%;
-}
-
 .modal-content {
     border: none;
     border-radius: 0;
@@ -71,7 +8,7 @@
 .modal-header {
     border: none;
     margin-bottom: -3rem;
-    z-index: 2;
+    z-index: 1;
 }
 
 .modal-body {
@@ -79,29 +16,154 @@
 }
 
 .image-gallery-index {
-    position: relative;
-    color: var(--secondary-color);
-    background-color: transparent;
+    top:unset;
+    bottom: 0;
     text-align: center;
-    line-height: 0;
-    padding-top: 1rem;
+    line-height: 1;
+    z-index: 0;
 }
 
 .image-gallery-left-nav:hover, .image-gallery-right-nav:hover, .image-gallery-svg:hover {
     color: white;
-    opacity: 70%;
+    opacity: 70%;    
 }
 
-.image-gallery-slides {
-    height: 31rem;
-}
-   
-.image-gallery-image, .image-gallery-thumbnail-image {
-    /* width: 100%; */
+.image-gallery-slide .image-gallery-image {
+    width: 100%;
     object-fit: cover;
 }
 
-.image-gallery-thumbnail-image {
-    border-radius: 0.2rem;
-    height: 4rem;
+.image-gallery-fullscreen-button{
+    padding: 0 1rem 2.5rem 0;
+}
+
+.image-gallery-content.fullscreen .image-gallery-fullscreen-button {
+    padding: 0 1rem 1rem 0;
+}
+
+.image-gallery-content.fullscreen .image-gallery-index  {
+    position: absolute;    
+    background-color: rgb(162, 156, 156);
+    line-height: 0.5;
+    z-index: 0;
+    top: 0;
+    bottom: inherit;
+    background: rgba(0,0,0,.4);
+    color: #fff;
+}
+
+/* @media only screen and (min-width: 625px) {
+    .image-gallery-slide .image-gallery-image {
+        height: 27rem;
+        object-fit: cover;
+    }
+} */
+
+@media only screen and (min-width: 825px) {
+    #galleryThumbnail {
+        display: grid;
+        grid-template-areas:
+        "thumbnailProduct1 thumbnailProduct1 thumbnailProduct2 thumbnailProduct3"
+        "thumbnailProduct1 thumbnailProduct1 thumbnailProduct4 thumbnailProduct5";
+        padding: 1rem 2rem;
+        column-gap: 0.3rem;
+        row-gap: 0.3rem;
+        position: relative;
+    }
+
+    .thumbnailProduct1 {
+        grid-area: thumbnailProduct1;
+    }
+
+    .thumbnailProduct2{
+        grid-area: thumbnailProduct2;    
+    }
+
+    .thumbnailProduct3{
+        grid-area: thumbnailProduct3;
+    }
+
+    .thumbnailProduct4{
+        grid-area: thumbnailProduct4;  
+    }
+
+    .thumbnailProduct5{
+        grid-area: thumbnailProduct5;  
+    }
+
+    .thumbnailImage {
+        height: 100%;
+        width: 100%;
+        border-radius: 0.5rem;
+        object-fit: cover;
+    }
+
+    #galleryModal {
+        display: flex;
+        justify-content: right;
+        padding-right:2rem;
+        z-index: 1;
+    }
+
+    .modalButton {
+        width: 7rem;
+        height: 1.5rem;
+        border-radius: 0.2rem;
+        border: none;
+        background-color: transparent;
+        font-weight: 500;
+        color: white;
+        cursor: pointer;
+        z-index: 1;
+        position: absolute;
+        right: 2rem;
+        bottom: 1.7rem;
+    }
+
+    .modalButton:hover {
+        opacity: 50%;
+    }
+
+    .modal-content {
+        border: none;
+        border-radius: 0;
+    }
+
+    .modal-header {
+        border: none;
+        margin-bottom: -3rem;
+        z-index: 1;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+
+    .image-gallery-index {
+        position: relative;
+        color: var(--secondary-color);
+        background-color: transparent;
+        text-align: center;
+        line-height: 0;
+        padding-top: 1rem;
+    }
+
+    .image-gallery-left-nav:hover, .image-gallery-right-nav:hover, .image-gallery-svg:hover {
+        color: white;
+        opacity: 70%;
+    }
+
+    .image-gallery-image, .image-gallery-thumbnail-image {
+        /* width: 100%; */
+        object-fit: cover;
+    }
+
+    .image-gallery-thumbnail-image {
+        border-radius: 0.2rem;
+        height: 4rem;
+    }
+
+    .image-gallery-image {
+        width: auto;
+    }
 }
