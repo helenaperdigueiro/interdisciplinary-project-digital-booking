@@ -13,7 +13,9 @@ registerLocale("ptBr", ptBr);
 const Search = () => {
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
+
     const mediaQuery = useMediaQuery({ minWidth: 600 });
+    
     const [selectedCity, setSelectedCity] = useState("");
     const isValid = selectedCity && startDate && endDate;
 
@@ -45,7 +47,7 @@ const Search = () => {
                         />
                     </div>
 
-                    <Link to={`/produtos/city/${selectedCity}`}><button className="buttonSearch" type="submit" disabled={!isValid}>Buscar</button></Link>
+                    <Link to={`/cidade/${selectedCity}`}><button className="buttonSearch" type="submit" disabled={!isValid}>Buscar</button></Link>
                 </Form>
             </Formik>
         </div>

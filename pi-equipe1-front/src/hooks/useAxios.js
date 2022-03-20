@@ -15,8 +15,7 @@ const useAxios = (url) => {
                     title: "Ops!",
                     icon: 'error',
                     text: 'Algo deu errado',
-                    html:
-                        'Algo deu <b>errado!</b>' +
+                    html: 'Algo deu <b>errado!</b>' +
                         '<br>' +
                         error,
                     confirmButtonColor: '#000000'

@@ -20,7 +20,7 @@ const RouteList = () => (
                         <Route path='/' element={<Home />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/cadastro' element={<Register />} />
-                        <Route path='/produtos/:filter/:productsBy' element={<Products />} />
+                        <Route path='/:filter/:productsBy' element={<Products />} />
                         <Route path='/produto/:productId' element={<Product />} />
                     </Routes>
                     <Footer />
