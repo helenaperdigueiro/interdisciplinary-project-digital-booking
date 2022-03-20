@@ -14,8 +14,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idProduct")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idProduct")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
 
     @Id
@@ -29,22 +29,22 @@ public class Product {
     private String description;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    @JsonIgnoreProperties("product")
+//    @JsonIgnoreProperties("product")
     private List<Image> images;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @JsonIgnoreProperties("products")
+//    @JsonIgnoreProperties("products")
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")
-    @JsonIgnoreProperties("products")
+//    @JsonIgnoreProperties("products")
     private City city;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "product_characteristic", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "characteristic_id"))
-    @JsonIgnoreProperties("products")
+//    @JsonIgnoreProperties("products")
     private Set<Characteristic> characteristics;
 
 }
