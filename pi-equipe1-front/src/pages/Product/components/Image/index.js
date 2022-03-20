@@ -72,7 +72,7 @@ const Image = () => {
                             showThumbnails={true}
                             thumbnailPosition={"bottom"}
                             showPlayButton={false}
-                            showFullscreenButton={false}
+                            showFullscreenButton={true}
                             showIndex={true}
                         />
                                         

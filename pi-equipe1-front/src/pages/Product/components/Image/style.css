@@ -93,7 +93,8 @@
 }
 
 .image-gallery-slides {
-    height: 31rem;
+    /* height: 31rem; */
+
 }
    
 .image-gallery-image, .image-gallery-thumbnail-image {
