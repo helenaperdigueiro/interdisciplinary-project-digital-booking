@@ -48,7 +48,7 @@ const Image = () => {
 
     return (
         <div>
-            {mediaQuery ?
+            {mediaQuery && product.images ?
 
                 <ImageGallery
                     items={product.images}
