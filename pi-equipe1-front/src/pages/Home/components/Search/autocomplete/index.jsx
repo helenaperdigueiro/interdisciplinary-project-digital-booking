@@ -1,16 +1,19 @@
 import './style.css'
 import Downshift from 'downshift';
 import api from '../../../../../services/api.js';
+import useAxios from '../../../../../hooks/useAxios';
 
-const dataCity = [];
+// const dataCity = [];
 
-api(`/city`).then((response) => {
-    dataCity.push(...response.data)
-}).catch((error) => {
-    console.error(error)
-})
+// api(`/city`).then((response) => {
+//     dataCity.push(...response.data)
+// }).catch((error) => {
+//     console.error(error)
+// })
 
 const AutoComplete = ({onChange}) => {
+
+    const dataCity = useAxios('/city');
 
     return (
         <Downshift onChange={onChange} itemToString={dataCity => (dataCity ? dataCity.name : '')}>

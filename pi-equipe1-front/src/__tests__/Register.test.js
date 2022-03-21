@@ -59,6 +59,7 @@ test('Register with incorrect email', async () => {
         expect(screen.getByText('Email inválido')).toBeInTheDocument()
     })
 })
+
 test('Register with email does not match', async () => {
 
     const handleSubmit = jest.fn()
@@ -73,15 +74,16 @@ test('Register with email does not match', async () => {
     userEvent.type(screen.getByLabelText(/Nome/), 'User')
     userEvent.type(screen.getByLabelText(/Sobrenome/), 'Last Name')
     userEvent.type(screen.getByLabelText(/Email/), 'usere@mail.com')
-    userEvent.type(screen.getByLabelText(/Confirmar email/), 'usere@mail.com')
-    userEvent.type(screen.getByLabelText(/Senha/), '123456')
+    userEvent.type(screen.getByLabelText(/Confirmar email/), 'user@mail.com')
+    userEvent.type(screen.getByLabelText(/Senha/), '123456679')
 
     userEvent.click(screen.getByRole('button', { name: /Registrar/ }))
 
     await waitFor(() => {
-        expect(screen.getByText('A senha deve ter no mínimo 7 caracteres')).toBeInTheDocument()
+        expect(screen.getByText('Email não coincide')).toBeInTheDocument()
     })
 })
+
 test('Register with invalid name', async () => {
 
     const handleSubmit = jest.fn()
@@ -104,7 +106,7 @@ test('Register with invalid name', async () => {
     await waitFor(() => {
         expect(screen.getByText('Obrigatório')).toBeInTheDocument()
     })
-})
+}) 
 
 test('Register with min password length', async () => {
 
@@ -127,5 +129,77 @@ test('Register with min password length', async () => {
 
     await waitFor(() => {
         expect(screen.getByText('A senha deve ter no mínimo 7 caracteres')).toBeInTheDocument()
+    })
+})
+
+test('Register with name above character limit', async () => {
+
+    const handleSubmit = jest.fn()
+    render(
+        <BrowserRouter>
+            <HelmetProvider>
+                <Register onSubmit={handleSubmit} />
+            </HelmetProvider>
+        </BrowserRouter>
+    )
+
+    userEvent.type(screen.getByLabelText(/Nome/), 'CarolinaHakamada')
+    userEvent.type(screen.getByLabelText(/Sobrenome/), 'Last Name')
+    userEvent.type(screen.getByLabelText(/Email/), 'usere@mail.com')
+    userEvent.type(screen.getByLabelText(/Confirmar email/), 'user@email.com')
+    userEvent.type(screen.getByLabelText(/Senha/), '12345679')
+
+    userEvent.click(screen.getByRole('button', { name: /Registrar/ }))
+
+    await waitFor(() => {
+        expect(screen.getByText('Deve conter no máximo 15 letras')).toBeInTheDocument()
+    })
+}) 
+
+test('Register with surname above character limit', async () => {
+
+    const handleSubmit = jest.fn()
+    render(
+        <BrowserRouter>
+            <HelmetProvider>
+                <Register onSubmit={handleSubmit} />
+            </HelmetProvider>
+        </BrowserRouter>
+    )
+
+    userEvent.type(screen.getByLabelText(/Nome/), 'Carolina')
+    userEvent.type(screen.getByLabelText(/Sobrenome/), 'CarolinaMontesinosHakamada')
+    userEvent.type(screen.getByLabelText(/Email/), 'usere@mail.com')
+    userEvent.type(screen.getByLabelText(/Confirmar email/), 'user@email.com')
+    userEvent.type(screen.getByLabelText(/Senha/), '12345679')
+
+    userEvent.click(screen.getByRole('button', { name: /Registrar/ }))
+
+    await waitFor(() => {
+        expect(screen.getByText('Deve conter no máximo 20 letras')).toBeInTheDocument()
+    })
+})
+
+test('Register valid inputs', async () => {
+
+    const handleSubmit = jest.fn()
+    render(
+        <BrowserRouter>
+            <HelmetProvider>
+                <Register onSubmit={handleSubmit} />
+            </HelmetProvider>
+        </BrowserRouter>
+    )
+
+    userEvent.type(screen.getByLabelText(/Nome/), 'Carolina')
+    userEvent.type(screen.getByLabelText(/Sobrenome/), 'Hakamada')
+    userEvent.type(screen.getByLabelText(/Email/), 'usere@mail.com')
+    userEvent.type(screen.getByLabelText(/Confirmar email/), 'user@email.com')
+    userEvent.type(screen.getByLabelText(/Senha/), '12345679')
+
+    userEvent.click(screen.getByRole('button', { name: /Registrar/ }))
+
+    await waitFor(() => {
+        expect(screen.queryByText('Obrigatório')).not.toBeInTheDocument()
     })
 })

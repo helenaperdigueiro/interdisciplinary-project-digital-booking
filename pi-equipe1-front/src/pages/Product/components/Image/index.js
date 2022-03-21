@@ -4,20 +4,12 @@ import useAxios from '../../../../hooks/useAxios';
 import { useState } from "react";
 import { Modal } from "react-bootstrap"
 import ImageGallery from 'react-image-gallery';
-import useAxios from '../../../../hooks/useAxios';
-import { useParams } from 'react-router-dom';
 
 import { useMediaQuery } from 'react-responsive';
 
 const Image = () => {
     const { productId } = useParams();
     const product = useAxios(`/product/${productId}`);
-
-    const { productId } = useParams();
-    const product = useAxios(`/product/${productId}`);
-
-    // console.log(product);
-    // console.log(product.images);
 
     const [show, setShow] = useState(false);
 

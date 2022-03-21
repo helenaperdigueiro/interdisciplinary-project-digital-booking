@@ -1,7 +1,7 @@
 import './style.css';
 import { useParams } from 'react-router-dom';
 import useAxios from '../../hooks/useAxios';
-import { useProductContext } from '../../contexts/ProductContext';
+import ProductContext, { useProductContext } from '../../contexts/ProductContext';
 import ProductTitle from './components/ProductTitle';
 import Location from './components/Location';
 import Image from './components/Image';
@@ -11,18 +11,46 @@ import { Helmet } from 'react-helmet-async';
 import Calendar from './components/Calendar';
 import Map from './components/Map';
 import Policy from './components/Policy';
+import { useContext, useEffect } from 'react';
+
+
 
 const Product = () => {
-
-    const { product, setProduct } = useProductContext();
-
     const { productId } = useParams();
     const product1 = useAxios(`/product/${productId}`);
 
-    localStorage.setItem('product', JSON.stringify({product1}));
+    const { product, setProduct } = useProductContext();
+
+    // const { product } = useContext(ProductContext);
+    
+
+    // useEffect(() => { 
+    //     localStorage.setItem('product', JSON.stringify(product1))}, [product1]);
 
     setProduct(product1);
-    console.log(product);
+    // console.log(product);
+
+
+    //Aqui
+
+        // const { productInfo, setProductInfo } = useContext(ProductContext);
+    // let product2 = setProductInfo(product);
+
+    // localStorage.setItem('signed', JSON.stringify([values.email]));
+    // setUser([values.email])
+
+
+    // useEffect((setProduct) => {
+    //     localStorage.setItem('product', JSON.stringify(product));
+    //     setProduct([product]);
+    // }, [product]);
+
+
+    //até aqui
+
+
+
+
 
     return (
         <>
