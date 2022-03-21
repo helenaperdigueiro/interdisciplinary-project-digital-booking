@@ -19,7 +19,7 @@ const ProductTitle = () => {
             </Link>
 
             <div id="informationsTitle">
-                <p>Hotel</p>
+                <p>{product.category?.title}</p>
                 <h3>{product.name}</h3>
             </div>           
         </div>

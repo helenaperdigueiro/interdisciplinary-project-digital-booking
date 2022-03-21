@@ -60,7 +60,7 @@ const Image = () => {
                                 product.images?.map( (productImage, index) => {
                                     return (
                                         <div className={`thumbnailProduct${index + 1}`} key={index}>
-                                            <img className="thumbnailImage" src={productImage.url} alt="" />
+                                            <img className="thumbnailImage" src={productImage.original} alt="" />
                                         </div>
                                     )
                                 })
