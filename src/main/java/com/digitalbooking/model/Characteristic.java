@@ -17,7 +17,7 @@ public class Characteristic {
     @Column(length = 50, nullable = false)
     private String name;
 
-    @Column(length = 300, nullable = false)
+    @Column(length = 3000, nullable = false)
     private String url;
 
     @ManyToMany(mappedBy = "characteristics", fetch = FetchType.LAZY)

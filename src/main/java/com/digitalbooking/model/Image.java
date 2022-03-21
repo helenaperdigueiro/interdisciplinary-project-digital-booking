@@ -17,7 +17,10 @@ public class Image {
     private String title;
 
     @Column(length = 300, nullable = false)
-    private String url;
+    private String original;
+
+    @Column(length = 300, nullable = false)
+    private String thumbnail;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
