@@ -2,12 +2,14 @@ import './style.css';
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { useProductContext } from '../../../../contexts/ProductContext';
 
 const Location = () => {
 
+    const { product } = useProductContext();
+
     const [rating, setRating] = useState(4);
     const [hover, setHover] = useState(0);
-    // console.log(rating);
 
     return (
         <div id="locationProduct">
@@ -15,8 +17,8 @@ const Location = () => {
                 <FontAwesomeIcon icon={faLocationDot} />
 
                 <div id="adress">
-                    <p>Buenos Aires, Argentina</p>
-                    <p>Cidade Autônoma de Buenos Aires</p>
+                    <p>{ product.city?.name }, { product.city?.country }</p>
+                    <p>Cidade de { product.city?.name }</p>
                     <p>940 m para o centro</p>
                 </div>
             </div>

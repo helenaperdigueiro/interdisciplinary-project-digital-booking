@@ -1,14 +1,12 @@
 import './style.css';
-import { useParams } from 'react-router-dom';
-import useAxios from '../../../../hooks/useAxios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { useProductContext } from '../../../../contexts/ProductContext';
 
 const ProductTitle = () => {
 
-    const { productId } = useParams();
-    const product = useAxios(`/product/${productId}`);
+    const { product } = useProductContext();
 
     return (
         <div id="productTitle">
@@ -27,25 +25,3 @@ const ProductTitle = () => {
 };
 
 export default ProductTitle;
-
-
-// const testo = async product => {
-//     return (
-//         <div id="productTitle">
-//             <Link to="/">
-//                 <button id="previousButton">
-//                     <FontAwesomeIcon icon={ faChevronLeft } />
-//                 </button>
-//             </Link>
-
-//             <div id="informationsTitle">
-//                 <p>{product.category.title}</p>
-//                 <h3>{product.name}</h3>
-//             </div>           
-//         </div>
-//     )
-//     await sleep(500)
-
-// }
-
-// testo();
