@@ -15,7 +15,8 @@ const Location = () => {
                 <FontAwesomeIcon icon={faLocationDot} />
 
                 <div id="adress">
-                    <p>Buenos Aires, Cidade Autônoma de Buenos Aires, Argentina</p>
+                    <p>Buenos Aires, Argentina</p>
+                    <p>Cidade Autônoma de Buenos Aires</p>
                     <p>940 m para o centro</p>
                 </div>
             </div>

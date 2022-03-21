@@ -14,7 +14,6 @@
     background-position: 1.5% 50%;
 }
 
-
 #searchBrowserTitle {
     display: flex;
     justify-content: center;
@@ -136,7 +135,7 @@ input:-webkit-autofill:active{
     }
 
     .buttonSearch {
-        width: auto;
+        width: 100%;
     }
 }
 
@@ -147,7 +146,7 @@ input:-webkit-autofill:active{
     }
 
     .buttonSearch {
-        width: auto;
+        width: 100%;
     } 
 }
 

@@ -21,7 +21,7 @@ const Recommendations = () => {
 
     let randomProducts = recommendedProducts.slice(0, 8);
 
-
+    
 
     return (
         <div id="recommendations">
@@ -33,7 +33,7 @@ const Recommendations = () => {
 
                     <div key={product.idProduct} id={`recommendation${product.id}`} className="recommendation">
 
-                        <img src={product.images[0].url} alt="" />
+                        <img src={product.images[0]?.original} alt="" />
 
                         <div className="recommendationInfo">
                             <p>{product.category.title}</p>
