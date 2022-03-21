@@ -9,16 +9,7 @@ import { Helmet } from 'react-helmet-async';
 const Products = () => {
     const { filter, productsBy } = useParams();
 
-
     const products = (useAxios(`/product/${filter === 'categoria' ? 'category' : 'city'}/${productsBy}`));
-    
-    // console.log(products);
-
-    // if(products === undefined) {
-    //     return ( <div>Aqui</div> );
-    // }
-
-
 
     return (
         <>
@@ -37,11 +28,6 @@ const Products = () => {
                 </div>
             </div>
 
-            {/* <div id="categorydDescription">
-                       
-                        <h4>{filter === 'categoria' ? products[0].category.description : " "}</h4>
-                    </div> */}
-
             <div id="products">
                 <div id="recommendationsList">
 
@@ -58,13 +44,8 @@ const Products = () => {
                                 <p className="description">{product.description}</p>
                                 <Link to={`/produto/${product.idProduct}`}><button>Ver detalhes</button></Link>
                             </div>
-
-                        </div>
-                        
+                        </div>  
                     )}
-
-
-
                 </div>
             </div>
         </>

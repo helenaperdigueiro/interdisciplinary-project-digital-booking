@@ -1,11 +1,32 @@
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSink, faSnowflake, faCar, faWifi, faPaw, faTv, faPersonSwimming } from '@fortawesome/free-solid-svg-icons';
-// import useAxios from '../../../../hooks/useAxios';
+import { useProductContext } from '../../../../contexts/ProductContext';
 
 const Characteristic = () => {
 
-    // const products = useAxios('/product');
+    const { product } = useProductContext();
+
+    const convert = (url) => {
+        switch(url) {
+            case 'faSink':
+                return faSink;
+            case 'faSnowflake':
+                return faSnowflake;
+            case 'faCar':
+                return faCar;
+            case 'faWifi':
+                return faWifi;
+            case 'faPaw':
+                return faPaw;
+            case 'faTv':
+                return faTv;
+            case 'faPersonSwimming':
+                return faPersonSwimming;
+            default:
+                return "";
+        }
+    }
 
     return (
         <>
@@ -13,13 +34,11 @@ const Characteristic = () => {
                 <h4>O que este lugar oferece?</h4>
             </div>
             <div id="characteristics">
-                <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={faSink} size="lg" /> <p>Cozinha</p></div>
-                <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={faSnowflake} size="lg" /> <p>Ar Condicionado</p></div>
-                <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={faCar} size="lg" /> <p>Estacionamento</p></div>
-                <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={faWifi} size="lg" /> <p>Wifi</p></div>
-                <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={faPaw} size="lg" /> <p>Aceita Pets</p></div>
-                <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={faTv} size="lg" /> <p>Televisão</p></div>
-                <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={faPersonSwimming} size="lg" /> <p>Piscina</p></div>
+                            {product.characteristics?.map(({ idCharacteristic, url, name })  =>
+            <div key={idCharacteristic}>
+                <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={convert(url)} size="lg" /><p>{name}</p></div>
+            </div> )
+            }
             </div>
         </>
     );

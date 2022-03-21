@@ -1,8 +1,6 @@
 import { useProductContext } from '../../../../contexts/ProductContext';
 import './style.css';
 
-
-
 const Description = () => {
 
     const { product } = useProductContext();

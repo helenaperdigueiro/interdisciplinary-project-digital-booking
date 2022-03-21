@@ -44,19 +44,19 @@ const Register = ({ onSubmit }) => {
                     <Form className="acessForm">
                         <label htmlFor="name">Nome</label>
                         <Field className="field" name="name" type="text" id="name"/>
-                        <div className="errorMessage">
-                            <ErrorMessage name="name">{msg => msg ? msg : ""}</ErrorMessage>
+                        <div title="testo" className="errorMessage">
+                            <ErrorMessage  name="name">{msg => msg ? msg : ""}</ErrorMessage>
                         </div>
 
                         <label htmlFor="surname">Sobrenome</label>
                         <Field className="field" name="surname" type="text" id="surname"/>
-                        <div className="errorMessage">
+                        <div title="testo2" className="errorMessage">
                             <ErrorMessage name="surname">{msg => msg ? msg : ""}</ErrorMessage>
                         </div>
 
                         <label htmlFor="email">Email</label>
                         <Field className="field" name="email" type="email" id="email"/>
-                        <div className="errorMessage">
+                        <div title="testo3" className="errorMessage">
                             <ErrorMessage name="email">{msg => msg ? msg : ""}</ErrorMessage>
                         </div>
 
