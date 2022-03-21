@@ -13,7 +13,7 @@ test('login with correct info', async () => {
   userEvent.type(screen.getByLabelText(/email/i), 'ca_haka@gmail.com')
   userEvent.type(screen.getByLabelText(/senha/i), 'cahakas')
 
-  userEvent.click(screen.getByRole('button', { name: /entrar/i }))
+  userEvent.click(screen.getByRole('button', { name: /entrar/i })) 
 
   await waitFor(() =>
     expect(handleSubmit).toHaveBeenCalledWith({

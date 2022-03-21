@@ -6,7 +6,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from '../pages/Register';
 import UserProvider from '../contexts/UserContext';
-import { ProductContextProvider } from '../contexts/ProductContext';
+import ProductContextProvider from '../contexts/ProductContext';
 import Products from '../pages/Products';
 import Product from '../pages/Product';
 

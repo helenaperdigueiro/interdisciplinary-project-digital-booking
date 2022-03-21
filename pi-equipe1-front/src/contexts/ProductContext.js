@@ -1,48 +1,20 @@
-import { createContext, useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import useAxios from "../hooks/useAxios";
+import { createContext, useContext, useState, useEffect } from "react";
 
-export const ProductContext = createContext([]);
+const ProductContext = createContext();
 
-export const ProductContextProvider = props => {
-    const [productInfo, setProductInfo] = useState([]);
+export default function ProductProvider({children}) {
+    const storage = localStorage.getItem('product');
+    const [ product, setProduct ] = useState(storage);
 
-    // const { productId } = useParams();
-    // const product = useAxios(`/product/${productId}`);
-    // const product = useAxios('/product');
+    return <ProductContext.Provider value={{ product, setProduct }}>{children}</ProductContext.Provider>;
+};
 
-    // console.log(productId);
-    // console.log(product);
+export function useProductContext() {
+    const context = useContext(ProductContext);
 
-    // const deleteItem = id => {
-    //     deleteItemsAxios(id).then(() => {
-    //         setProductInfo(items => items.filter(item => item.id !== id));
-    //     });
-    // };
+    const { product, setProduct } = context;
 
-    useEffect(() => {
-        const fetchItems = async () => {
-            const items_fetched = localStorage.getItem('productInfo');
-
-            if (items_fetched) {
-                setProductInfo(items_fetched);
-            } else {
-                // Something went wrong
-            }
-        };
-
-        fetchItems();
-    }, []);
-
-    return (
-        <ProductContext.Provider
-            value={{
-                productInfo, setProductInfo
-            }}
-        >
-            {props.children}
-        </ProductContext.Provider>
-    );
+    return { product, setProduct };
 };
 
 

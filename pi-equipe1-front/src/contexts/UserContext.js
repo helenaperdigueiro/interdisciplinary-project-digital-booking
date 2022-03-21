@@ -16,5 +16,5 @@ export function useUserContext() {
 
     const { user, setUser } = context;
 
-    return { user, setUser }
+    return { user, setUser };
 }

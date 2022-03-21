@@ -12,7 +12,7 @@ const Products = () => {
 
     const products = (useAxios(`/product/${filter === 'categoria' ? 'category' : 'city'}/${productsBy}`));
     
-    console.log(products);
+    // console.log(products);
 
     // if(products === undefined) {
     //     return ( <div>Aqui</div> );

@@ -1,7 +1,7 @@
 import './style.css';
 import { useParams } from 'react-router-dom';
 import useAxios from '../../hooks/useAxios';
-// import { ProductContext } from '../../contexts/ProductContext';
+import { useProductContext } from '../../contexts/ProductContext';
 import ProductTitle from './components/ProductTitle';
 import Location from './components/Location';
 import Image from './components/Image';
@@ -14,13 +14,20 @@ import Policy from './components/Policy';
 
 const Product = () => {
 
+    const { product, setProduct } = useProductContext();
+
     const { productId } = useParams();
-    const product = useAxios(`/product/${productId}`);
+    const product1 = useAxios(`/product/${productId}`);
+
+    localStorage.setItem('product', JSON.stringify({product1}));
+
+    setProduct(product1);
+    console.log(product);
 
     return (
         <>
             <Helmet>
-                <title>{`db | ${product.name}`}</title>
+                <title>{`db | ${product1.name}`}</title>
             </Helmet>
             <ProductTitle />
             <Location />
