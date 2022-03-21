@@ -23,11 +23,14 @@ const Product = () => {
 
     // const { product } = useContext(ProductContext);
     
+    useEffect(() => {
+            localStorage.setItem('product', JSON.stringify(product1));
+            setProduct([product1]);
+        }, [product1, setProduct]);
 
-    // useEffect(() => { 
-    //     localStorage.setItem('product', JSON.stringify(product1))}, [product1]);
-
-    setProduct(product1);
+    // localStorage.setItem('product', JSON.stringify(product1));
+    
+    // setProduct(product1);
     // console.log(product);
 
 
@@ -36,7 +39,7 @@ const Product = () => {
         // const { productInfo, setProductInfo } = useContext(ProductContext);
     // let product2 = setProductInfo(product);
 
-    // localStorage.setItem('signed', JSON.stringify([values.email]));
+
     // setUser([values.email])
 
 
