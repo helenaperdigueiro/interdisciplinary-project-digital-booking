@@ -28,7 +28,10 @@ const Image = () => {
                     showPlayButton={false}
                     showFullscreenButton={false}
                     showIndex={true}
-                    slideInterval={3000}
+                    autoPlay={true}
+                    slideDuration={3000}
+                    // showBullets={true}
+                    // showNav={false}
                 />
 
                 :

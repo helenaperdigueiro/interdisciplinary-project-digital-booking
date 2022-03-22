@@ -9,7 +9,7 @@ const Location = () => {
     const { product } = useProductContext();
 
     const [rating, setRating] = useState(4);
-    const [hover, setHover] = useState();
+    // const [hover, setHover] = useState();
 
     return (
         <div id="locationProduct">
@@ -33,10 +33,10 @@ const Location = () => {
                             <button id="ratingButton"
                                 type="button"
                                 key={index}
-                                className={index <= (hover || rating) ? "on" : "off"}
+                                className={index <= ( rating) ? "on" : "off"}
                                 onClick={() => setRating(index)}
-                                onMouseEnter={() => setHover(index)}
-                                onMouseLeave={() => setHover(rating)}
+                                // onMouseEnter={() => setHover(index)}
+                                // onMouseLeave={() => setHover(rating)}
                             >
                                 <div className="star">&#9733;</div>
                             </button>
