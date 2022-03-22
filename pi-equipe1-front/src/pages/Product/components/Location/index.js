@@ -9,7 +9,7 @@ const Location = () => {
     const { product } = useProductContext();
 
     const [rating, setRating] = useState(4);
-    const [hover, setHover] = useState(0);
+    const [hover, setHover] = useState();
 
     return (
         <div id="locationProduct">
