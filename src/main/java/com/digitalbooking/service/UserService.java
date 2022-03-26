@@ -34,16 +34,16 @@ public class UserService {
                 });
     }
 
-    public User getById(Integer idProduct) {
-        return repository.getById(idProduct);
+    public User getById(Integer id) {
+        return repository.getById(id);
     }
 
     public List<User> findAll() {
         return repository.findAll();
     }
 
-    public void deleteById(Integer idUser) {
-        repository.deleteById(idUser);
+    public void deleteById(Integer id) {
+        repository.deleteById(id);
     }
 }
 
