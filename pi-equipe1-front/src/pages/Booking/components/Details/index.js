@@ -7,7 +7,6 @@ import { useState } from "react";
 const Details = () => {
 
     const { product } = useProductContext();
-    console.log(product)
 
     const [rating, setRating] = useState(4);
     const [hover, setHover] = useState();
@@ -47,7 +46,7 @@ const Details = () => {
                     <div className="location">
                         <FontAwesomeIcon icon={faLocationDot} />
 
-                        <p>{product.city?.name}, {product.city?.country}</p>
+                        <p>{product.city.name}, {product.city.country}</p>
                     </div>
 
                     <div className="checkIn">

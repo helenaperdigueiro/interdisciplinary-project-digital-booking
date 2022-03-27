@@ -10,11 +10,11 @@ const ProductTitle = () => {
 
     return (
         <div id="productTitle">
-            <Link to="/">
+            <a href="javascript:history.back()">
                 <button id="previousButton">
                     <FontAwesomeIcon icon={ faChevronLeft } />
                 </button>
-            </Link>
+            </a>
 
             <div id="informationsTitle">
                 <p>{product.category?.title}</p>
