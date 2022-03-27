@@ -37,6 +37,7 @@ const Image = () => {
                     <div id="galleryThumbnail">
                         {
                             product.images?.map((productImage, index) => {
+                               
                                 return (
                                     <div className={`thumbnailProduct${index + 1}`} key={index}>
                                         <img className="thumbnailImage" src={productImage.original} alt="" />
@@ -54,6 +55,7 @@ const Image = () => {
                         <Modal show={show} onHide={handleClose} size="lg" centered>
 
                             <Modal.Header bsPrefix="modal-header" closeButton></Modal.Header>
+                            
                             <Modal.Body bsPrefix="modal-body">
 
                                 <ImageGallery

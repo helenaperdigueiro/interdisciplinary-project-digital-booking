@@ -1,0 +1,119 @@
+#details {
+    display: grid;
+    margin: 1rem;
+}
+
+#bookingDetails {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem #b8b8b8;
+    overflow: hidden;
+    height: auto; 
+}
+
+#bookingDetails h4 {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+
+#bookingDetails img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#bookingInfo {
+    padding: 0.5rem 1rem 1rem
+}
+
+#bookingInfo p {
+    font-family: 'Oxygen', sans-serif;
+    margin: 0;
+}
+
+#bookingInfo h5{
+    font-weight: 600;
+    margin: 0;
+}
+
+#bookingInfo .ratingButton{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#bookingInfo .location {
+    display: flex;
+    border-bottom: 1px var(--primary-color) solid;
+    padding-bottom: 1rem;
+}
+
+#bookingInfo .location svg {
+    padding: 0.2rem 0.3rem 0 0;
+}
+
+.checkIn, .checkOut {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px var(--primary-color) solid;
+    padding: 0.5rem 0;
+}
+
+#bookingInfo button {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    background: var(--primary-color);
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+#bookingInfo button:hover {
+    opacity: 0.9;
+}
+
+@media only screen and (min-width: 600px) {
+    #bookingInfo {
+        padding: 2.5rem 1rem 1rem;
+    }
+    
+    #bookingDetails {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #bookingDetails img {
+        height: 15.5rem;
+    }
+}
+
+ @media only screen and (min-width: 900px) {
+    #details {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    #details h4 {
+        padding: 0.5rem;
+    }
+
+    #bookingDetails {
+        display: grid;
+        grid-column: 2;
+        grid-template-columns: 1fr;   
+    }
+
+    #bookingDetails img {
+        height: auto;
+    }
+
+    #bookingInfo {
+        padding: 0.5rem 1rem 1rem;
+    }
+}

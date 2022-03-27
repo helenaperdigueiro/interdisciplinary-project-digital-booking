@@ -138,6 +138,10 @@
         flex-direction: row;
         padding: 1rem 2rem 1rem;
     }
+
+    .selection a {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 870px) {

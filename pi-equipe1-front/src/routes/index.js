@@ -9,6 +9,7 @@ import UserProvider from '../contexts/UserContext';
 import ProductContextProvider from '../contexts/ProductContext';
 import Products from '../pages/Products';
 import Product from '../pages/Product';
+import Booking from '../pages/Booking';
 
 const RouteList = () => (
     <BrowserRouter>
@@ -22,6 +23,7 @@ const RouteList = () => (
                         <Route path='/cadastro' element={<Register />} />
                         <Route path='/:filter/:productsBy' element={<Products />} />
                         <Route path='/produto/:productId' element={<Product />} />
+                        <Route path='/produto/:productId/reserva' element={<Booking />} />
                     </Routes>
                     <Footer />
                 </ProductContextProvider>
