@@ -5,7 +5,7 @@ import { Formik, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import ptBr from "date-fns/locale/pt-BR"
 import "react-datepicker/dist/react-datepicker.css";
-import AutoComplete from './Autocomplete/index';
+import AutoComplete from './autocomplete/index';
 import { Link } from 'react-router-dom';
 
 registerLocale("ptBr", ptBr);
