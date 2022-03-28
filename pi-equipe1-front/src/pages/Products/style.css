@@ -12,6 +12,13 @@
     padding-left: 1rem;
 }
 
+#homeButton {
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+    height: 100%;
+}
+
 #categorydDescription {
     margin: 1rem 1rem 0.5rem;
     font-size: 1rem;

@@ -14,6 +14,11 @@ const Calendar = () => {
 
     const mediaQuery = useMediaQuery({ minWidth: 750 });
 
+    // const isWeekday = (date) => {
+    //     const day = getDay(date);
+    //     return day !== 1 && day !== 6;
+    // }
+
     return (
         <div className="availableDates">
             <h2>Datas disponíveis</h2>
@@ -31,6 +36,7 @@ const Calendar = () => {
                     }}
                     locale="ptBr"
                     inline
+                    // filterDate={isWeekday}
                 />
                 </div>
                 <div className="selection">
