@@ -19,7 +19,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idProduct;
+    private Integer id;
 
     @Column(length = 100, nullable = false)
     private String name;
@@ -45,5 +45,9 @@ public class Product {
     @JoinTable(name = "product_characteristic", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "characteristic_id"))
     @JsonIgnoreProperties("products")
     private Set<Characteristic> characteristics;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    @JsonIgnoreProperties("product")
+    private List<Reservation> reservations;
 
 }

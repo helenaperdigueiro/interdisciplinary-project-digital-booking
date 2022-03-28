@@ -1,24 +1,24 @@
 package com.digitalbooking.service;
 
-import com.digitalbooking.model.User;
-import com.digitalbooking.repository.IUserRepository;
+import com.digitalbooking.model.UserAccount;
+import com.digitalbooking.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserAccountService {
 
     @Autowired
-    private IUserRepository repository;
+    private UserAccountRepository repository;
 
-    public User save(User user) {
+    public UserAccount save(UserAccount user) {
 
         return repository.save(user);
     }
 
-    public User editById(User editedUser, Integer id) {
+    public UserAccount editById(UserAccount editedUser, Integer id) {
 
         return repository.findById(id)
                 .map(user -> {
@@ -34,11 +34,11 @@ public class UserService {
                 });
     }
 
-    public User getById(Integer id) {
+    public UserAccount getById(Integer id) {
         return repository.getById(id);
     }
 
-    public List<User> findAll() {
+    public List<UserAccount> findAll() {
         return repository.findAll();
     }
 

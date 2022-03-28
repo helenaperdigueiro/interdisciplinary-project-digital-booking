@@ -1,7 +1,7 @@
 package com.digitalbooking.service;
 
 import com.digitalbooking.model.Role;
-import com.digitalbooking.repository.IRoleRepository;
+import com.digitalbooking.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class RoleService {
     @Autowired
-    private IRoleRepository repository;
+    private RoleRepository repository;
 
     public Role save(Role role) {
         return repository.save(role);

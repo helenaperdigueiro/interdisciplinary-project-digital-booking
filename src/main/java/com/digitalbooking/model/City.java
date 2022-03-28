@@ -12,7 +12,7 @@ public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCity;
+    private Integer id;
 
     @Column(length = 50, nullable = false)
     private String name;

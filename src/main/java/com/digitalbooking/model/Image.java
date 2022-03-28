@@ -11,7 +11,7 @@ public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idImage;
+    private Integer id;
 
     @Column(length = 50, nullable = false)
     private String title;
