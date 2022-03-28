@@ -1,5 +1,6 @@
 package com.digitalbooking.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,4 +25,9 @@ public class UserAccount {
 
     @Column(length = 100, nullable = false)
     private String password;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id")
+    @JsonIgnoreProperties("userAccount")
+    private Role role;
 }
