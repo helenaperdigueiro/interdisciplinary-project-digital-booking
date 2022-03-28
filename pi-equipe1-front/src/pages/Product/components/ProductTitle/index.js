@@ -1,9 +1,7 @@
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import { createBrowserHistory } from "history";
-// import history from 'history/browser';
 import { useProductContext } from '../../../../contexts/ProductContext';
 
 const ProductTitle = () => {
