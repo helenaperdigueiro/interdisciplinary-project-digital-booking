@@ -19,7 +19,7 @@ const Register = ({ onSubmit }) => {
     return (
         <>
             <Helmet>
-                <title>db | Cadastro</title>
+                <title>Cadastro</title>
             </Helmet>
             <div id="register">
                 <h2 className='formTitle'>Cadastro</h2>

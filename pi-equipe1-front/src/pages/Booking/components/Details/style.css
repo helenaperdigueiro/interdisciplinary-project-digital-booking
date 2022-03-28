@@ -1,8 +1,3 @@
-#details {
-    display: grid;
-    margin: 1rem;
-}
-
 #bookingDetails {
     display: grid;
     grid-template-columns: 1fr;
@@ -12,33 +7,33 @@
     height: auto; 
 }
 
-#bookingDetails h4 {
+#summaryImage h4 {
     font-weight: 600;
     padding: 0.5rem 1rem;
     margin: 0;
 }
 
-#bookingDetails img {
+#summaryImage img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-#bookingInfo {
+#summary {
     padding: 0.5rem 1rem 1rem
 }
 
-#bookingInfo p {
+#summary p {
     font-family: 'Oxygen', sans-serif;
     margin: 0;
 }
 
-#bookingInfo h5{
+#summary h5{
     font-weight: 600;
     margin: 0;
 }
 
-#bookingInfo .ratingButton{
+#summary .ratingButton{
     display: flex;
     flex-direction: row;
     background-color: transparent;
@@ -46,13 +41,13 @@
     outline: none;
 }
 
-#bookingInfo .location {
+#summary .location {
     display: flex;
     border-bottom: 1px var(--primary-color) solid;
     padding-bottom: 1rem;
 }
 
-#bookingInfo .location svg {
+#summary .location svg {
     padding: 0.2rem 0.3rem 0 0;
 }
 
@@ -63,7 +58,7 @@
     padding: 0.5rem 0;
 }
 
-#bookingInfo button {
+#summary button {
     width: 100%;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -74,47 +69,37 @@
     margin-top: 1rem;
 }
 
-#bookingInfo button:hover {
+#summary button:hover {
     opacity: 0.9;
 }
 
-@media only screen and (min-width: 600px) {
-    #bookingInfo {
-        padding: 2.5rem 1rem 1rem;
-    }
-    
+@media only screen and (min-width: 600px) {  
     #bookingDetails {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
-    #bookingDetails img {
+    #summaryImage img {
         height: 15.5rem;
+    }
+
+    #summary {
+        padding: 2.5rem 1rem 1rem;
     }
 }
 
- @media only screen and (min-width: 900px) {
-    #details {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        padding: 2rem;
-    }
-    
-    #details h4 {
-        padding: 0.5rem;
-    }
-
+ @media only screen and (min-width: 900px) {    
     #bookingDetails {
         display: grid;
         grid-column: 2;
         grid-template-columns: 1fr;
     }
 
-    #bookingDetails img {
+    #summaryImage img {
         height: auto;
     }
 
-    #bookingInfo {
+    #summary {
         padding: 0.5rem 1rem 1rem;
     }
 }

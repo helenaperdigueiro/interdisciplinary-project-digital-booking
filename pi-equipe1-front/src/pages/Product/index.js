@@ -29,7 +29,7 @@ const Product = () => {
     return (
         <>
             <Helmet>
-                <title>{`db | ${product.name ? product.name : ""}`}</title>
+                <title>{`${product.name ? product.name : ""}`}</title>
             </Helmet>
             <ProductTitle />
             <Location />

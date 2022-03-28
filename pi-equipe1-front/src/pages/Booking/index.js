@@ -13,10 +13,14 @@ const Booking = () => {
     return (
         <>
             <Helmet>
-                <title>{`db | ${product.name} | reserva`}</title>
+                <title>{`${product.name} | Reserva`}</title>
             </Helmet>
             <ProductTitle />
-            <Details />
+
+            <div id="bookingInfo">
+                <Details />
+            </div>
+
             <Policy />
         </>
     );
