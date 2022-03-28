@@ -16,7 +16,11 @@ const Booking = () => {
                 <title>{`db | ${product.name} | reserva`}</title>
             </Helmet>
             <ProductTitle />
-            <Details />
+
+            <div id="bookingInfo">
+                <Details />
+            </div>
+
             <Policy />
         </>
     );
