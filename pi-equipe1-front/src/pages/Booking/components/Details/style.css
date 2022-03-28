@@ -107,7 +107,7 @@
     #bookingDetails {
         display: grid;
         grid-column: 2;
-        grid-template-columns: 1fr;   
+        grid-template-columns: 1fr;
     }
 
     #bookingDetails img {

@@ -18,18 +18,21 @@
     color: rgb(255, 255, 255);
     font-size: 16px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
+    height: 2.284rem;
 }
 
 #moto p {
-    margin-bottom: -10%;
+    margin-bottom: -12%;
     font-size: 1rem;
+    font-weight: 600;
 }
 
-#moto b {
+#motoHighlight {
     color: var(--primary-color);
     font-size: 1rem;
+    font-weight: 600;
 }
 
 .nav-link {
@@ -67,8 +70,9 @@
     cursor: pointer;
     color: rgb(255, 255, 255);
     border: none;
-    font-size: 16px;
+    font-size: 1rem;
     background: rgba(0, 0, 0, 0);
+    font-weight: 600;
 }
 
 #avatar {

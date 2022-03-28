@@ -41,7 +41,7 @@ const Login = ({ onSubmit }) => {
   return (
     <>
       <Helmet>
-        <title>db | Login</title>
+        <title>Login</title>
       </Helmet>
       <div id="login">
         <h2 className='formTitle'>Iniciar sessão</h2>
@@ -69,8 +69,8 @@ const Login = ({ onSubmit }) => {
             </div>
 
             <button className="buttonForm" type="submit">Entrar</button>
-            <div className="textNotes"><p className='text'>Ainda não tem uma conta?</p>
-              <Link to="/cadastro"><p className='textLink'>Cadastre-se</p></Link></div>
+            <div className="textNotes"><div><p className='text'>Ainda não tem uma conta?</p></div>
+              <div><Link to="/cadastro"><p className='textLink'>Cadastre-se</p></Link></div></div>
           </Form>
         </Formik>
       </div>
