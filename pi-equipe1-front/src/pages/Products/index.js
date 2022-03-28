@@ -14,11 +14,11 @@ const Products = () => {
     return (
         <>
             <Helmet>
-                <title>{`db | ${productsBy}`}</title>
+                <title>{`${productsBy}`}</title>
             </Helmet>
             <div id="productsTitle">
                 <Link to="/">
-                    <button id="previousButton">
+                    <button id="homeButton">
                         <FontAwesomeIcon icon={faChevronLeft} />
                     </button>
                 </Link>

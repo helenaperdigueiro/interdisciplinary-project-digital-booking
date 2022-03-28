@@ -21,8 +21,6 @@ const Recommendations = () => {
 
     let randomProducts = recommendedProducts.slice(0, 8);
 
-    
-
     return (
         <div id="recommendations">
             <h3>Recomendações</h3>

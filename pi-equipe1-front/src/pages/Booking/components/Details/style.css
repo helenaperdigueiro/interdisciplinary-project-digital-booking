@@ -1,0 +1,105 @@
+#bookingDetails {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem #b8b8b8;
+    overflow: hidden;
+    height: auto; 
+}
+
+#summaryImage h4 {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+
+#summaryImage img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#summary {
+    padding: 0.5rem 1rem 1rem
+}
+
+#summary p {
+    font-family: 'Oxygen', sans-serif;
+    margin: 0;
+}
+
+#summary h5{
+    font-weight: 600;
+    margin: 0;
+}
+
+#summary .ratingButton{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#summary .location {
+    display: flex;
+    border-bottom: 1px var(--primary-color) solid;
+    padding-bottom: 1rem;
+}
+
+#summary .location svg {
+    padding: 0.2rem 0.3rem 0 0;
+}
+
+.checkIn, .checkOut {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px var(--primary-color) solid;
+    padding: 0.5rem 0;
+}
+
+#summary button {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    background: var(--primary-color);
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+#summary button:hover {
+    opacity: 0.9;
+}
+
+@media only screen and (min-width: 600px) {  
+    #bookingDetails {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #summaryImage img {
+        height: 15.5rem;
+    }
+
+    #summary {
+        padding: 2.5rem 1rem 1rem;
+    }
+}
+
+ @media only screen and (min-width: 900px) {    
+    #bookingDetails {
+        display: grid;
+        grid-column: 2;
+        grid-template-columns: 1fr;   
+    }
+
+    #summaryImage img {
+        height: auto;
+    }
+
+    #summary {
+        padding: 0.5rem 1rem 1rem;
+    }
+}

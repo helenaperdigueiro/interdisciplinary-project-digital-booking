@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>db | Home</title>
+                <title>Home</title>
             </Helmet>
             <Search />
             <Categories />

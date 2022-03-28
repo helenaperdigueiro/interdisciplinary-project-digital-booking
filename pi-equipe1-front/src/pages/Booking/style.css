@@ -1,0 +1,15 @@
+#bookingInfo {
+    display: grid;
+    margin: 1rem;
+}
+
+@media only screen and (min-width: 900px) {
+    #bookingInfo {
+        grid-template-columns: 2fr 1fr;
+        padding: 2rem;
+    }
+
+    #bookingInfo h4 {
+        padding: 0.5rem;
+    }
+}

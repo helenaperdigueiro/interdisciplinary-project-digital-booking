@@ -1,7 +1,11 @@
 import './style.css';
 import CalendarAvailability from '../../../../components/CalendarAvailability';
+import { Link } from 'react-router-dom';
+import { useProductContext } from '../../../../contexts/ProductContext';
 
 const Calendar = () => {
+    
+    const { product } = useProductContext();
 
     return (
         <div className="availableDates">
@@ -10,7 +14,7 @@ const Calendar = () => {
                 <CalendarAvailability />
                 <div className="selection">
                     <p>Adicione as datas da sua viagem para obter preços exatos</p>
-                    <button>Iniciar reserva</button>
+                    <Link to={`/produto/${product.idProduct}/reserva`}><button>Iniciar reserva</button></Link>
                 </div>
             </div>
         </div>
