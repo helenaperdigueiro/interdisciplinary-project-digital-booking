@@ -20,6 +20,8 @@ const Product = () => {
     const productData = useAxios(`/product/${productId}`);
 
     const { product, setProduct } = useProductContext();
+
+    console.log(product);
     
     useEffect(() => {
             localStorage.setItem('product', JSON.stringify(productData));

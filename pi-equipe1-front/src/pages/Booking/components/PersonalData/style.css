@@ -7,12 +7,6 @@
 }
 
 .data {
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    column-gap: 4rem; */
-
     display: grid;
     grid-template-columns: 1fr;
     border-radius: 0.5rem;
@@ -34,13 +28,9 @@
     box-shadow:  0 0 0 30px rgb(255, 255, 255) inset, 1.5px 1.5px 2px 1px #0000001a !important;
 }
 
-/* 1.5px 1.5px 2px 1px #0000002c, */
-
-.data1, .data2 {
+.dataLeftCol, .dataRightCol {
     display: flex;
     flex-direction: column;
-    /* width: 100%; */
-    /* width: 25rem; */
 }
 
 @media only screen and (min-width: 600px) {
