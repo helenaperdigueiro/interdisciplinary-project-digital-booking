@@ -10,22 +10,25 @@ import ProductContextProvider from '../contexts/ProductContext';
 import Products from '../pages/Products';
 import Product from '../pages/Product';
 import Booking from '../pages/Booking';
+import DateReservationContext from '../contexts/DateRangeContext';
 
 const RouteList = () => (
     <BrowserRouter>
         <HelmetProvider>
             <UserProvider>
                 <ProductContextProvider>
-                    <Header />
-                    <Routes>
-                        <Route path='/' element={<Home />} />
-                        <Route path='/login' element={<Login />} />
-                        <Route path='/cadastro' element={<Register />} />
-                        <Route path='/:filter/:productsBy' element={<Products />} />
-                        <Route path='/produto/:productId' element={<Product />} />
-                        <Route path='/produto/:productId/reserva' element={<Booking />} />
-                    </Routes>
-                    <Footer />
+                    <DateReservationContext>
+                        <Header />
+                        <Routes>
+                            <Route path='/' element={<Home />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/cadastro' element={<Register />} />
+                            <Route path='/:filter/:productsBy' element={<Products />} />
+                            <Route path='/produto/:productId' element={<Product />} />
+                            <Route path='/produto/:productId/reserva' element={<Booking />} />
+                        </Routes>
+                        <Footer />
+                    </DateReservationContext>
                 </ProductContextProvider>
             </UserProvider>
         </HelmetProvider>

@@ -1,8 +1,11 @@
 import './style.css';
+import Swal from "sweetalert2";
 import { useProductContext } from '../../../../contexts/ProductContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
+import { useDateRangeContext } from '../../../../contexts/DateRangeContext';
+import api from '../../../../services/api';
 
 const Details = () => {
 
@@ -10,6 +13,30 @@ const Details = () => {
 
     const [rating, setRating] = useState(4);
     const [hover, setHover] = useState();
+    const { dateReservation } = useDateRangeContext();
+
+    function handleclick() {
+
+        api.post('reservation', {
+            startDate: dateReservation[0],
+            endDate: dateReservation[1],
+            product: { id: product.id }
+        }).then((response) => {
+            const { startDate, endDate} = response.data
+            Swal.fire({
+                title: "Reserva bem-sucedida",
+                icon: 'success',
+                text: 'Hotel: ' + product.name +  ' Check-in: ' + startDate + ' Check-out: ' + endDate,
+            })
+        }).catch((error) => {
+            console.error(error);
+            Swal.fire({
+                title: "Infelizmente a reserva não pôde ser feita",
+                icon: 'error',
+                text: error,
+            })
+        });
+    }
 
     return (
         <div id="bookingDetails">
@@ -49,15 +76,15 @@ const Details = () => {
 
                 <div className="checkIn">
                     <p>Check-in</p>
-                    <p>23/11/2022</p>
+                    <p>{dateReservation[0]?.toLocaleDateString()}</p>
                 </div>
 
                 <div className="checkOut">
                     <p>Check-out</p>
-                    <p>27/11/2022</p>
+                    <p>{dateReservation[1]?.toLocaleDateString()}</p>
                 </div>
 
-                <button>Confirmar reserva</button>
+                <button onClick={handleclick}>Confirmar reserva</button>
             </div>
         </div>
     );
