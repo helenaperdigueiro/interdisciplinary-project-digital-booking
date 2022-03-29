@@ -1,7 +1,7 @@
 package com.digitalbooking.service;
 
 import com.digitalbooking.model.Category;
-import com.digitalbooking.repository.ICategoryRepository;
+import com.digitalbooking.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class CategoryService {
 
     @Autowired
-    private ICategoryRepository repository;
+    private CategoryRepository repository;
 
     public Category save(Category category) {
         return repository.save(category);
@@ -32,15 +32,15 @@ public class CategoryService {
                 });
     }
 
-    public Category getById(Integer idCategory) {
-        return repository.getById(idCategory);
+    public Category getById(Integer id) {
+        return repository.getById(id);
     }
 
     public List<Category> findAll() {
         return repository.findAll();
     }
 
-    public void deleteById(Integer idCategory) {
-        repository.deleteById(idCategory);
+    public void deleteById(Integer id) {
+        repository.deleteById(id);
     }
 }

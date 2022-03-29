@@ -1,20 +1,19 @@
 package com.digitalbooking.service;
 
 import com.digitalbooking.model.UserAccount;
-import com.digitalbooking.repository.IUserAccountRepository;
+import com.digitalbooking.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserAccountService {
 
     @Autowired
-    private IUserAccountRepository repository;
+    private UserAccountRepository repository;
 
     public UserAccount save(UserAccount userAccount) {
-
         return repository.save(userAccount);
     }
 

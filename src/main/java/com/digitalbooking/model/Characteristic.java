@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
-@Getter @Setter
 @Entity
+@Getter @Setter
 public class Characteristic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

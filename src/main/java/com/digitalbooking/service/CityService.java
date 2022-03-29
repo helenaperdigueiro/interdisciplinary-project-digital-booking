@@ -1,7 +1,7 @@
 package com.digitalbooking.service;
 
 import com.digitalbooking.model.City;
-import com.digitalbooking.repository.ICityRepository;
+import com.digitalbooking.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class CityService {
 
     @Autowired
-    private ICityRepository repository;
+    private CityRepository repository;
 
     public City save(City city) {
         return repository.save(city);

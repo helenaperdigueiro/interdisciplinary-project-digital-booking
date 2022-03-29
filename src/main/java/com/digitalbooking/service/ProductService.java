@@ -1,7 +1,7 @@
 package com.digitalbooking.service;
 
 import com.digitalbooking.model.Product;
-import com.digitalbooking.repository.IProductRepository;
+import com.digitalbooking.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class ProductService {
 
     @Autowired
-    private IProductRepository repository;
+    private ProductRepository repository;
 
     public Product save(Product product) {
 
@@ -32,16 +32,16 @@ public class ProductService {
                 });
     }
 
-    public Product getById(Integer idProduct) {
-        return repository.getById(idProduct);
+    public Product getById(Integer id) {
+        return repository.getById(id);
     }
 
     public List<Product> findAll() {
         return repository.findAll();
     }
 
-    public void deleteById(Integer idProduct) {
-        repository.deleteById(idProduct);
+    public void deleteById(Integer id) {
+        repository.deleteById(id);
     }
 
     public List<Product> findByCity(String name) {

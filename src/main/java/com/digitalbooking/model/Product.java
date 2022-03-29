@@ -46,4 +46,8 @@ public class Product {
     @JsonIgnoreProperties("products")
     private Set<Characteristic> characteristics;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    @JsonIgnoreProperties("product")
+    private List<Reservation> reservations;
+
 }

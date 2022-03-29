@@ -1,7 +1,7 @@
 package com.digitalbooking.controller;
 
 import com.digitalbooking.model.UserAccount;
-import com.digitalbooking.service.UserService;
+import com.digitalbooking.service.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 public class UserAccountController {
 
     @Autowired
-    private UserService service;
+    private UserAccountService service;
 
     @PostMapping
     public ResponseEntity<UserAccount> save(@RequestBody UserAccount userAccount) {
