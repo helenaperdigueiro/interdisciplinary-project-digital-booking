@@ -76,12 +76,12 @@ const Details = () => {
 
                 <div className="checkIn">
                     <p>Check-in</p>
-                    <p>{dateReservation[0]?.toLocaleDateString()}</p>
+                    <p>{dateReservation[0]?.toLocaleDateString('pt-BR')}</p>
                 </div>
 
                 <div className="checkOut">
                     <p>Check-out</p>
-                    <p>{dateReservation[1]?.toLocaleDateString()}</p>
+                    <p>{dateReservation[1]?.toLocaleDateString('pt-BR')}</p>
                 </div>
 
                 <button onClick={handleclick}>Confirmar reserva</button>
