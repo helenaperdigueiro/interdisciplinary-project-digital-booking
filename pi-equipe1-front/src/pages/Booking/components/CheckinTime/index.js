@@ -1,33 +1,59 @@
-import { render } from 'react-dom';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import './style.css';
 
 const CheckinTime = () => {
 
     const hours = [];
-    for(let i = 0; i <= 23; i++) {
+    for (let i = 0; i <= 23; i++) {
         hours.push(i);
     }
 
-    return(
-        <div id="checkinTime">
+    return (
+        <div>
             <h4>Seu horário de chegada</h4>
-            <div id="selection">
-                <h5>Seu quarto estará pronto para check-in das 10:00 às 23:00</h5>
-                <p>Indique a hora prevista de sua chegada</p>
-                <select name="hours" id="hours" defaultValue="selected">
+            <div id="checkinTime">
+                <div id="selection">
+                    <h5>Seu quarto estará pronto para check-in das 10:00 às 23:00</h5>
+                    <p>Indique a hora prevista de sua chegada</p>
+                    <Formik
+                        initialValues={{ hours: "" }}
+                        validationSchema={Yup.object({
+                            hours: Yup.string()
+                                .required('Obrigatório'),
+                        })}>
+                        <Form>
+                            <Field name="hours" as="select" id="hours">
+                                <option value="" label="Selecione" />
+                                {/* <option name="selected" value="selected" disabled>Selecione</option> */}
+                                {hours.map(hour => {
+                                    return (
+                                        <option value={`${hour}`} key={`${hour}`}>{hour}:00</option>
+                                    )
+                                })}
+                            </Field>
+                            <div className="errorMessage">
+                                <ErrorMessage name="hours">{msg => msg ? msg : ""}</ErrorMessage>
+                            </div>
+                        </Form>
+
+                    </Formik>
+
+                    {/* <select name="hours" id="hours" defaultValue="selected" required>
                     <option value="selected" disabled>Selecione</option>
                     {hours.map(hour => {
-                        return(
+                        return (
                             <option value={`${hour}`} key={`${hour}`} placeholder="Selecione">{hour}:00</option>
                         )
-                    })}
-                    
-                    
-                </select>
+                    })} */}
+
+
+                    {/* </select> */}
+                </div>
             </div>
         </div>
     )
-    
+
 }
 
 export default CheckinTime;
