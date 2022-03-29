@@ -2,9 +2,9 @@ import './style.css';
 import { useProductContext } from '../../contexts/ProductContext';
 import ProductTitle from '../Product/components/ProductTitle';
 import { Helmet } from 'react-helmet-async';
+import PersonalData from './components/PersonalData';
 import Details from './components/Details';
 import Policy from '../Product/components/Policy';
-
 
 const Booking = () => {
 
@@ -18,6 +18,7 @@ const Booking = () => {
             <ProductTitle />
 
             <div id="bookingInfo">
+                <PersonalData />
                 <Details />
             </div>
 
