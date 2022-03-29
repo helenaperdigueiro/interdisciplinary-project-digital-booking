@@ -20,12 +20,15 @@ const Booking = () => {
             <ProductTitle />
 
             <div id="bookingInfo">
-                <div>
-                <CalendarAvailability />
-                <CheckinTime />
+                <div id="leftColumn">
+                    <PersonalData />
+                    <div id="calendarAvailabilityBooking">
+                        <CalendarAvailability />
+                    </div>
+
+                    <CheckinTime />
                 </div>
-                
-                <PersonalData />
+
                 <Details />
             </div>
 

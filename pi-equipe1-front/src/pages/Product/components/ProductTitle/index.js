@@ -13,7 +13,7 @@ const ProductTitle = () => {
     return (
         <div id="productTitle">
 
-            <button onClick={() => history.back()} id="previousButton">
+            <button onClick={() => history.goBack()} id="previousButton">
                 <FontAwesomeIcon icon={faChevronLeft} />
             </button>
 
