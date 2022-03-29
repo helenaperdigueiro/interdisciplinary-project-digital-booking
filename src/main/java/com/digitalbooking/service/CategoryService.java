@@ -27,7 +27,7 @@ public class CategoryService {
                     return repository.save(category);
                 })
                 .orElseGet(() -> {
-                    editedCategory.setIdCategory(id);
+                    editedCategory.setId(id);
                     return repository.save(editedCategory);
                 });
     }

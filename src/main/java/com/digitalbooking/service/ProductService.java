@@ -27,7 +27,7 @@ public class ProductService {
                     return repository.save(product);
                 })
                 .orElseGet(() -> {
-                    editedProduct.setIdProduct(id);
+                    editedProduct.setId(id);
                     return repository.save(editedProduct);
                 });
     }

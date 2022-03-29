@@ -12,7 +12,7 @@ import java.util.Set;
 public class Characteristic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCharacteristic;
+    private Integer id;
 
     @Column(length = 50, nullable = false)
     private String name;

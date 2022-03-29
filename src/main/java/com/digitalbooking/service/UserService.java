@@ -1,7 +1,7 @@
 package com.digitalbooking.service;
 
-import com.digitalbooking.model.User;
-import com.digitalbooking.repository.IUserRepository;
+import com.digitalbooking.model.UserAccount;
+import com.digitalbooking.repository.IUserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,34 +11,34 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private IUserRepository repository;
+    private IUserAccountRepository repository;
 
-    public User save(User user) {
+    public UserAccount save(UserAccount userAccount) {
 
-        return repository.save(user);
+        return repository.save(userAccount);
     }
 
-    public User editById(User editedUser, Integer id) {
+    public UserAccount editById(UserAccount editedUserAccount, Integer id) {
 
         return repository.findById(id)
-                .map(user -> {
-                    user.setName(editedUser.getName());
-                    user.setLastName(editedUser.getLastName());
-                    user.setEmail(editedUser.getEmail());
-                    user.setPassword(editedUser.getPassword());
-                    return repository.save(user);
+                .map(userAccount -> {
+                    userAccount.setName(editedUserAccount.getName());
+                    userAccount.setLastName(editedUserAccount.getLastName());
+                    userAccount.setEmail(editedUserAccount.getEmail());
+                    userAccount.setPassword(editedUserAccount.getPassword());
+                    return repository.save(userAccount);
                 })
                 .orElseGet(() -> {
-                    editedUser.setId(id);
-                    return repository.save(editedUser);
+                    editedUserAccount.setId(id);
+                    return repository.save(editedUserAccount);
                 });
     }
 
-    public User getById(Integer id) {
+    public UserAccount getById(Integer id) {
         return repository.getById(id);
     }
 
-    public List<User> findAll() {
+    public List<UserAccount> findAll() {
         return repository.findAll();
     }
 
