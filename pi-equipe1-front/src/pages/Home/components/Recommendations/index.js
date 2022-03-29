@@ -28,8 +28,9 @@ const Recommendations = () => {
             <div id="recommendationsList">
 
                 {randomProducts.map(product =>
+                
 
-                    <div key={product.idProduct} id={`recommendation${product.id}`} className="recommendation">
+                    <div key={product.id} id={`recommendation${product.id}`} className="recommendation">
 
                         <img src={product.images[0]?.original} alt="" />
 
@@ -38,7 +39,7 @@ const Recommendations = () => {
                             <h4>{product.name}</h4>
                             <p>{product.city.name}</p>
                             <p className="description">{product.description}</p>
-                            <Link to={`/produto/${product.idProduct}`}><button>Ver detalhes</button></Link>
+                            <Link to={`/produto/${product.id}`}><button>Ver detalhes</button></Link>
                         </div>
                     </div>
                 )}
