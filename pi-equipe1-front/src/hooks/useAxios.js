@@ -9,6 +9,7 @@ const useAxios = (url) => {
         async function loadData() {
             try {
                 const response = await api.get(url);
+                // const response1 = await api.post(url, JSON.stringify())
                 setData(response.data);
             } catch (error) {
                 Swal.fire({

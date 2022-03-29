@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet-async';
 import PersonalData from './components/PersonalData';
 import Details from './components/Details';
 import Policy from '../Product/components/Policy';
+import CalendarAvailability from '../../components/CalendarAvailability';
+import CheckinTime from './components/CheckinTime';
 
 const Booking = () => {
 
@@ -18,6 +20,11 @@ const Booking = () => {
             <ProductTitle />
 
             <div id="bookingInfo">
+                <div>
+                <CalendarAvailability />
+                <CheckinTime />
+                </div>
+                
                 <PersonalData />
                 <Details />
             </div>

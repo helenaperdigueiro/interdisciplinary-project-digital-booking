@@ -8,6 +8,8 @@
     #bookingInfo {
         grid-template-columns: 2fr 1fr;
         padding: 2rem;
+        column-gap: 2rem;
+        row-gap: 2rem;
     }
 
     #bookingInfo h4 {
