@@ -10,11 +10,11 @@ const CheckinTime = () => {
 
     return(
         <div id="checkinTime">
-            <h2>Seu horário de chegada</h2>
+            <h4>Seu horário de chegada</h4>
             <div id="selection">
                 <h5>Seu quarto estará pronto para check-in das 10:00 às 23:00</h5>
                 <p>Indique a hora prevista de sua chegada</p>
-                <select name="times" id="times" defaultValue="selected">
+                <select name="hours" id="hours" defaultValue="selected">
                     <option value="selected" disabled>Selecione</option>
                     {hours.map(hour => {
                         return(

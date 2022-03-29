@@ -95,6 +95,7 @@
 
     #summaryImage img {
         height: auto;
+        /* max-height: 471.02px; */
     }
 
     #summary {
