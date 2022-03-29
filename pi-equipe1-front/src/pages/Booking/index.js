@@ -22,8 +22,12 @@ const Booking = () => {
             <div id="bookingInfo">
                 <div id="leftColumn">
                     <PersonalData />
-                    <div id="calendarAvailabilityBooking">
-                        <CalendarAvailability />
+
+                    <div>
+                        <h4>Selecione sua data de reserva</h4>
+                        <div id="calendarAvailabilityBooking">
+                            <CalendarAvailability />
+                        </div>
                     </div>
 
                     <CheckinTime />
