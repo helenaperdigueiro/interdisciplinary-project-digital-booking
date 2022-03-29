@@ -4,6 +4,17 @@
     padding: 1rem;
 }
 
+#checkinTime h4 {
+    padding: 0;
+}
+
+#hours {
+    height: 2rem;
+    width: 10rem;
+    border: none;
+    box-shadow:  1.5px 1.5px 2px 1px #0000001a;
+}
+
 @media only screen and (min-width: 900px) {  
     #checkinTime {
         grid-column: 1;
