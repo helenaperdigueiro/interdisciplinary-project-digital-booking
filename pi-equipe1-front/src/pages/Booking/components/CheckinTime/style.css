@@ -1,0 +1,12 @@
+#checkinTime {
+    box-shadow: 0 0.5rem 1rem #b8b8b8;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+@media only screen and (min-width: 900px) {  
+    #checkinTime {
+        grid-column: 1;
+        
+    }
+}

@@ -75,7 +75,6 @@
 
 @media only screen and (min-width: 600px) {  
     #bookingDetails {
-        display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
@@ -88,10 +87,9 @@
     }
 }
 
- @media only screen and (min-width: 1000px) {    
+ @media only screen and (min-width: 1200px) {    
     #bookingDetails {
-        display: grid;
-        /* grid-column: 2; */
+        /* grid-column: 2; comentamos pq achamos q nao tah fazendo nada*/
         grid-template-columns: 1fr;
     }
 

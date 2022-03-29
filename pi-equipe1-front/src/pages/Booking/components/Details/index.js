@@ -15,7 +15,7 @@ const Details = () => {
     const [hover, setHover] = useState();
     const { dateReservation } = useDateRangeContext();
 
-    function handleclick() {
+    function handleClick() {
 
         api.post('reservation', {
             startDate: dateReservation[0],
@@ -76,15 +76,15 @@ const Details = () => {
 
                 <div className="checkIn">
                     <p>Check-in</p>
-                    <p>{dateReservation[0]?.toLocaleDateString()}</p>
+                    <p>{dateReservation[0]?.toLocaleDateString('pt-BR')}</p>
                 </div>
 
                 <div className="checkOut">
                     <p>Check-out</p>
-                    <p>{dateReservation[1]?.toLocaleDateString()}</p>
+                    <p>{dateReservation[1]?.toLocaleDateString('pt-BR')}</p>
                 </div>
 
-                <button onClick={handleclick}>Confirmar reserva</button>
+                <button onClick={handleClick}>Confirmar reserva</button>
             </div>
         </div>
     );

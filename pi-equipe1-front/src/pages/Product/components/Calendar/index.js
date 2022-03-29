@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useProductContext } from '../../../../contexts/ProductContext';
 
 const Calendar = () => {
-    
+
     const { product } = useProductContext();
 
     return (
@@ -14,7 +14,7 @@ const Calendar = () => {
                 <CalendarAvailability />
                 <div className="selection">
                     <p>Adicione as datas da sua viagem para obter preços exatos</p>
-                    <Link to={`/produto/${product.idProduct}/reserva`}><button>Iniciar reserva</button></Link>
+                    <Link to={`/produto/${product.id}/reserva`}><button>Iniciar reserva</button></Link>
                 </div>
             </div>
         </div>

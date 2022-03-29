@@ -6,6 +6,7 @@ import PersonalData from './components/PersonalData';
 import CalendarAvailability from '../../components/CalendarAvailability';
 import Details from './components/Details';
 import Policy from '../Product/components/Policy';
+import CheckinTime from './components/CheckinTime';
 
 const Booking = () => {
 
@@ -19,10 +20,15 @@ const Booking = () => {
             <ProductTitle />
 
             <div id="bookingInfo">
-                <div>
-                <PersonalData />
-                <CalendarAvailability />
+                <div id="leftColumn">
+                    <PersonalData />
+                    <div id="calendarAvailabilityBooking">
+                        <CalendarAvailability />
+                    </div>
+
+                    <CheckinTime />
                 </div>
+
                 <Details />
             </div>
 
