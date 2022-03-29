@@ -28,6 +28,7 @@ const Recommendations = () => {
             <div id="recommendationsList">
 
                 {randomProducts.map(product =>
+                
 
                     <div key={product.id} id={`recommendation${product.id}`} className="recommendation">
 

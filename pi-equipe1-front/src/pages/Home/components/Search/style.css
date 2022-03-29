@@ -43,6 +43,7 @@
     border-radius: 0.2rem;
 }
 
+#search 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
@@ -72,7 +73,7 @@ input:-webkit-autofill:active{
     border-radius: 0.2rem;
     border: none;
     background: var(--primary-color);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: white;
     text-align: center;
     cursor: pointer;

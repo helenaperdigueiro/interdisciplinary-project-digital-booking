@@ -13,7 +13,7 @@ const Header = () => {
         return (
             <Navbar id="header" className="fixed-top px-3 d-flex" collapseOnSelect expand="md" bg="dark" variant="dark">
                 <Navbar.Brand as={Link} to="/"><div id="brand"><h2>db</h2></div></Navbar.Brand>
-                <Nav.Link className="p-0 me-auto" as={Link} to="/"><div id="moto"><p>sinta-se em</p><b> casa</b></div></Nav.Link>
+                <Nav.Link className="p-0 me-auto" as={Link} to="/"><div id="moto"><p>sinta-se em</p><p id='motoHighlight'>casa</p></div></Nav.Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav">
                     <FontAwesomeIcon
                         icon={faBars} color="var(--primary-color)" size="lg" />
@@ -35,7 +35,7 @@ const Header = () => {
     return (
         <Navbar className="fixed-top px-3" collapseOnSelect expand="md" bg="dark" variant="dark">
             <Navbar.Brand className="me auto" as={Link} to="/"><div id="brand"><h2>db</h2></div></Navbar.Brand>
-            <Nav.Link className="p-0 me-auto" as={Link} to="/"><div id="moto"><p>sinta-se em</p><b> casa</b></div></Nav.Link>
+            <Nav.Link className="p-0 me-auto" as={Link} to="/"><div id="moto"><p>sinta-se em</p><p id='motoHighlight'> casa</p></div></Nav.Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav d-flex" className="justify-content-end">
                 <Nav >
