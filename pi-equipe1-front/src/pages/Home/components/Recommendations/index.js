@@ -1,6 +1,7 @@
 import './style.css';
 import useAxios from '../../../../hooks/useAxios';
 import { Link } from 'react-router-dom';
+import Rating from '../../../../components/Rating';
 
 const Recommendations = () => {
 
@@ -28,15 +29,29 @@ const Recommendations = () => {
             <div id="recommendationsList">
 
                 {randomProducts.map(product =>
-                
+
 
                     <div key={product.id} id={`recommendation${product.id}`} className="recommendation">
 
                         <img src={product.images[0]?.original} alt="" />
 
                         <div className="recommendationInfo">
-                            <p>{product.category.title}</p>
-                            <h4>{product.name}</h4>
+                            <div className='productInfo'>
+                                <div>
+                                    <div className="recommendationTitle">
+                                        <p>{product.category.title}</p>
+                                        <Rating />
+                                    </div>
+                                    
+                                    <h4>{product.name}</h4>
+                                </div>
+
+                                <div className="grade">
+                                    <h6>8</h6>
+                                    <p>Muito bom</p>
+                                </div>
+                            </div>
+
                             <p>{product.city.name}</p>
                             <p className="description">{product.description}</p>
                             <Link to={`/produto/${product.id}`}><button>Ver detalhes</button></Link>

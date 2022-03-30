@@ -1,3 +1,7 @@
+.errorMessage {
+    width: 100%;
+}
+
 #checkinTime {
     box-shadow: 0 0.5rem 1rem #b8b8b8;
     border-radius: 0.5rem;

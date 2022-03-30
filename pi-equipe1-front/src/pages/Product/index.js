@@ -20,11 +20,11 @@ const Product = () => {
     const productData = useAxios(`/product/${productId}`);
 
     const { product, setProduct } = useProductContext();
-    
+
     useEffect(() => {
-            localStorage.setItem('product', JSON.stringify(productData));
-            setProduct(productData); // tiramos os colchetes do productData
-        }, [productData, setProduct]);
+        localStorage.setItem('product', JSON.stringify(productData));
+        setProduct(productData); // tiramos os colchetes do productData
+    }, [productData, setProduct]);
 
     return (
         <>
@@ -35,7 +35,7 @@ const Product = () => {
             <Location />
             <Image />
             <Description />
-            <Characteristic/>
+            <Characteristic />
             <Calendar />
             <Map />
             <Policy />
