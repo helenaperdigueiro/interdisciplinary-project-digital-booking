@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { useMediaQuery } from 'react-responsive';
 import "react-datepicker/dist/react-datepicker.css";
-import { useDateRangeContext } from '../../contexts/DateRangeContext';
-import { useProductContext } from '../../contexts/ProductContext';
+// import { useDateRangeContext } from '../../contexts/DateRangeContext';
+import { useProductContext } from '../../../../contexts/ProductContext';
+import { useDateRangeContext } from '../../../../contexts/DateRangeContext';
 
 const CalendarAvailability2 = () => {
 
