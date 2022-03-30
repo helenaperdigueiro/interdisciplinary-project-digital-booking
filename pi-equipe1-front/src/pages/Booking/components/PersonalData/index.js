@@ -43,7 +43,7 @@ const PersonalData = () => {
             </div>
           </Form>
         </Formik>
-        // </div>
+        </div>
     )
 
 }

@@ -12,6 +12,7 @@ const Booking = () => {
 
     const { product } = useProductContext();
 
+
     return (
         <>
             <Helmet>

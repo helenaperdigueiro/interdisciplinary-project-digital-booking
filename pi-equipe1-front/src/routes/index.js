@@ -10,6 +10,7 @@ import ProductContextProvider from '../contexts/ProductContext';
 import Products from '../pages/Products';
 import Product from '../pages/Product';
 import Booking from '../pages/Booking';
+import ConfirmedBooking from '../pages/ConfirmedBooking';
 import DateReservationContext from '../contexts/DateRangeContext';
 
 const RouteList = () => (
@@ -26,6 +27,7 @@ const RouteList = () => (
                             <Route path='/:filter/:productsBy' element={<Products />} />
                             <Route path='/produto/:productId' element={<Product />} />
                             <Route path='/produto/:productId/reserva' element={<Booking />} />
+                            <Route path='/reserva-confirmada' element={<ConfirmedBooking />} />
                         </Routes>
                         <Footer />
                     </DateReservationContext>

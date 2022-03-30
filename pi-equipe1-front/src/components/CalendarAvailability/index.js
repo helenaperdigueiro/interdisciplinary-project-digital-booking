@@ -4,8 +4,13 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import { useMediaQuery } from 'react-responsive';
 import "react-datepicker/dist/react-datepicker.css";
 import { useDateRangeContext } from '../../contexts/DateRangeContext';
+import { useProductContext } from '../../contexts/ProductContext';
 
 const CalendarAvailability = () => {
+
+    const { product } = useProductContext();
+
+    console.log(product.reservations[0]?.startDate);
 
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
