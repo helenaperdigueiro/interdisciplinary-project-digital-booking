@@ -3,9 +3,11 @@ package com.digitalbooking.controller;
 import com.digitalbooking.model.Product;
 import com.digitalbooking.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -40,6 +42,14 @@ public class ProductController {
     @GetMapping("/city/{name}")
     public ResponseEntity<List<Product>> findByCity(@PathVariable String name) {
         return ResponseEntity.ok(service.findByCity(name));
+    }
+
+    @GetMapping("/city/{name}/{start}/{end}")
+    public ResponseEntity<List<Product>> findByCityDateAvailable(
+            @PathVariable String name,
+            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date start,
+            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date end) {
+        return ResponseEntity.ok(service.findByCityDateAvailable(name, start, end));
     }
 
     @GetMapping("/category/{title}")
