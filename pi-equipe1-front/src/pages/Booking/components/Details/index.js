@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useDateRangeContext } from '../../../../contexts/DateRangeContext';
 import api from '../../../../services/api';
 import { useNavigate } from 'react-router-dom';
+import Rating from '../../../../components/Rating';
 
 const Details = () => {
 
@@ -16,6 +17,7 @@ const Details = () => {
 
     const [rating, setRating] = useState(4);
     const [hover, setHover] = useState();
+
     const { dateReservation } = useDateRangeContext();
 
     function handleClick() {
@@ -54,24 +56,7 @@ const Details = () => {
                 <p>{product.category?.title}</p>
                 <h5>{product.name}</h5>
 
-                <div className='ratingButton'>
-                    {[...Array(5)].map((star, index) => {
-                        index += 1;
-
-                        return (
-                            <div
-                                // type="button"
-                                key={index}
-                                className={index <= (hover || rating) ? "on" : "off"}
-                            // onClick={() => setRating(index)}
-                            // onMouseEnter={() => setHover(index)}
-                            // onMouseLeave={() => setHover(rating)}
-                            >
-                                <div className="star">&#9733;</div>
-                            </div>
-                        );
-                    })}
-                </div>
+                <Rating />
 
                 <div className="location">
                     <FontAwesomeIcon icon={faLocationDot} />

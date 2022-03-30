@@ -41,7 +41,7 @@ const Product = () => {
             <Location />
             <Image />
             <Description />
-            <Characteristic/>
+            <Characteristic />
             <Calendar />
             <Map />
             <Policy />

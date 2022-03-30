@@ -20,7 +20,7 @@
     border-radius: 0.5rem;
     box-shadow: 0 0.5rem 1rem #b8b8b8;
     overflow: hidden;
-    height: 40rem;
+    height: 36rem;
 }
 
 .recommendation img {
@@ -35,6 +35,38 @@
 
 .recommendationInfo {
     padding: 1rem;
+}
+
+.recommendationTitle {
+    display: flex;
+}
+
+.recommendationTitle p {
+    margin: 0 0.3rem 0 0;
+    font-size: 0.9rem;
+}
+
+.productInfo .grade { 
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+.productInfo .grade p {
+    margin: 0 0 0 0.3rem;
+    font-size: 0.9rem;
+} 
+
+.productInfo .grade h6{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    background-color: var(--secondary-color);
+    height: 1.2rem;
+    width: 2rem;
+    border-radius: 0.5rem;
+    margin: 0;
 }
 
 .recommendationInfo h4{
@@ -57,10 +89,10 @@
 
 .description {
     overflow: hidden;
-
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    font-size: 0.9rem;
 }
 
 @media only screen and (min-width: 600px) {
@@ -77,11 +109,68 @@
     }
 }
 
+@media only screen and (min-width: 1000px) {
+    .productInfo {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .recommendationTitle {
+        display: flex;
+    }
+    
+    .recommendationTitle p {
+        margin: 0;
+    }
+    
+    .productInfo .grade { 
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 0.5rem;
+    }
+}
+
 @media only screen and (min-width: 1200px) {
     #recommendationsList {
         grid-template-columns: 1fr 1fr;
     }
     #recommendations {
         margin: 2rem 5rem 5rem;
+    }
+
+    .productInfo {
+        display: grid;
+        justify-content: start;
+    }
+
+    .productInfo .grade { 
+        flex-direction: row;
+        padding: 0 0 0.5rem 0;
+    }
+
+    .recommendationTitle p {
+        margin: 0 0.3rem 0 0;
+    }
+ 
+}
+
+@media only screen and (min-width: 2200px) {
+    .productInfo {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .recommendationTitle {
+        display: flex;
+    }
+    
+    .recommendationTitle p {
+        margin: 0;
+    }
+    
+    .productInfo .grade { 
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 0.5rem;
     }
 }
