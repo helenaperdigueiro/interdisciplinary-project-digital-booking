@@ -3,7 +3,7 @@ import { useProductContext } from '../../contexts/ProductContext';
 import ProductTitle from '../Product/components/ProductTitle';
 import { Helmet } from 'react-helmet-async';
 import PersonalData from './components/PersonalData';
-import CalendarAvailability from '../../components/CalendarAvailability';
+import CalendarAvailability2 from './components/CalendarAvailability2';
 import Details from './components/Details';
 import Policy from '../Product/components/Policy';
 import CheckinTime from './components/CheckinTime';
@@ -19,12 +19,19 @@ const Booking = () => {
                 <title>{`${product.name} | Reserva`}</title>
             </Helmet>
             <ProductTitle />
+            <div id='bookingWrapper'>
+                <h4 id='bookingWrapperTitle'>Complete seus dados</h4>
+                
 
             <div id="bookingInfo">
                 <div id="leftColumn">
                     <PersonalData />
-                    <div id="calendarAvailabilityBooking">
-                        <CalendarAvailability />
+
+                    <div>
+                        <h4>Selecione sua data de reserva</h4>
+                        <div id="calendarAvailabilityBooking">
+                            <CalendarAvailability2 />
+                        </div>
                     </div>
 
                     <CheckinTime />
@@ -34,6 +41,7 @@ const Booking = () => {
             </div>
 
             <Policy />
+            </div>
         </>
     );
 }
