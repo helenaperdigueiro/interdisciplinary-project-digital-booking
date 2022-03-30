@@ -12,19 +12,25 @@ import Calendar from './components/Calendar';
 import Map from './components/Map';
 import Policy from './components/Policy';
 import { useEffect } from 'react';
+import api from '../../services/api';
 
 
 
 const Product = () => {
     const { productId } = useParams();
-    const productData = useAxios(`/product/${productId}`);
 
     const { product, setProduct } = useProductContext();
 
+    // const productData = useAxios(`/product/${productId}`);
+
     useEffect(() => {
-        localStorage.setItem('product', JSON.stringify(productData));
-        setProduct(productData); // tiramos os colchetes do productData
-    }, [productData, setProduct]);
+        api(`/product/${productId}`).then((response) => {
+            localStorage.setItem('product', JSON.stringify(response.data));
+            setProduct(response.data);
+        }).catch((error) => {
+            console.error(error)
+        });
+        }, [setProduct, productId]);
 
     return (
         <>

@@ -3,14 +3,15 @@ import { useProductContext } from '../../contexts/ProductContext';
 import ProductTitle from '../Product/components/ProductTitle';
 import { Helmet } from 'react-helmet-async';
 import PersonalData from './components/PersonalData';
+import CalendarAvailability from '../../components/CalendarAvailability';
 import Details from './components/Details';
 import Policy from '../Product/components/Policy';
-import CalendarAvailability from '../../components/CalendarAvailability';
 import CheckinTime from './components/CheckinTime';
 
 const Booking = () => {
 
     const { product } = useProductContext();
+
 
     return (
         <>

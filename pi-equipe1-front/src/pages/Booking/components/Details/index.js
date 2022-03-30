@@ -6,11 +6,14 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
 import { useDateRangeContext } from '../../../../contexts/DateRangeContext';
 import api from '../../../../services/api';
+import { useNavigate } from 'react-router-dom';
 import Rating from '../../../../components/Rating';
 
 const Details = () => {
 
     const { product } = useProductContext();
+
+    const navigate = useNavigate();
 
     const [rating, setRating] = useState(4);
     const [hover, setHover] = useState();
@@ -25,11 +28,13 @@ const Details = () => {
             product: { id: product.id }
         }).then((response) => {
             const { startDate, endDate} = response.data
-            Swal.fire({
-                title: "Reserva bem-sucedida",
-                icon: 'success',
-                text: 'Hotel: ' + product.name +  ' Check-in: ' + startDate + ' Check-out: ' + endDate,
-            })
+            navigate('/reserva-confirmada')
+
+            // Swal.fire({
+            //     title: "Reserva bem-sucedida",
+            //     icon: 'success',
+            //     text: 'Hotel: ' + product.name +  ' Check-in: ' + startDate + ' Check-out: ' + endDate,
+            // })
         }).catch((error) => {
             console.error(error);
             Swal.fire({
