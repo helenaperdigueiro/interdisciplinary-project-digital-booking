@@ -7,10 +7,11 @@ import ptBr from "date-fns/locale/pt-BR"
 import "react-datepicker/dist/react-datepicker.css";
 import AutoComplete from './Autocomplete/index';
 import { Link } from 'react-router-dom';
-
+import { useDateRangeContext } from '../../../../contexts/DateRangeContext';
 registerLocale("ptBr", ptBr);
 
 const Search = () => {
+    const {setDateReservation} = useDateRangeContext();
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
 
@@ -40,6 +41,7 @@ const Search = () => {
                             monthsShown={mediaQuery ? 2 : 1}
                             onChange={(update) => {
                                 setDateRange(update);
+                                setDateReservation(update);
                             }}
                             locale="ptBr"
                             showPopperArrow={false}
