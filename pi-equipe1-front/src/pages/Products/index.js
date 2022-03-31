@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Helmet } from 'react-helmet-async';
+import { useDateRangeContext } from '../../contexts/DateRangeContext';
 
 const Products = () => {
     const { filter, productsBy } = useParams();
+    const { dateReservation } = useDateRangeContext();
 
-    const products = (useAxios(`/product/${filter === 'categoria' ? 'category' : 'city'}/${productsBy}`));
+    const products = (useAxios(`/product/${filter === 'categoria' ? `category/${productsBy}` : `city/${productsBy}/${dateReservation[0]}/${dateReservation[1]}`}`));
 
     return (
         <>
@@ -44,8 +46,9 @@ const Products = () => {
                                 <p className="description">{product.description}</p>
                                 <Link to={`/produto/${product.id}`}><button>Ver detalhes</button></Link>
                             </div>
-                        </div>  
+                        </div>
                     )}
+                    {products.length ? null : <h3>Okay, Houston, we've had a problem here.</h3>}
                 </div>
             </div>
         </>
