@@ -19,28 +19,30 @@ const Booking = () => {
                 <title>{`${product.name} | Reserva`}</title>
             </Helmet>
             <ProductTitle />
+            <div id="bookingContainer">
             <div id='bookingWrapper'>
                 <h4 id='bookingWrapperTitle'>Complete seus dados</h4>
-                
 
-            <div id="bookingInfo">
-                <div id="leftColumn">
-                    <PersonalData />
 
-                    <div>
-                        <h4>Selecione sua data de reserva</h4>
-                        <div id="calendarAvailabilityBooking">
-                            <CalendarAvailability2 />
+                <div id="bookingInfo">
+                    <div id="leftColumn">
+                        <PersonalData />
+
+                        <div>
+                            <h4>Selecione sua data de reserva</h4>
+                            <div id="calendarAvailabilityBooking">
+                                <CalendarAvailability2 />
+                            </div>
                         </div>
+
+                        <CheckinTime />
                     </div>
 
-                    <CheckinTime />
+                    <Details />
                 </div>
 
-                <Details />
+                <Policy />
             </div>
-
-            <Policy />
             </div>
         </>
     );

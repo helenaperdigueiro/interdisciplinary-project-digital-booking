@@ -17,6 +17,7 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+    max-height: 22rem;
 }
 
 #summary {
@@ -105,4 +106,86 @@
     #summaryImage h4 {
         padding: 1rem 1rem;
     }
+
+    #summary h5{
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    #summary .location {
+        padding-top: 0.8rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .checkIn, .checkOut {
+        padding: 1.3rem 0;
+    }
+
+    #summary button {
+        margin-top: 4rem;
+        font-weight: 600;
+    }
 }
+
+    @media only screen and (min-width: 1400px) {
+    #summary .location {
+        padding-top: 0.8rem;
+        padding-bottom: 2rem;
+    }
+
+    .checkIn, .checkOut {
+        padding: 1.2rem 0;
+    }
+
+    #summary button {
+        margin-top: 3rem;
+    }
+    }
+
+    @media only screen and (min-width: 1650px) {
+        #summary .location {
+            padding-top: 0.6rem;
+            padding-bottom: 1.6rem;
+        }
+        .checkIn, .checkOut {
+            padding: 0.9rem 0;
+        }
+        #summary button {
+            margin-top: 2.6rem;
+        }
+    }
+
+    @media only screen and (min-width: 1900px) {
+        #summary .location {
+            padding-top: 0.6rem;
+            padding-bottom: 1rem;
+        }
+        .checkIn, .checkOut {
+            padding: 1rem 0;
+        }
+        #summary button {
+            margin-top: 2.5rem;
+        }
+    }
+
+    @media only screen and (min-width: 2100px) {
+        /* #summary h5{
+            font-size: 1.3rem;
+            font-weight: 700;
+        } */
+
+        #summary .location {
+            padding-top: 0.5rem;
+            padding-bottom: 1rem;
+        }
+        .checkIn, .checkOut {
+            padding: 1rem 0;
+        }
+        #summary button {
+            margin-top: 2.5rem;
+        }
+/* 
+        #bookingDetails {
+            align-content: center;
+        } */
+    }

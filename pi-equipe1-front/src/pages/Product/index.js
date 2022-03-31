@@ -32,6 +32,8 @@ const Product = () => {
         });
         }, [setProduct, productId]);
 
+        console.log(product);
+
     return (
         <>
             <Helmet>
