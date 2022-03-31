@@ -11,7 +11,7 @@ const Products = () => {
     const { filter, productsBy } = useParams();
     const { dateReservation } = useDateRangeContext();
 
-    const products = (useAxios(`/product/${filter === 'categoria' ? 'category' : 'city'}/${productsBy}/${dateReservation[0]}/${dateReservation[1]}`));
+    const products = (useAxios(`/product/${filter === 'categoria' ? `category/${productsBy}` : `city/${productsBy}/${dateReservation[0]}/${dateReservation[1]}`}`));
 
     return (
         <>
