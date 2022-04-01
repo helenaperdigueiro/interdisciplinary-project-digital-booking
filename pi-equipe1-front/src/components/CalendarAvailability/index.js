@@ -10,7 +10,7 @@ const CalendarAvailability = () => {
 
     const { product } = useProductContext();
 
-    console.log(product.reservations[0]?.startDate);
+    // console.log(product.reservations[0]?.startDate);
 
     const [dateRange, setDateRange] = useState([null, null]);
 
@@ -19,8 +19,8 @@ const CalendarAvailability = () => {
     
     const mediaQuery = useMediaQuery({ minWidth: 750 });
 
-    console.log(product)
-    console.log(product.reservations)
+    // console.log(product)
+    // console.log(product.reservations)
     //console.log(product.reservations[0]?.startDate)
 
     return (

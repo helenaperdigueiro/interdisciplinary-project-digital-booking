@@ -1,19 +1,46 @@
 import './style.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import api from '../../services/api';
+import Swal from 'sweetalert2';
 
 const Register = ({ onSubmit }) => {
+
+    const navigate = useNavigate();
 
     const sleep = ms => new Promise(r => setTimeout(r, ms))
     const handleSubmit = async (values, { setSubmitting }) => {
         setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            // alert(JSON.stringify(values, null, 2));
+            api.post('/user', {
+                name: values.name,
+                lastName: values.surname,
+                email: values.email,
+                username: values.name,
+                password: values.password,
+            }).then((response) => {
+                Swal.fire({
+                    title: "Cadastro feito com sucesso!",
+                    icon: 'success',
+                    text: "Faça login",
+                });
+                navigate('/login');
+
+            }).catch((error) => {
+                console.error(error);
+                Swal.fire({
+                    title: "Infelizmente a reserva não pôde ser feita",
+                    icon: 'error',
+                    text: error,
+                })
+            });
             setSubmitting(false);
+            
         }, 400);
         await sleep(500)
-        onSubmit(values)
+        // onSubmit(values)
     }
 
     return (

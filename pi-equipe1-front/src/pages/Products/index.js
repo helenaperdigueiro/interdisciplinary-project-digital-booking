@@ -13,6 +13,8 @@ const Products = () => {
 
     const products = (useAxios(`/product/${filter === 'categoria' ? `category/${productsBy}` : `city/${productsBy}/${dateReservation[0]}/${dateReservation[1]}`}`));
 
+    console.log(products);
+
     return (
         <>
             <Helmet>
@@ -48,7 +50,7 @@ const Products = () => {
                             </div>
                         </div>
                     )}
-                    {products.length ? null : <h3>Okay, Houston, we've had a problem here.</h3>}
+                    {/* {products.length ? null : <h3>Okay, Houston, we've had a problem here.</h3>} */}
                 </div>
             </div>
         </>

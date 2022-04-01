@@ -14,8 +14,6 @@ import Policy from './components/Policy';
 import { useEffect } from 'react';
 import api from '../../services/api';
 
-
-
 const Product = () => {
     const { productId } = useParams();
 
@@ -32,7 +30,7 @@ const Product = () => {
         });
         }, [setProduct, productId]);
 
-        console.log(product);
+        // console.log(product);
 
     return (
         <>
