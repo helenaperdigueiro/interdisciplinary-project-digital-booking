@@ -8,26 +8,29 @@ import { useEffect, useState } from 'react';
 import api from '../../services/api';
 
 const Products = () => {
-    const { productsBy, startDate, endDate } = useParams();
+    const { productsBy, startDate, endDate, title } = useParams();
     const [products, setProducts] = useState([]);
 
-    // const products = (useAxios(`/product/${filter === 'categoria' ? `category/${productsBy}` : `city/${productsBy}/${dateReservation[0]}/${dateReservation[1]}`}`));
     useEffect(() => {
+
         if (productsBy && endDate)
             api.get(`/product/city/${productsBy}/${startDate}/${endDate}`)
                 .then((response) => { setProducts(response.data) })
                 .catch((error) => { console.error(error) })
-
         else if (productsBy)
             api.get(`/product/city/${productsBy}`)
                 .then((response) => { setProducts(response.data) })
                 .catch((error) => { console.error(error) })
-        else
+        else if (endDate)
             api.get(`/product/dates/${startDate}/${endDate}`)
                 .then((response) => { setProducts(response.data) })
                 .catch((error) => { console.error(error) })
+        else
+            api.get(`/product/category/${title}`)
+                .then((response) => { setProducts(response.data) })
+                .catch((error) => { console.error(error) })
         return;
-    }, [productsBy, startDate, endDate])
+    }, [productsBy, startDate, endDate, title])
 
     return (
         <>
