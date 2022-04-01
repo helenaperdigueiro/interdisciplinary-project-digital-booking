@@ -61,6 +61,17 @@ public class ProductService {
         return availableProducts;
     }
 
+    public List<Product> findByDateAvailable(Date start, Date end) {
+
+        List<Product> availableProducts = repository.findAll();
+        Set<Product> unavailableProducts = Set.copyOf(repository.findByDateAvailable(start, end));
+
+        unavailableProducts.forEach(unavailable -> {
+            availableProducts.removeIf(available -> available.getId().equals(unavailable.getId()));
+        });
+        return availableProducts;
+    }
+
     public List<Product> findByCategory(String title) {
         return repository.findByCategory(title);
     }

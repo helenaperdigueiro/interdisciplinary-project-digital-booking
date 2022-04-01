@@ -48,6 +48,12 @@ public class ProductController {
         return ResponseEntity.ok(service.findByCityDateAvailable(name, start, end));
     }
 
+    @GetMapping("/dates/{start}/{end}")
+    public ResponseEntity<List<Product>> findByDateAvailable(@PathVariable Date start, @PathVariable Date end) {
+        return ResponseEntity.ok(service.findByDateAvailable(start, end));
+    }
+
+
     @GetMapping("/category/{title}")
     public ResponseEntity<List<Product>> findByCategory(@PathVariable String title) {
         return ResponseEntity.ok(service.findByCategory(title));
