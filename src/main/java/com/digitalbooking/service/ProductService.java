@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ProductService {
@@ -50,7 +51,14 @@ public class ProductService {
     }
 
     public List<Product> findByCityDateAvailable(String name, Date start, Date end) {
-        return repository.findByCityDateAvailable(name, start, end);
+
+        List<Product> availableProducts = repository.findByCity(name);
+        Set<Product> unavailableProducts = Set.copyOf(repository.findByCityDateAvailable(name, start, end));
+
+        unavailableProducts.forEach(unavailable -> {
+            availableProducts.removeIf(available -> available.getId().equals(unavailable.getId()));
+        });
+        return availableProducts;
     }
 
     public List<Product> findByCategory(String title) {
