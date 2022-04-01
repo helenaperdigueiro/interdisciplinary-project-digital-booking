@@ -1,17 +1,33 @@
 import './style.css';
 import { useParams } from 'react-router-dom';
-import useAxios from '../../hooks/useAxios';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Helmet } from 'react-helmet-async';
-import { useDateRangeContext } from '../../contexts/DateRangeContext';
+import { useEffect, useState } from 'react';
+import api from '../../services/api';
 
 const Products = () => {
-    const { filter, productsBy } = useParams();
-    const { dateReservation } = useDateRangeContext();
+    const { productsBy, startDate, endDate } = useParams();
+    const [products, setProducts] = useState([]);
 
-    const products = (useAxios(`/product/${filter === 'categoria' ? `category/${productsBy}` : `city/${productsBy}/${dateReservation[0]}/${dateReservation[1]}`}`));
+    // const products = (useAxios(`/product/${filter === 'categoria' ? `category/${productsBy}` : `city/${productsBy}/${dateReservation[0]}/${dateReservation[1]}`}`));
+    useEffect(() => {
+        if (productsBy && endDate)
+            api.get(`/product/city/${productsBy}/${startDate}/${endDate}`)
+                .then((response) => { setProducts(response.data) })
+                .catch((error) => { console.error(error) })
+
+        else if (productsBy)
+            api.get(`/product/city/${productsBy}`)
+                .then((response) => { setProducts(response.data) })
+                .catch((error) => { console.error(error) })
+        else
+            api.get(`/product/dates/${startDate}/${endDate}`)
+                .then((response) => { setProducts(response.data) })
+                .catch((error) => { console.error(error) })
+        return;
+    }, [productsBy, startDate, endDate])
 
     return (
         <>
@@ -48,7 +64,6 @@ const Products = () => {
                             </div>
                         </div>
                     )}
-                    {products.length ? null : <h3>Okay, Houston, we've had a problem here.</h3>}
                 </div>
             </div>
         </>
