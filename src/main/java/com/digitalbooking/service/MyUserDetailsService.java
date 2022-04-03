@@ -1,7 +1,8 @@
 package com.digitalbooking.service;
 
+import com.digitalbooking.model.Role;
 import com.digitalbooking.model.UserAccount;
-import com.digitalbooking.repository.IUserAccountRepository;
+import com.digitalbooking.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,20 +16,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private IUserAccountRepository repository;
+    private UserAccountRepository userAccountRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        UserAccount userAccount = repository.findByEmail(email);
 
-        Set<GrantedAuthority> roles = new HashSet<>();
-        roles.add(new SimpleGrantedAuthority("UserAccount"));
-        roles.add(new SimpleGrantedAuthority("Admin"));
+        UserAccount userAccount = userAccountRepository.findByEmail(email);
 
-        UserDetails user = new User(userAccount.getEmail(), ("{noop}" + userAccount.getPassword()), roles);
+        Set<GrantedAuthority> grantList = new HashSet<GrantedAuthority>();
+        for (Role role: userAccount.getRoles()) {
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getName());
+            grantList.add(grantedAuthority);
+        }
+        UserDetails user = null;
+        user = (UserDetails) new User(email, userAccount.getPassword(), grantList);
         return user;
     }
 }

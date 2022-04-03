@@ -35,6 +35,11 @@ public class UserAccountController {
         return ResponseEntity.ok(service.findAll());
     }
 
+    @GetMapping("email/{email}")
+    public ResponseEntity<UserAccount> getByEmail(@PathVariable String email) {
+        return ResponseEntity.ok(service.getByEmail(email));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Integer id) {
         service.deleteById(id);

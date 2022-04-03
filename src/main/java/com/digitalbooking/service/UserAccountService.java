@@ -3,6 +3,7 @@ package com.digitalbooking.service;
 import com.digitalbooking.model.UserAccount;
 import com.digitalbooking.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +12,14 @@ import java.util.List;
 public class UserAccountService {
 
     @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
     private UserAccountRepository repository;
 
     public UserAccount save(UserAccount userAccount) {
+        String encryptedPassword = bCryptPasswordEncoder.encode(userAccount.getPassword());
+        userAccount.setPassword(encryptedPassword);
         return repository.save(userAccount);
     }
 
@@ -43,6 +49,10 @@ public class UserAccountService {
 
     public void deleteById(Integer id) {
         repository.deleteById(id);
+    }
+
+    public UserAccount getByEmail(String email) {
+        return repository.findByEmail(email);
     }
 }
 
