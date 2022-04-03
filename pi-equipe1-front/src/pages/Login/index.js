@@ -25,6 +25,7 @@ const { user, setUser } = useUserContext();
       api.get(`/user/email/${values.email}`)
       .then((response) => {
         const userData = {
+          id: response.data.id,
           name: response.data.name,
           lastName: response.data.lastName,
           email: response.data.email,
