@@ -2,6 +2,12 @@
     padding-left: 0.5rem;
 } */
 
+#bookingContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 #bookingWrapperTitle {
     padding-top: 0.5rem;
     padding-left: 0.5rem;
@@ -57,20 +63,20 @@
 }
 
 @media only screen and (min-width: 750px) {
-    #calendarAvailabilityBooking .react-datepicker__header {
+    /* #calendarAvailabilityBooking .react-datepicker__header {
         padding: 0.8rem;
         font-size: 1rem;
-    }
+    } */
     #calendarAvailabilityBooking .react-datepicker__navigation-icon::before {
         top: 1rem;
     }
     #calendarAvailabilityBooking .react-datepicker__current-month {
         font-size: 1rem;
     }
-    #calendarAvailabilityBooking .react-datepicker__day, .react-datepicker__day-name {
+    /* #calendarAvailabilityBooking .react-datepicker__day, .react-datepicker__day-name {
         margin: 0.4rem;
         font-size: 1rem;
-    }
+    } */
 }
 
 @media only screen and (min-width: 1200px) {
@@ -102,5 +108,17 @@
 @media only screen and (min-width: 1800px) {
     #bookingInfo {
         grid-template-columns: 2fr 1fr;
+    }
+
+        /* #bookingWrapper {
+        width: 110rem;
+        align-self: center;
+    } */
+}
+
+@media only screen and (min-width: 2000px) {
+    #bookingWrapper {
+        width: 110rem;
+        align-self: center;
     }
 }

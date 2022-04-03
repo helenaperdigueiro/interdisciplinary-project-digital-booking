@@ -25,11 +25,13 @@
     border: none;
     height: 2rem;
     box-shadow: inset 0px 1px 2px #00000014;
+    padding-left: 0.5rem;
 }
 
 #city {
     background-color: rgb(255, 255, 255);
-    box-shadow:  0 0 0 30px rgb(255, 255, 255) inset, 1.5px 1.5px 2px 1px #0000001a !important;
+    box-shadow:  1.5px 1.5px 2px 1px #0000001a inset, 0 0 0 30px rgb(255, 255, 255) inset !important;
+    /* box-shadow: 0 0 0 30px rgb(255, 255, 255) inset, 1.5px 1.5px 2px 1px #0000001a !important; */
 }
 
 .dataLeftCol, .dataRightCol {

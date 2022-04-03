@@ -24,7 +24,10 @@ const RouteList = () => (
                             <Route path='/' element={<Home />} />
                             <Route path='/login' element={<Login />} />
                             <Route path='/cadastro' element={<Register />} />
-                            <Route path='/:filter/:productsBy' element={<Products />} />
+                            <Route path='/datas/:startDate/:endDate' element={<Products />} />
+                            <Route path='/cidade/:productsBy' element={<Products />} />
+                            <Route path='/cidade/:productsBy/datas/:startDate/:endDate' element={<Products />} />
+                            <Route path='/categoria/:title' element={<Products />} />
                             <Route path='/produto/:productId' element={<Product />} />
                             <Route path='/produto/:productId/reserva' element={<Booking />} />
                             <Route path='/reserva-confirmada' element={<ConfirmedBooking />} />

@@ -1,5 +1,5 @@
 import './style.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { Formik, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
@@ -7,17 +7,35 @@ import ptBr from "date-fns/locale/pt-BR"
 import "react-datepicker/dist/react-datepicker.css";
 import AutoComplete from './Autocomplete/index';
 import { Link } from 'react-router-dom';
-
+import { useDateRangeContext } from '../../../../contexts/DateRangeContext';
 registerLocale("ptBr", ptBr);
 
 const Search = () => {
+    const { setDateReservation } = useDateRangeContext();
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
+    const [selectedCity, setSelectedCity] = useState("");
+    const [path, setPath] = useState('')
 
     const mediaQuery = useMediaQuery({ minWidth: 600 });
+
+    const isValid = (selectedCity) || (startDate && endDate);
+
+    function handleChangeDataPicker(update) {
+        setDateRange(update);
+        setDateReservation(update);
+    }
     
-    const [selectedCity, setSelectedCity] = useState("");
-    const isValid = selectedCity && startDate && endDate;
+    function handleChangeAutoComplete(value) {
+        setSelectedCity(value.name)
+    }
+
+    useEffect(() => {
+        if (selectedCity && endDate) setPath(`/cidade/${selectedCity}/datas/${startDate?.toDateString()}/${endDate?.toDateString()}`)
+        else if (selectedCity) setPath(`/cidade/${selectedCity}`) 
+        else setPath(`/datas/${startDate?.toDateString()}/${endDate?.toDateString()}`)
+        return;
+    }, [selectedCity, endDate, startDate])
 
     return (
         <div id="search">
@@ -26,9 +44,9 @@ const Search = () => {
             </div>
 
             <Formik initialValues={{ city: '', startDate: null, endDate: null }} >
-                <Form className="formSearch">
+                <Form className="formSearch" >
                     {/* <Field className="location" name="city" type="text" placeholder="Cidade" /> */}
-                    <div className="location"><AutoComplete onChange={(value) => { setSelectedCity(value.name) }}/></div>
+                    <div className="location"><AutoComplete onChange={handleChangeAutoComplete} /></div>
                     <div className="date">
                         <DatePicker
                             placeholderText="Check in - Check out"
@@ -38,16 +56,14 @@ const Search = () => {
                             startDate={startDate}
                             endDate={endDate}
                             monthsShown={mediaQuery ? 2 : 1}
-                            onChange={(update) => {
-                                setDateRange(update);
-                            }}
+                            onChange={handleChangeDataPicker}
                             locale="ptBr"
                             showPopperArrow={false}
                             formatWeekDay={nameOfDay => nameOfDay.toUpperCase().substring(0, 1)}
                         />
                     </div>
 
-                    <Link to={`/cidade/${selectedCity}`}><button className="buttonSearch" type="submit" disabled={!isValid}>Buscar</button></Link>
+                    <Link to={path}><button className="buttonSearch" type="submit" disabled={!isValid}>Buscar</button></Link>
                 </Form>
             </Formik>
         </div>

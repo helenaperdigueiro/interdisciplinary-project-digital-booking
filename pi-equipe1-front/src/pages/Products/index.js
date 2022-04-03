@@ -1,15 +1,36 @@
 import './style.css';
 import { useParams } from 'react-router-dom';
-import useAxios from '../../hooks/useAxios';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Helmet } from 'react-helmet-async';
+import { useEffect, useState } from 'react';
+import api from '../../services/api';
 
 const Products = () => {
-    const { filter, productsBy } = useParams();
+    const { productsBy, startDate, endDate, title } = useParams();
+    const [products, setProducts] = useState([]);
 
-    const products = (useAxios(`/product/${filter === 'categoria' ? 'category' : 'city'}/${productsBy}`));
+    useEffect(() => {
+
+        if (productsBy && endDate)
+            api.get(`/product/city/${productsBy}/${startDate}/${endDate}`)
+                .then((response) => { setProducts(response.data) })
+                .catch((error) => { console.error(error) })
+        else if (productsBy)
+            api.get(`/product/city/${productsBy}`)
+                .then((response) => { setProducts(response.data) })
+                .catch((error) => { console.error(error) })
+        else if (endDate)
+            api.get(`/product/dates/${startDate}/${endDate}`)
+                .then((response) => { setProducts(response.data) })
+                .catch((error) => { console.error(error) })
+        else
+            api.get(`/product/category/${title}`)
+                .then((response) => { setProducts(response.data) })
+                .catch((error) => { console.error(error) })
+        return;
+    }, [productsBy, startDate, endDate, title])
 
     return (
         <>
@@ -44,7 +65,7 @@ const Products = () => {
                                 <p className="description">{product.description}</p>
                                 <Link to={`/produto/${product.id}`}><button>Ver detalhes</button></Link>
                             </div>
-                        </div>  
+                        </div>
                     )}
                 </div>
             </div>

@@ -5,9 +5,8 @@ import * as Yup from 'yup';
 const PersonalData = () => {
     return (
         <div id='personalData'>
-          {/* <h4>Complete seus dados</h4> */}
         <Formik
-          initialValues={{ name: 'Carol', surName: 'Hakamada', email: "ca_haka@gmail.com" }}
+          initialValues={{ name: 'Carol', surName: 'Hakamada', email: "ca_haka@gmail.com", city: ""}}
           validationSchema={Yup.object({
             city: Yup.string()
               .required('Obrigatório'),
