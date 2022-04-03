@@ -20,15 +20,22 @@ const Details = () => {
 
     const { dateReservation } = useDateRangeContext();
 
-    function handleClick() {
+
+    function handleClick() {  
 
         api.post('reservation', {
             startDate: dateReservation[0],
             endDate: dateReservation[1],
             product: { id: product.id }
         }).then((response) => {
-            const { startDate, endDate} = response.data
+
+            
+            const { startDate, endDate } = response.data
+            
+            
             navigate('/reserva-confirmada')
+
+            //}
 
             // Swal.fire({
             //     title: "Reserva bem-sucedida",

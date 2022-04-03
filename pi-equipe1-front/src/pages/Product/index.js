@@ -1,6 +1,5 @@
 import './style.css';
 import { useParams } from 'react-router-dom';
-import useAxios from '../../hooks/useAxios';
 import { useProductContext } from '../../contexts/ProductContext';
 import ProductTitle from './components/ProductTitle';
 import Location from './components/Location';
@@ -13,8 +12,6 @@ import Map from './components/Map';
 import Policy from './components/Policy';
 import { useEffect } from 'react';
 import api from '../../services/api';
-
-
 
 const Product = () => {
     const { productId } = useParams();

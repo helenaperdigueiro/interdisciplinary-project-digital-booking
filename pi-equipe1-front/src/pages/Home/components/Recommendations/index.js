@@ -2,6 +2,9 @@ import './style.css';
 import useAxios from '../../../../hooks/useAxios';
 import { Link } from 'react-router-dom';
 import Rating from '../../../../components/Rating';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faSink, faSnowflake, faCar, faWifi, faPaw, faTv, faPersonSwimming } from '@fortawesome/free-solid-svg-icons';
 
 const Recommendations = () => {
 
@@ -21,6 +24,27 @@ const Recommendations = () => {
     shuffle(recommendedProducts);
 
     let randomProducts = recommendedProducts.slice(0, 8);
+
+    const convert = (url) => {
+        switch (url) {
+            case 'faSink':
+                return faSink;
+            case 'faSnowflake':
+                return faSnowflake;
+            case 'faCar':
+                return faCar;
+            case 'faWifi':
+                return faWifi;
+            case 'faPaw':
+                return faPaw;
+            case 'faTv':
+                return faTv;
+            case 'faPersonSwimming':
+                return faPersonSwimming;
+            default:
+                return "";
+        }
+    }
 
     return (
         <div id="recommendations">
@@ -42,7 +66,7 @@ const Recommendations = () => {
                                         <p>{product.category.title}</p>
                                         <Rating />
                                     </div>
-                                    
+
                                     <h4>{product.name}</h4>
                                 </div>
 
@@ -52,8 +76,21 @@ const Recommendations = () => {
                                 </div>
                             </div>
 
-                            <p>{product.city.name}</p>
+                            <div className="location">
+                                <FontAwesomeIcon icon={faLocationDot} />
+                                <p>{product.city?.country}, {product.city.name} </p>
+                            </div>
+
+                            <div className="characteristics">
+                                {product.characteristics?.map(({ id, url }) =>
+                                    <div key={id}>
+                                        <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={convert(url)} size="lg"/></div>
+                                    </div>)
+                                }
+                            </div>
+
                             <p className="description">{product.description}</p>
+
                             <Link to={`/produto/${product.id}`}><button>Ver detalhes</button></Link>
                         </div>
                     </div>
