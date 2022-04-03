@@ -8,20 +8,37 @@ import { useProductContext } from '../../contexts/ProductContext';
 
 const CalendarAvailability = () => {
 
+    const [dateRange, setDateRange] = useState([null, null]);
+    const [startDate, endDate] = dateRange;
+
+    const { setDateReservation } = useDateRangeContext()
+
     const { product } = useProductContext();
 
-    // console.log(product.reservations[0]?.startDate);
-
-    const [dateRange, setDateRange] = useState([null, null]);
-
-    const [startDate, endDate] = dateRange;
-    const { setDateReservation } = useDateRangeContext()
-    
     const mediaQuery = useMediaQuery({ minWidth: 750 });
 
-    // console.log(product)
-    // console.log(product.reservations)
-    //console.log(product.reservations[0]?.startDate)
+    function reserveDate(product) {
+
+        let reservationsDate = [];
+
+        for (let i = 0; i < product.reservations.length; i++) {
+            
+            let entryDate = new Date(product.reservations[i].startDate)
+            let exitDate = new Date(product.reservations[i].endDate)
+            
+            let dates = [
+                {
+                    start: entryDate.setDate(entryDate.getDate()),
+                    end: exitDate.setDate(exitDate.getDate()+1),
+                }
+            ]
+            reservationsDate.push(dates);
+
+        }
+        return reservationsDate
+    }
+
+    let productReservations = (reserveDate(product)).flat()
 
     return (
         <div className="calendar">
@@ -38,6 +55,7 @@ const CalendarAvailability = () => {
                 }}
                 locale="ptBr"
                 inline
+                excludeDateIntervals={productReservations}
             />
         </div>
     )

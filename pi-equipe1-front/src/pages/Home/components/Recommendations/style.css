@@ -20,12 +20,13 @@
     border-radius: 0.5rem;
     box-shadow: 0 0.5rem 1rem #b8b8b8;
     overflow: hidden;
-    height: 36rem;
+    height: 40rem;
 }
 
 .recommendation img {
     width: 100%;
-    height: 18rem;
+    /* height: 18rem; */
+    height: 100%;
     object-fit: cover;
 }
 
@@ -34,7 +35,12 @@
 }
 
 .recommendationInfo {
-    padding: 1rem;
+    position: relative;
+    margin: 1rem;
+}
+
+.recommendationInfo h4{
+    font-weight: 600;
 }
 
 .recommendationTitle {
@@ -65,12 +71,33 @@
     background-color: var(--secondary-color);
     height: 1.2rem;
     width: 2rem;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
     margin: 0;
 }
 
-.recommendationInfo h4{
-    font-weight: 600;
+.recommendationInfo .location {
+    display: flex;
+    align-items: center;
+}
+
+.recommendationInfo .location p {
+    margin: 0 0.3rem;
+}
+
+.recommendationInfo .characteristics {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.recommendationInfo .characteristics .fa-lg {
+    font-size: 1rem;
+}
+
+.recommendationInfo .charIcons {
+    color: var(--primary-color);
 }
 
 .recommendationInfo button {
@@ -81,6 +108,8 @@
     color: white;
     background: var(--primary-color);
     font-weight: 500;
+    position:absolute;
+    bottom: 0;
 }
 
 .recommendationInfo button:hover {
@@ -93,13 +122,25 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     font-size: 0.9rem;
+    margin-top: 0.5rem
+}
+
+@media only screen and (min-width: 500px) {
+    .recommendation {
+        height: 43rem;
+    }
+
 }
 
 @media only screen and (min-width: 600px) {
     .recommendation {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
-        height: 18rem;
+        height: 19rem;
+    }
+
+    .recommendation img {
+        height: 19rem;
     }
 }
 
@@ -127,6 +168,10 @@
         flex-direction: column;
         align-items: flex-end;
         padding: 0.5rem;
+    }
+
+    .recommendationInfo .characteristics {
+        justify-content: flex-start;
     }
 }
 

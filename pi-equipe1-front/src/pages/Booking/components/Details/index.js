@@ -23,7 +23,8 @@ const Details = () => {
 
     const { dateReservation } = useDateRangeContext();
 
-    function handleClick() {
+
+    function handleClick() {  
 
         api.post('reservation', {
             startDate: dateReservation[0],

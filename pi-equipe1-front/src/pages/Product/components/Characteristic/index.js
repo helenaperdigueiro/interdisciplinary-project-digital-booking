@@ -8,7 +8,7 @@ const Characteristic = () => {
     const { product } = useProductContext();
 
     const convert = (url) => {
-        switch(url) {
+        switch (url) {
             case 'faSink':
                 return faSink;
             case 'faSnowflake':
@@ -33,12 +33,13 @@ const Characteristic = () => {
             <div id="charTitle">
                 <h4>O que este lugar oferece?</h4>
             </div>
+            
             <div id="characteristics">
-                            {product.characteristics?.map(({ id, url, name })  =>
-            <div key={id}>
-                <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={convert(url)} size="lg" /><p>{name}</p></div>
-            </div> )
-            }
+                {product.characteristics?.map(({ id, url, name }) =>
+                    <div key={id}>
+                        <div className='characteristic'><FontAwesomeIcon className="charIcons" icon={convert(url)} size="lg" /><p>{name}</p></div>
+                    </div>)
+                }
             </div>
         </>
     );
