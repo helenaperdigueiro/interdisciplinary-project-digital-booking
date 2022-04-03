@@ -84,5 +84,10 @@
     border-radius: 50%;
     background: var(--primary-color);
     color: white;
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.greeting{
+    font-weight: 600;
 }

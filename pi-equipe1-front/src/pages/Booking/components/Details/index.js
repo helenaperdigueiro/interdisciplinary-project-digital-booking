@@ -1,5 +1,6 @@
 import './style.css';
 import Swal from "sweetalert2";
+import { useUserContext } from '../../../../contexts/UserContext';
 import { useProductContext } from '../../../../contexts/ProductContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -10,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
 import Rating from '../../../../components/Rating';
 
 const Details = () => {
+
+    const { user } = useUserContext();
 
     const { product } = useProductContext();
 
@@ -25,16 +28,11 @@ const Details = () => {
         api.post('reservation', {
             startDate: dateReservation[0],
             endDate: dateReservation[1],
+            // userAccount: { id: user.id },
             product: { id: product.id }
-        }).then((response) => {
+        }, { headers: {"Authorization" : `Bearer ${user.token}`} }).then((response) => { 
             const { startDate, endDate} = response.data
             navigate('/reserva-confirmada')
-
-            // Swal.fire({
-            //     title: "Reserva bem-sucedida",
-            //     icon: 'success',
-            //     text: 'Hotel: ' + product.name +  ' Check-in: ' + startDate + ' Check-out: ' + endDate,
-            // })
         }).catch((error) => {
             console.error(error);
             Swal.fire({

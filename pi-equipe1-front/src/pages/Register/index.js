@@ -24,14 +24,14 @@ const Register = ({ onSubmit }) => {
                 Swal.fire({
                     title: "Cadastro feito com sucesso!",
                     icon: 'success',
-                    text: "Faça login",
+                    text: "Faça login após validar seu email",
                 });
                 navigate('/login');
 
             }).catch((error) => {
                 console.error(error);
                 Swal.fire({
-                    title: "Infelizmente a reserva não pôde ser feita",
+                    title: "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde.",
                     icon: 'error',
                     text: error,
                 })
