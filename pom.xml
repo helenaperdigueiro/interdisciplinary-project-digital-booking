@@ -51,10 +51,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-<<<<<<< HEAD
-		<!-- adicionei esses tres -->
-=======
->>>>>>> c60a7ad9186ac2ac1a29905c2f2bd04aa966ef86
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
