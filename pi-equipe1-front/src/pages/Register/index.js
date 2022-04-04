@@ -5,15 +5,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import api from '../../services/api';
 import Swal from 'sweetalert2';
+import { useUserContext } from '../../contexts/UserContext';
 
 const Register = ({ onSubmit }) => {
+
+    const { user, setUser } = useUserContext();
 
     const navigate = useNavigate();
 
     const sleep = ms => new Promise(r => setTimeout(r, ms))
     const handleSubmit = async (values, { setSubmitting }) => {
         setTimeout(() => {
-            // alert(JSON.stringify(values, null, 2));
             api.post('/user', {
                 name: values.name,
                 lastName: values.surname,
@@ -21,12 +23,36 @@ const Register = ({ onSubmit }) => {
                 username: values.name,
                 password: values.password,
             }).then((response) => {
-                Swal.fire({
-                    title: "Cadastro feito com sucesso!",
-                    icon: 'success',
-                    text: "Faça login após validar seu email",
-                });
-                navigate('/login');
+                api.post('/authenticate', {
+                    username: values.email,
+                    password: values.password,
+                  }).then((response) => {
+                    const userToken = response.data;
+                    api.get(`/user/email/${values.email}`)
+                    .then((response) => {
+                      const userData = {
+                        id: response.data.id,
+                        name: response.data.name,
+                        lastName: response.data.lastName,
+                        email: response.data.email,
+                        token: userToken
+                      };
+                      localStorage.setItem('signed', JSON.stringify(userData));
+                      setUser(userData)
+                    })
+                    navigate("/");
+                  }).catch((error) => {
+                    console.error(error);
+              
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Ops! Aconteceu algum erro!',
+                      text: error,
+                      confirmButtonColor: 'var(--primary-color)',
+                      imageWidth: 100,
+                      width: 350,
+                    })
+                  });
 
             }).catch((error) => {
                 console.error(error);
