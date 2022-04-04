@@ -11,6 +11,10 @@ const CheckinTime = () => {
     }
 
     const { checkinTime, setCheckinTime } = useCheckinTimeContext();
+
+    function handleChange(e) {
+        setCheckinTime(e.target.value);
+   }
     
 
     return (
@@ -21,15 +25,15 @@ const CheckinTime = () => {
                     <h5>Seu quarto estará pronto para check-in das 10:00 às 23:00</h5>
                     <p>Indique a hora prevista de sua chegada</p>
                     <Formik
-                        initialValues={{ selectedCheckinTime: "" }}
+                        initialValues={{ checkinTime }}
                         validationSchema={Yup.object({
-                            hours: Yup.string()
+                            checkinTime: Yup.string()
                                 .required('Obrigatório'),
                         })}
                         
                         >
                         <Form>
-                            <Field name="hours" as="select" id="hours" >
+                            <Field name="hours" as="select" id="hours" onChange={handleChange} >
                                 <option value="" label="Selecione"  />
                                 {/* <option name="selected" value="selected" disabled>Selecione</option> */}
                                 {hours.map(hour => {

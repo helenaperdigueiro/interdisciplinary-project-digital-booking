@@ -2,21 +2,28 @@ import './style.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useUserContext } from '../../../../contexts/UserContext';
+import { useUserCityContext } from '../../../../contexts/UserCityContext';
 
 const PersonalData = () => {
 
   const { user } = useUserContext();
 
+  const { userCity, setUserCity } = useUserCityContext();
+
+  const handleChange = async e => {
+    setUserCity(e.target.value);
+  }
     return (
+
         <div id='personalData'>
         <Formik
-          initialValues={{ name: `${user.name}`, surName: `${user.lastName}`, email: `${user.email}`, city: ""}}
+          initialValues={{ name: `${user.name}`, surName: `${user.lastName}`, email: `${user.email}`, city: ''}}
           validationSchema={Yup.object({
-            city: Yup.string()
-              .required('Obrigatório'),
+            city: Yup.string().required('Obrigatório'),
           })}
+          
         >
-          <Form className="data">
+          <Form className="data" onBlur={handleChange}>
               <div className='dataLeftCol'>
             <label htmlFor="name">Nome</label>
             <Field id="name" className="field" name="name" type="text" disabled="disabled" />
@@ -39,9 +46,9 @@ const PersonalData = () => {
             </div>
 
             <label htmlFor="city">Cidade</label>
-            <Field id="city" className="field" name="city" type="text" placeholder="Cidade"/>
+            <Field id="city" className="field" name="city" type="text" placeholder="Cidade" />
             <div className="errorMessage">
-              <ErrorMessage name="city">{msg => msg ? msg : ""}</ErrorMessage>
+              <ErrorMessage name="city">{msg => msg ? msg : ''}</ErrorMessage>
             </div>
             </div>
           </Form>

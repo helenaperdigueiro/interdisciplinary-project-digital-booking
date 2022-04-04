@@ -8,6 +8,8 @@ import { useDateRangeContext } from '../../../../contexts/DateRangeContext';
 import api from '../../../../services/api';
 import { useNavigate } from 'react-router-dom';
 import Rating from '../../../../components/Rating';
+import { useCheckinTimeContext } from '../../../../contexts/CheckinTimeContext';
+import { useUserCityContext } from '../../../../contexts/UserCityContext';
 
 const Details = () => {
 
@@ -17,19 +19,28 @@ const Details = () => {
 
     const navigate = useNavigate();
 
-    const { dateReservation } = useDateRangeContext();
+    const { dateReservation, setDateReservation } = useDateRangeContext();
 
-    function handleClick() {  
+    const { checkinTime, setCheckinTime } = useCheckinTimeContext();
+
+    const { userCity, setUserCity } = useUserCityContext();
+
+    const isValid = dateReservation && checkinTime && userCity;
+
+    function handleClick() {
 
         api.post('reservation', {
             startDate: dateReservation[0],
             endDate: dateReservation[1],
-            entryTime: '', //voltar aqui
+            entryTime: checkinTime,
             // userAccount: { id: user.id },
             product: { id: product.id }
         }, { headers: {"Authorization" : `Bearer ${user.token}`} }).then((response) => { 
-            const { startDate, endDate} = response.data
-            navigate('/reserva-confirmada')
+            const { startDate, endDate} = response.data;
+            setDateReservation('');
+            setCheckinTime('');
+            setUserCity('');
+            navigate('/reserva-confirmada');
         }).catch((error) => {
             console.error(error);
             Swal.fire({
@@ -69,7 +80,7 @@ const Details = () => {
                     <p>{dateReservation[1]?.toLocaleDateString('pt-BR')}</p>
                 </div>
 
-                <button onClick={handleClick}>Confirmar reserva</button>
+                <button disabled={!isValid} onClick={handleClick}>Confirmar reserva</button>
             </div>
         </div>
     );
