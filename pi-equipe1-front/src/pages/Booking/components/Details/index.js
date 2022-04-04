@@ -24,6 +24,7 @@ const Details = () => {
         api.post('reservation', {
             startDate: dateReservation[0],
             endDate: dateReservation[1],
+            entryTime: '', //voltar aqui
             // userAccount: { id: user.id },
             product: { id: product.id }
         }, { headers: {"Authorization" : `Bearer ${user.token}`} }).then((response) => { 

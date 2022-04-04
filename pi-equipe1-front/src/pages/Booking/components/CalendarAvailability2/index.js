@@ -11,7 +11,7 @@ const CalendarAvailability2 = () => {
 
     const { product } = useProductContext();
 
-    const { setDateReservation } = useDateRangeContext()
+    const { setDateReservation } = useDateRangeContext();
 
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;

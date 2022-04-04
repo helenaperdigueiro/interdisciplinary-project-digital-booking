@@ -12,6 +12,7 @@ import Product from '../pages/Product';
 import Booking from '../pages/Booking';
 import ConfirmedBooking from '../pages/ConfirmedBooking';
 import DateReservationContext from '../contexts/DateRangeContext';
+import CheckinTimeProvider from '../contexts/CheckinTimeContext';
 
 const RouteList = () => (
     <BrowserRouter>
@@ -19,20 +20,22 @@ const RouteList = () => (
             <UserProvider>
                 <ProductContextProvider>
                     <DateReservationContext>
-                        <Header />
-                        <Routes>
-                            <Route path='/' element={<Home />} />
-                            <Route path='/login' element={<Login />} />
-                            <Route path='/cadastro' element={<Register />} />
-                            <Route path='/datas/:startDate/:endDate' element={<Products />} />
-                            <Route path='/cidade/:productsBy' element={<Products />} />
-                            <Route path='/cidade/:productsBy/datas/:startDate/:endDate' element={<Products />} />
-                            <Route path='/categoria/:title' element={<Products />} />
-                            <Route path='/produto/:productId' element={<Product />} />
-                            <Route path='/produto/:productId/reserva' element={<Booking />} />
-                            <Route path='/reserva-confirmada' element={<ConfirmedBooking />} />
-                        </Routes>
-                        <Footer />
+                        <CheckinTimeProvider>
+                            <Header />
+                            <Routes>
+                                <Route path='/' element={<Home />} />
+                                <Route path='/login' element={<Login />} />
+                                <Route path='/cadastro' element={<Register />} />
+                                <Route path='/datas/:startDate/:endDate' element={<Products />} />
+                                <Route path='/cidade/:productsBy' element={<Products />} />
+                                <Route path='/cidade/:productsBy/datas/:startDate/:endDate' element={<Products />} />
+                                <Route path='/categoria/:title' element={<Products />} />
+                                <Route path='/produto/:productId' element={<Product />} />
+                                <Route path='/produto/:productId/reserva' element={<Booking />} />
+                                <Route path='/reserva-confirmada' element={<ConfirmedBooking />} />
+                            </Routes>
+                            <Footer />
+                        </CheckinTimeProvider>
                     </DateReservationContext>
                 </ProductContextProvider>
             </UserProvider>
