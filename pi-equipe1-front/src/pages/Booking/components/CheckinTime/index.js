@@ -1,5 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useCheckinTimeContext } from '../../../../contexts/CheckinTimeContext';
 import './style.css';
 
 const CheckinTime = () => {
@@ -9,6 +10,9 @@ const CheckinTime = () => {
         hours.push(i);
     }
 
+    const { checkinTime, setCheckinTime } = useCheckinTimeContext();
+    
+
     return (
         <div>
             <h4>Seu horário de chegada</h4>
@@ -17,14 +21,16 @@ const CheckinTime = () => {
                     <h5>Seu quarto estará pronto para check-in das 10:00 às 23:00</h5>
                     <p>Indique a hora prevista de sua chegada</p>
                     <Formik
-                        initialValues={{ hours: "" }}
+                        initialValues={{ selectedCheckinTime: "" }}
                         validationSchema={Yup.object({
                             hours: Yup.string()
                                 .required('Obrigatório'),
-                        })}>
+                        })}
+                        
+                        >
                         <Form>
-                            <Field name="hours" as="select" id="hours">
-                                <option value="" label="Selecione" />
+                            <Field name="hours" as="select" id="hours" >
+                                <option value="" label="Selecione"  />
                                 {/* <option name="selected" value="selected" disabled>Selecione</option> */}
                                 {hours.map(hour => {
                                     return (
