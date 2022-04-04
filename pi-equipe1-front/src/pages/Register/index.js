@@ -46,8 +46,10 @@ const Register = ({ onSubmit }) => {
               
                     Swal.fire({
                       icon: 'error',
-                      title: 'Ops! Aconteceu algum erro!',
-                      text: error,
+                      title: 'Ops!',
+                      text: 'Algo deu <b>errado!</b>' +
+                      '<br>' +
+                      error,
                       confirmButtonColor: 'var(--primary-color)',
                       imageWidth: 100,
                       width: 350,
