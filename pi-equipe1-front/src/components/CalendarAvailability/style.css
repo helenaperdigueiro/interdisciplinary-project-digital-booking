@@ -31,7 +31,10 @@
     font-weight: bold;
 }
 
-.react-datepicker_day--keyboard-selected, .react-datepicker_day--in-range {
+.react-datepicker_day--keyboard-selected, .react-datepicker_day--in-range,
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected,
+.react-datepicker__day--keyboard-selected:hover, .react-datepicker__day--in-range {
     border-radius: 0.3rem;
     background-color: var(--primary-color);
     color: #fff;
