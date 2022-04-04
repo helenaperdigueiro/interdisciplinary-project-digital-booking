@@ -13,6 +13,8 @@ const Login = ({ onSubmit }) => {
 
 const { user, setUser } = useUserContext();
 
+// console.log(location);
+
   const navigate = useNavigate();
 
   const handleSubmit = async values => {

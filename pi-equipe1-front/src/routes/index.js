@@ -1,9 +1,11 @@
 import { HelmetProvider } from 'react-helmet-async';
+import ScrollToTop from '../components/ScrollToTop';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import MandatoryLogin from "../pages/MandatoryLogin";
 import Register from '../pages/Register';
 import UserProvider from '../contexts/UserContext';
 import ProductContextProvider from '../contexts/ProductContext';
@@ -17,6 +19,7 @@ import UserCityProvider from '../contexts/UserCityContext';
 
 const RouteList = () => (
     <BrowserRouter>
+        <ScrollToTop />
         <HelmetProvider>
             <UserProvider>
                 <ProductContextProvider>
@@ -27,6 +30,7 @@ const RouteList = () => (
                                 <Routes>
                                     <Route path='/' element={<Home />} />
                                     <Route path='/login' element={<Login />} />
+                                    <Route path='/login-obrigatorio' element={<MandatoryLogin />} />
                                     <Route path='/cadastro' element={<Register />} />
                                     <Route path='/datas/:startDate/:endDate' element={<Products />} />
                                     <Route path='/cidade/:productsBy' element={<Products />} />

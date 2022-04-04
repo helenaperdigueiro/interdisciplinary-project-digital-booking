@@ -16,8 +16,6 @@ const Products = () => {
 
     const [products, setProducts] = useState([]);
 
-    console.log(products)
-
     useEffect(() => {
 
         if (productsBy && endDate)
