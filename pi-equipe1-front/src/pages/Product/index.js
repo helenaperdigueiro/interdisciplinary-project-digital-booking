@@ -29,7 +29,7 @@ const Product = () => {
         });
         }, [setProduct, productId]);
 
-        console.log(product);
+        // console.log(product);
 
     return (
         <>

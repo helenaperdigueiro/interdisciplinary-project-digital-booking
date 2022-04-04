@@ -4,7 +4,7 @@ const UserContext = createContext();
 
 export default function UserProvider({ children }) {
     
-    const storage = localStorage.getItem('signed');
+    const storage = JSON.parse(localStorage.getItem('signed'));
     const [user, setUser] = useState(storage);
 
     return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;

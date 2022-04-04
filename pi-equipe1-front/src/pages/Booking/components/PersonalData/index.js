@@ -1,12 +1,16 @@
 import './style.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useUserContext } from '../../../../contexts/UserContext';
 
 const PersonalData = () => {
+
+  const { user } = useUserContext();
+
     return (
         <div id='personalData'>
         <Formik
-          initialValues={{ name: 'Carol', surName: 'Hakamada', email: "ca_haka@gmail.com", city: ""}}
+          initialValues={{ name: `${user.name}`, surName: `${user.lastName}`, email: `${user.email}`, city: ""}}
           validationSchema={Yup.object({
             city: Yup.string()
               .required('Obrigatório'),

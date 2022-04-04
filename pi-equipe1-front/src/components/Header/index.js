@@ -20,7 +20,7 @@ const Header = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                     <Nav >
-                        <Nav.Link className="d-flex align-items-center" as={Link} to="/"><div id="avatar" className="me-1">CH</div><p className="m-0">Olá, Carol!</p></Nav.Link>
+                        <Nav.Link className="d-flex align-items-center" as={Link} to="/"><div id="avatar" className="me-1">{user.name.charAt(0)}{user.lastName.charAt(0)}</div><p className="m-0 greeting">Olá, {user.name}!</p></Nav.Link>
                         <Nav.Link className="access d-flex align-items-center" as={Link} to="/" onClick={() => {
                             localStorage.removeItem('signed');
                             setUser();

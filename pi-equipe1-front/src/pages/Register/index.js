@@ -1,19 +1,74 @@
 import './style.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import api from '../../services/api';
+import Swal from 'sweetalert2';
+import { useUserContext } from '../../contexts/UserContext';
 
 const Register = ({ onSubmit }) => {
+
+    const { user, setUser } = useUserContext();
+
+    const navigate = useNavigate();
 
     const sleep = ms => new Promise(r => setTimeout(r, ms))
     const handleSubmit = async (values, { setSubmitting }) => {
         setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            api.post('/user', {
+                name: values.name,
+                lastName: values.surname,
+                email: values.email,
+                username: values.name,
+                password: values.password,
+            }).then((response) => {
+                api.post('/authenticate', {
+                    username: values.email,
+                    password: values.password,
+                  }).then((response) => {
+                    const userToken = response.data;
+                    api.get(`/user/email/${values.email}`)
+                    .then((response) => {
+                      const userData = {
+                        id: response.data.id,
+                        name: response.data.name,
+                        lastName: response.data.lastName,
+                        email: response.data.email,
+                        token: userToken
+                      };
+                      localStorage.setItem('signed', JSON.stringify(userData));
+                      setUser(userData)
+                    })
+                    navigate("/");
+                  }).catch((error) => {
+                    console.error(error);
+              
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Ops!',
+                      text: 'Algo deu <b>errado!</b>' +
+                      '<br>' +
+                      error,
+                      confirmButtonColor: 'var(--primary-color)',
+                      imageWidth: 100,
+                      width: 350,
+                    })
+                  });
+
+            }).catch((error) => {
+                console.error(error);
+                Swal.fire({
+                    title: "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde.",
+                    icon: 'error',
+                    text: error,
+                })
+            });
             setSubmitting(false);
+            
         }, 400);
         await sleep(500)
-        onSubmit(values)
+        // onSubmit(values)
     }
 
     return (

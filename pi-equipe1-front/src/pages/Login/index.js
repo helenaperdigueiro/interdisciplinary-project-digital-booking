@@ -5,24 +5,42 @@ import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useUserContext } from '../../contexts/UserContext';
 import { Helmet } from 'react-helmet-async';
+import api from '../../services/api';
 
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
 const Login = ({ onSubmit }) => {
 
-  const { setUser } = useUserContext();
+const { user, setUser } = useUserContext();
 
   const navigate = useNavigate();
 
   const handleSubmit = async values => {
 
-    if (values.email === userTest.email && values.password === userTest.password) {
-
-      localStorage.setItem('signed', JSON.stringify([values.email]));
-      setUser([values.email])
+    api.post('/authenticate', {
+      username: values.email,
+      password: values.password,
+    }).then((response) => {
+      const userToken = response.data;
+      api.get(`/user/email/${values.email}`)
+      .then((response) => {
+        const userData = {
+          id: response.data.id,
+          name: response.data.name,
+          lastName: response.data.lastName,
+          email: response.data.email,
+          token: userToken
+        };
+        localStorage.setItem('signed', JSON.stringify(userData));
+        setUser(userData)
+      })
+      // localStorage.setItem('signed', JSON.stringify([userData]));
+      // setUser([userData])
       navigate("/");
 
-    } else {
+    }).catch((error) => {
+      console.error(error);
+
       Swal.fire({
         icon: 'error',
         title: 'Ops!',
@@ -31,12 +49,8 @@ const Login = ({ onSubmit }) => {
         imageWidth: 100,
         width: 350,
       })
-    }
-    await sleep(500)
-    onSubmit(values)
+    });
   }
-
-  let userTest = { email: "ca_haka@gmail.com", password: "cahakas" }
 
   return (
     <>
