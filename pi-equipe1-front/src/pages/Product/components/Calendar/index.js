@@ -17,7 +17,7 @@ const Calendar = () => {
                 <CalendarAvailability />
                 <div className="selection">
                     <p>Adicione as datas da sua viagem para obter preços exatos</p>
-                    <Link to={user ? `/produto/${product.id}/reserva` : '/login'}><button>Iniciar reserva</button></Link>
+                    <Link to={user ? `/produto/${product.id}/reserva` : '/login-obrigatorio'}><button>Iniciar reserva</button></Link>
                 </div>
             </div>
         </div>

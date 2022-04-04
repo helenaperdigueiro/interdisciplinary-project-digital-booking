@@ -1,5 +1,5 @@
 .availableDates {
-    padding: 1rem 2rem;
+    padding: 1rem;
     background-color: #eeeeeea1;
 }
 
@@ -55,7 +55,7 @@
 
     .selection {
         flex-direction: row;
-        padding: 1rem 2rem 1rem;
+        padding: 1rem 6rem 1rem;
     }
 
     .selection a {
@@ -66,14 +66,14 @@
 @media only screen and (min-width: 870px) {
     .selection {
         flex-direction: row;
-        padding: 1rem 8rem 1rem;
+        padding: 1rem 10rem 1rem;
     }
 }
 
 @media only screen and (min-width: 1020px) {
     .selection {
         flex-direction: row;
-        padding: 1rem 14rem 1rem;
+        padding: 1rem 14.5rem 1rem;
     }
 }
 
