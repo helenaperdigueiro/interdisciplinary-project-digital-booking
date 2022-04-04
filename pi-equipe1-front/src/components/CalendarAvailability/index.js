@@ -33,7 +33,7 @@ const CalendarAvailability = () => {
 
     const confirmedReservations = [];
 
-    for (let i = 0; i < product.reservations.length; i++) {
+    for (let i = 0; i < product.reservations?.length; i++) {
 
         let entryDate = new Date(product.reservations[i].startDate)
         let exitDate = new Date(product.reservations[i].endDate)
@@ -73,7 +73,7 @@ const CalendarAvailability = () => {
 
         const reservationsDate = [];
 
-        for (let i = 0; i < product.reservations.length; i++) {
+        for (let i = 0; i < product.reservations?.length; i++) {
 
             let entryDate = new Date(product.reservations[i].startDate)
             let exitDate = new Date(product.reservations[i].endDate)

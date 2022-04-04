@@ -73,7 +73,7 @@ const CalendarAvailability2 = () => {
 
         const reservationsDate = [];
 
-        for (let i = 0; i < product.reservations.length; i++) {
+        for (let i = 0; i < product.reservations?.length; i++) {
 
             let entryDate = new Date(product.reservations[i].startDate)
             let exitDate = new Date(product.reservations[i].endDate)
@@ -87,7 +87,7 @@ const CalendarAvailability2 = () => {
             reservationsDate.push(dates);
         }
         return reservationsDate
-    }
+   }
 
     const productReservations = (reserveDate(product)).flat()
 
@@ -106,7 +106,7 @@ const CalendarAvailability2 = () => {
                 }}
                 locale="ptBr"
                 inline
-                excludeDateIntervals={productReservations}
+               excludeDateIntervals={productReservations}
             />
         </div>
     )
