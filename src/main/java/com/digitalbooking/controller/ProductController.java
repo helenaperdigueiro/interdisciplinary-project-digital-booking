@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -41,6 +42,17 @@ public class ProductController {
     public ResponseEntity<List<Product>> findByCity(@PathVariable String name) {
         return ResponseEntity.ok(service.findByCity(name));
     }
+
+    @GetMapping("/city/{name}/{start}/{end}")
+    public ResponseEntity<List<Product>> findByCityDateAvailable(@PathVariable String name, @PathVariable Date start, @PathVariable Date end) {
+        return ResponseEntity.ok(service.findByCityDateAvailable(name, start, end));
+    }
+
+    @GetMapping("/dates/{start}/{end}")
+    public ResponseEntity<List<Product>> findByDateAvailable(@PathVariable Date start, @PathVariable Date end) {
+        return ResponseEntity.ok(service.findByDateAvailable(start, end));
+    }
+
 
     @GetMapping("/category/{title}")
     public ResponseEntity<List<Product>> findByCategory(@PathVariable String title) {

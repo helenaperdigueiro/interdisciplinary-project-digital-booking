@@ -5,7 +5,9 @@ import com.digitalbooking.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ProductService {
@@ -46,6 +48,28 @@ public class ProductService {
 
     public List<Product> findByCity(String name) {
         return repository.findByCity(name);
+    }
+
+    public List<Product> findByCityDateAvailable(String name, Date start, Date end) {
+
+        List<Product> availableProducts = repository.findByCity(name);
+        Set<Product> unavailableProducts = Set.copyOf(repository.findByCityDateAvailable(name, start, end));
+
+        unavailableProducts.forEach(unavailable -> {
+            availableProducts.removeIf(available -> available.getId().equals(unavailable.getId()));
+        });
+        return availableProducts;
+    }
+
+    public List<Product> findByDateAvailable(Date start, Date end) {
+
+        List<Product> availableProducts = repository.findAll();
+        Set<Product> unavailableProducts = Set.copyOf(repository.findByDateAvailable(start, end));
+
+        unavailableProducts.forEach(unavailable -> {
+            availableProducts.removeIf(available -> available.getId().equals(unavailable.getId()));
+        });
+        return availableProducts;
     }
 
     public List<Product> findByCategory(String title) {
