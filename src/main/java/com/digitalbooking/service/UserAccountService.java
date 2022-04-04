@@ -54,9 +54,5 @@ public class UserAccountService {
     public void deleteById(Integer id) {
         repository.deleteById(id);
     }
-
-    public UserAccount getByEmail(String email) {
-        return repository.findByEmail(email);
-    }
 }
 
