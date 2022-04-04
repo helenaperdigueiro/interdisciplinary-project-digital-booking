@@ -11,9 +11,9 @@ const CalendarAvailability2 = () => {
 
     const { product } = useProductContext();
 
-    const { setDateReservation, dateReservation } = useDateRangeContext()
+    const { setDateReservation } = useDateRangeContext()
 
-    const [dateRange, setDateRange] = useState([dateReservation[0], dateReservation[1]]);
+    const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
 
     const mediaQuery = useMediaQuery({ minWidth: 750 });
