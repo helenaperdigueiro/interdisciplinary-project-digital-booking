@@ -1,4 +1,5 @@
 import { HelmetProvider } from 'react-helmet-async';
+import ScrollToTop from '../components/ScrollToTop';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -18,6 +19,7 @@ import UserCityProvider from '../contexts/UserCityContext';
 
 const RouteList = () => (
     <BrowserRouter>
+        <ScrollToTop />
         <HelmetProvider>
             <UserProvider>
                 <ProductContextProvider>
