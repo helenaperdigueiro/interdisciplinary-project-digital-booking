@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserAccountController {
 
     @Autowired
@@ -28,6 +29,11 @@ public class UserAccountController {
     @GetMapping("/{id}")
     public ResponseEntity<UserAccount> getById(@PathVariable Integer id) {
         return ResponseEntity.ok(service.getById(id));
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<UserAccount> findByEmail(@PathVariable String email) {
+        return ResponseEntity.ok(service.findByEmail(email));
     }
 
     @GetMapping

@@ -25,7 +25,7 @@ public class Reservation {
 //    private Client client;   ?
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userAccount_id")
     private UserAccount userAccount;
 
     @ManyToOne(fetch = FetchType.LAZY)

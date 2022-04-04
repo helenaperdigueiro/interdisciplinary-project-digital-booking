@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -15,6 +16,6 @@ public class Role {
     @Column(length = 100, nullable = false)
     private String name;
 
-    @ManyToOne
-    private UserAccount userAccount;
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+    private List<UserAccount> userAccounts;
 }

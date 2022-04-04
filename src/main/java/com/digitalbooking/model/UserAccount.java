@@ -28,11 +28,21 @@ public class UserAccount implements UserDetails{
     private String email;
 
     @Column(length = 100, nullable = false)
+    private String username;
+
+    @Column(length = 100, nullable = false)
     private String password;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userAccount", cascade = CascadeType.ALL) //adicionamos (separar depois)
-    @JsonIgnoreProperties("userAccount")
+//    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "userAccounts") //adicionamos (separar depois)
+//    private List<Role> roles;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "userAccount_role", joinColumns = @JoinColumn(name = "userAccount_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userAccount")
+    @JsonIgnoreProperties("userAccount")
+    private List<Reservation> reservations;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -57,10 +67,5 @@ public class UserAccount implements UserDetails{
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    @Override
-    public String getUsername() {
-        return this.email;
     }
 }

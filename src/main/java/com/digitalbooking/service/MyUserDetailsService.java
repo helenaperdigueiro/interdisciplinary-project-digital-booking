@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -22,9 +23,9 @@ public class MyUserDetailsService implements UserDetailsService {
     private UserAccountRepository userAccountRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserAccount userAccount = userAccountRepository.findByEmail(email);
+        UserAccount userAccount = userAccountRepository.findByEmail(username);
 
         Set<GrantedAuthority> grantList = new HashSet<GrantedAuthority>();
         for (Role role: userAccount.getRoles()) {
@@ -32,7 +33,12 @@ public class MyUserDetailsService implements UserDetailsService {
             grantList.add(grantedAuthority);
         }
         UserDetails user = null;
-        user = (UserDetails) new User(email, userAccount.getPassword(), grantList);
+        user = (UserDetails) new User(username, userAccount.getPassword(), grantList);
         return user;
+    }
+
+    public static void main(String[] args) {
+        // usei pra gerar o password codigicado que deve estar no banco
+        System.out.println(new BCryptPasswordEncoder().encode("helenas"));
     }
 }

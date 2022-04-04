@@ -43,6 +43,10 @@ public class UserAccountService {
         return repository.getById(id);
     }
 
+    public UserAccount findByEmail(String email) {
+        return repository.findByEmail(email);
+    }
+
     public List<UserAccount> findAll() {
         return repository.findAll();
     }

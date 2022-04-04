@@ -3,6 +3,7 @@ package com.digitalbooking.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -34,9 +35,16 @@ public class SecurityConfiguration<MyUserDetailsService, JwtRequestFilter> exten
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.csrf().disable().authorizeRequests()
-                .antMatchers("/**").permitAll().anyRequest()
+        http.csrf().disable().authorizeRequests().
+                antMatchers(HttpMethod.GET, "/product/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/category/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/city/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/reservation/**").permitAll()
+                .antMatchers(HttpMethod.OPTIONS, "/reservation/**").permitAll()
+                .antMatchers("/authenticate/**").permitAll()
+                .antMatchers("/user/**").permitAll()
+//                .antMatchers( "/**").permitAll()
+                .anyRequest()
                 .authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
