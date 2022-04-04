@@ -1,27 +1,18 @@
-/* #locationProduct {
-    display: flex;
-    justify-content: space-between;
-    color: #000000;
-    overflow: hidden;
-    background: #e7e8e9;
-    padding: 1rem;
-} */
-
 #locationProduct {
     display: flex;
-    /* flex-direction: column; */
+    justify-content: space-between;
     color: #000000;
     background: #e7e8e9;
     padding: 0.5rem 0.5rem 0.2rem;
 }
 
-#locationInformation {
+#locationInfo {
     display: flex;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
-#locationInformation svg {
+#locationInfo svg {
     color: var(--primary-color);
     height: 1.5rem;
     align-self: flex-start;
@@ -29,19 +20,15 @@
 }
 
 #adress {
-    padding-left: 0.7rem;
+    padding-left: 0.5rem;
 }
 
 #adress p {
     margin: 0;
 }
 
-#ratingButton {
-    height: 0.05rem;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
+#ratingInfo .ratingButton {
+   justify-content: right;
 }
 
 .on {
@@ -52,15 +39,16 @@
     color: #ccc;
 }
 
-#ratingInformation {
+#ratingInfo {
     display: flex;
     align-items: center;
     justify-content: right ;
     flex-wrap: wrap;
-    width: 7rem;  
+    width: 6rem;  
 }
 
-#ratingInformation p {
+#ratingInfo p {
+    font-size: 1rem;
     height: 1rem;
     margin: 0;
     font-weight: bold;
@@ -91,18 +79,18 @@
         padding: 0.5rem 1rem;
     }
 
-    #locationInformation {
+    #locationInfo {
         font-size: 0.9rem;
     }
 
-    #ratingInformation {
+    #ratingInfo {
         display: flex;
         text-align: right;
         flex-direction: row;
         width: auto;
     }
 
-    .ratingStar {
+    .rating {
         height: 2.4rem;
     }
 }
@@ -112,16 +100,16 @@
         padding: 0.3rem 1rem;
     }
 
-    #locationInformation {
+    #locationInfo {
         font-size: 1rem;
     }
     
-    #ratingInformation {
+    #ratingInfo {
         align-items: center;
         padding-left: 0.5rem;
     }
     
-    #ratingInformation p {
+    #ratingInfo p {
         height: 1rem;
     }
 

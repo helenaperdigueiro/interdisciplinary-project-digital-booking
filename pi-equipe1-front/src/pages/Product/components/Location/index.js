@@ -1,19 +1,16 @@
 import './style.css';
-import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { useProductContext } from '../../../../contexts/ProductContext';
+import Rating from '../../../../components/Rating'
 
 const Location = () => {
 
     const { product } = useProductContext();
 
-    const [rating, setRating] = useState(4);
-    // const [hover, setHover] = useState();
-
     return (
         <div id="locationProduct">
-            <div id="locationInformation">
+            <div id="locationInfo">
                 <FontAwesomeIcon icon={faLocationDot} />
 
                 <div id="adress">
@@ -23,26 +20,11 @@ const Location = () => {
                 </div>
             </div>
 
-            <div id="ratingInformation">
-                <div className="ratingStar">
+            <div id="ratingInfo">
+                <div className="rating">
                     <p>Muito bom</p>
-
-                    {[...Array(5)].map((star, index) => {
-                        index += 1;
-                        return (
-                            <button id="ratingButton"
-                                type="button"
-                                key={index}
-                                className={index <= ( rating) ? "on" : "off"}
-                                onClick={() => setRating(index)}
-                                // onMouseEnter={() => setHover(index)}
-                                // onMouseLeave={() => setHover(rating)}
-                            >
-                                <div className="star">&#9733;</div>
-                            </button>
-                        );
-                    })}
-                </div>
+                    <Rating />
+                </div> 
 
                 <div id="grade">
                     <h5>8</h5>

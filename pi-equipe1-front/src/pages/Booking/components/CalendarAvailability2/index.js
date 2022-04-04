@@ -11,9 +11,9 @@ const CalendarAvailability2 = () => {
 
     const { product } = useProductContext();
 
-    const { setDateReservation } = useDateRangeContext()
+    const { setDateReservation, dateReservation } = useDateRangeContext()
 
-    const [dateRange, setDateRange] = useState([null, null]);
+    const [dateRange, setDateRange] = useState([dateReservation[0], dateReservation[1]]);
     const [startDate, endDate] = dateRange;
 
     const mediaQuery = useMediaQuery({ minWidth: 750 });
@@ -61,7 +61,7 @@ const CalendarAvailability2 = () => {
                 text: 'Por favor, escolha datas disponíveis no calendário',
                 confirmButtonColor: 'var(--primary-color)',
                 imageWidth: 100,
-                width: 350,
+                width: 400,
             })
 
             setDateRange("");

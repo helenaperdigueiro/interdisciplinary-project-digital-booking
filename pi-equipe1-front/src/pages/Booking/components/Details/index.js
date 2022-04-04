@@ -3,7 +3,6 @@ import Swal from "sweetalert2";
 import { useProductContext } from '../../../../contexts/ProductContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { useState } from "react";
 import { useDateRangeContext } from '../../../../contexts/DateRangeContext';
 import api from '../../../../services/api';
 import { useNavigate } from 'react-router-dom';
@@ -15,11 +14,7 @@ const Details = () => {
 
     const navigate = useNavigate();
 
-    const [rating, setRating] = useState(4);
-    const [hover, setHover] = useState();
-
     const { dateReservation } = useDateRangeContext();
-
 
     function handleClick() {  
 
@@ -29,13 +24,9 @@ const Details = () => {
             product: { id: product.id }
         }).then((response) => {
 
-            
             const { startDate, endDate } = response.data
             
-            
             navigate('/reserva-confirmada')
-
-            //}
 
             // Swal.fire({
             //     title: "Reserva bem-sucedida",
