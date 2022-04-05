@@ -57,7 +57,7 @@ const CalendarAvailability = () => {
         if (confirmedReservations.includes(selectedDates[i])) {
             Swal.fire({
                 icon: 'error',
-                title: 'Infelizmente a reserva não pôde ser feita',
+                title: 'Ops!',
                 text: 'Por favor, escolha datas disponíveis no calendário',
                 confirmButtonColor: 'var(--primary-color)',
                 imageWidth: 100,
