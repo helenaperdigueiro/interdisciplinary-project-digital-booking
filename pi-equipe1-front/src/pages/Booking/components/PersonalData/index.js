@@ -23,7 +23,7 @@ const PersonalData = () => {
           })}
           
         >
-          <Form className="data" onBlur={handleChange}>
+          <Form className="data" onChange={handleChange}>
               <div className='dataLeftCol'>
             <label htmlFor="name">Nome</label>
             <Field id="name" className="field" name="name" type="text" disabled="disabled" />
