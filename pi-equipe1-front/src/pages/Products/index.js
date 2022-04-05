@@ -61,7 +61,7 @@ const Products = () => {
     return (
         <>
             <Helmet>
-                <title>{productsBy || title }</title>
+                <title>{productsBy || title}</title>
             </Helmet>
             <div id="productsTitle">
                 <Link to="/">
@@ -71,7 +71,7 @@ const Products = () => {
                 </Link>
 
                 <div id="informationsTitle">
-                    <h3>{productsBy || title }</h3>
+                    <h3>{productsBy || title || "Produtos disponíveis"}</h3>
                 </div>
             </div>
 
