@@ -17,6 +17,7 @@ import DateReservationContext from '../contexts/DateRangeContext';
 import CheckinTimeProvider from '../contexts/CheckinTimeContext';
 import UserCityProvider from '../contexts/UserCityContext';
 import ConfirmedNewProduct from '../pages/ConfirmedNewProduct'
+import CreateNewProduct from '../pages/CreateNewProduct';
 
 const RouteList = () => (
     <BrowserRouter>
@@ -41,6 +42,7 @@ const RouteList = () => (
                                     <Route path='/produto/:productId/reserva' element={<Booking />} />
                                     <Route path='/reserva-confirmada' element={<ConfirmedBooking />} />
                                     <Route path='/novo-produto-criado' element={<ConfirmedNewProduct />} />
+                                    <Route path='/criar-novo-produto' element={<CreateNewProduct />} />
                                 </Routes>
                                 <Footer />
                             </UserCityProvider>

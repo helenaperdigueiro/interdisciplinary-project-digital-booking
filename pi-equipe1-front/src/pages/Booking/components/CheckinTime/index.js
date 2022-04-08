@@ -34,7 +34,7 @@ const CheckinTime = () => {
                         <Form onChange={handleChange}>
                             <Field name="hours" as="select" id="hours" >
                                 <option value="" label="Selecione"  />
-                                {/* <option name="selected" value="selected" disabled>Selecione</option> */}
+                                
                                 {hours.map(hour => {
                                     return (
                                         <option value={`${hour}`} key={`${hour}`}>{hour}:00</option>
