@@ -13,7 +13,7 @@ import Products from '../pages/Products';
 import Product from '../pages/Product';
 import Booking from '../pages/Booking';
 import ConfirmedBooking from '../pages/ConfirmedBooking';
-import DateReservationContext from '../contexts/DateRangeContext';
+import DateReservationProvider from '../contexts/DateRangeContext';
 import CheckinTimeProvider from '../contexts/CheckinTimeContext';
 import UserCityProvider from '../contexts/UserCityContext';
 
@@ -23,7 +23,7 @@ const RouteList = () => (
         <HelmetProvider>
             <UserProvider>
                 <ProductContextProvider>
-                    <DateReservationContext>
+                    <DateReservationProvider>
                         <CheckinTimeProvider>
                             <UserCityProvider>
                                 <Header />
@@ -43,7 +43,7 @@ const RouteList = () => (
                                 <Footer />
                             </UserCityProvider>
                         </CheckinTimeProvider>
-                    </DateReservationContext>
+                    </DateReservationProvider>
                 </ProductContextProvider>
             </UserProvider>
         </HelmetProvider>
