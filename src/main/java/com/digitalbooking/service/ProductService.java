@@ -47,12 +47,12 @@ public class ProductService {
     }
 
     public List<Product> findByCity(String name) {
-        return repository.findByCity(name);
+        return repository.findByCityName(name);
     }
 
     public List<Product> findByCityDateAvailable(String name, Date start, Date end) {
 
-        List<Product> availableProducts = repository.findByCity(name);
+        List<Product> availableProducts = repository.findByCityName(name);
         Set<Product> unavailableProducts = Set.copyOf(repository.findByCityDateAvailable(name, start, end));
 
         unavailableProducts.forEach(unavailable -> {
@@ -73,6 +73,6 @@ public class ProductService {
     }
 
     public List<Product> findByCategory(String title) {
-        return repository.findByCategory(title);
+        return repository.findByCategoryTitle(title);
     }
 }
