@@ -15,19 +15,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"POST Product Status ok\", function () {\r",
+									"pm.test(\"POST Status ok\", function () {\r",
 									"     pm.response.to.have.status(201);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"POST Product has Body\", function () {\r",
+									"pm.test(\"POST has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"POST Product return JSON\", function () {\r",
+									"pm.test(\"POST return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"POST Product request body is equal response json\", () => {\r",
+									"pm.test(\"POST request body is equal response json\", () => {\r",
 									"\r",
 									"  const responseJson = pm.response.json();\r",
 									"  const requestBody = JSON.parse(pm.request.body.raw);\r",
@@ -45,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"name product\",\r\n    \"description\": \"description product\",\r\n    \"characteristics\": [\r\n        {\"idCharacteristic\": 1 },\r\n        {\"idCharacteristic\": 2 }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"name\": \"Product 1\",\r\n    \"description\": \"description Product 1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -73,15 +73,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"PUT Product Status ok\", function () {\r",
+									"pm.test(\"PUT Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"PUT Product has Body\", function () {\r",
+									"pm.test(\"PUT has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"PUT Product return JSON\", function () {\r",
+									"pm.test(\"PUT return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});\r",
 									"\r",
@@ -103,7 +103,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Product 1 Edited\",\r\n    \"description\": \"Description 1 Edited\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Product 1 Edited\",\r\n    \"description\": \"description Product 1 Edited\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -132,15 +132,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"GET By ID Product Status ok\", function () {\r",
+									"pm.test(\"GET By ID Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET By ID Product has Body\", function () {\r",
+									"pm.test(\"GET By ID has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET By ID Product return JSON\", function () {\r",
+									"pm.test(\"GET By ID return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});"
 								],
@@ -173,15 +173,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"GET By City Name Product Status ok\", function () {\r",
+									"pm.test(\"GET By City Name Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET By City Name Product has Body\", function () {\r",
+									"pm.test(\"GET By City Name has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET By City Name Product return JSON\", function () {\r",
+									"pm.test(\"GET By City Name return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});"
 								],
@@ -209,21 +209,108 @@
 					"response": []
 				},
 				{
+					"name": "Product GET City and Dates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET By City and Dates Status ok\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET By City and Dates has Body\", function () {\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET By City and Dates return JSON\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/city/Montevideo/Fri Apr 01 2022/Sat Apr 02 2022",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"city",
+								"Montevideo",
+								"Fri Apr 01 2022",
+								"Sat Apr 02 2022"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product GET By Dates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET By Dates Status ok\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET By Dates has Body\", function () {\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET By Dates return JSON\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/dates/Fri Apr 01 2022/Sat Apr 02 2022",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"dates",
+								"Fri Apr 01 2022",
+								"Sat Apr 02 2022"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Product GET BY Category Title",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"GET By Category Title Product Status ok\", function () {\r",
+									"pm.test(\"GET By Category Title Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET By Category Title Product has Body\", function () {\r",
+									"pm.test(\"GET By Category Title has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET By Category Title Product return JSON\", function () {\r",
+									"pm.test(\"GET By Category Title return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});"
 								],
@@ -257,15 +344,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"GET ALL Product Status ok\", function () {\r",
+									"pm.test(\"GET ALL Status ok\", function () {\r",
 									"     pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET ALL Product has Body\", function () {\r",
+									"pm.test(\"GET ALL has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET ALL Product return JSON\", function () {\r",
+									"pm.test(\"GET ALL return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});\r",
 									""
@@ -274,21 +361,9 @@
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Product 9\",\r\n    \"description\": \"Description 9\",\r\n    \"category\": {\r\n        \"idCategory\": 3\r\n    },\r\n    \"idImage\": {\r\n        \"idImage\": 3\r\n    },\r\n    \"city\": {\r\n        \"idCity\": 3\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "http://localhost:8080/product",
 							"protocol": "http",
@@ -310,15 +385,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"DELETE By ID Product Status ok\", function () {\r",
+									"pm.test(\"DELETE By ID Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"DELETE By ID Product has Body\", function () {\r",
+									"pm.test(\"DELETE By ID has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"DELETE By ID Product return Deleted\", function () {\r",
+									"pm.test(\"DELETE By ID return Deleted\", function () {\r",
 									"     pm.response.to.have.body(\"Deleted\");\r",
 									"});"
 								],
@@ -356,19 +431,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"POST Category Status ok\", function () {\r",
+									"pm.test(\"POST Status ok\", function () {\r",
 									"     pm.response.to.have.status(201);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"POST Category has Body\", function () {\r",
+									"pm.test(\"POST has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"POST Category return JSON\", function () {\r",
+									"pm.test(\"POST return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"POST Category request body is equal response json\", () => {\r",
+									"pm.test(\"POST request body is equal response json\", () => {\r",
 									"\r",
 									"  const responseJson = pm.response.json();\r",
 									"  const requestBody = JSON.parse(pm.request.body.raw);\r",
@@ -387,7 +462,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Title 1\",\r\n    \"description\": \"Description 1\",\r\n    \"urlImage\": \"public/images/img1.png\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Category 1\",\r\n    \"description\": \"Description Category 1\",\r\n    \"urlImage\": \"public/images/img1.png\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -415,15 +490,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"PUT Category Status ok\", function () {\r",
+									"pm.test(\"PUT Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"PUT Category has Body\", function () {\r",
+									"pm.test(\"PUT has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"PUT Category return JSON\", function () {\r",
+									"pm.test(\"PUT return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});\r",
 									"\r",
@@ -446,7 +521,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Title 1 Edited\",\r\n    \"description\": \"Description 1 Edited\",\r\n    \"urlImage\": \"public/images/img1Edited.png\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Category 1 Edited\",\r\n    \"description\": \"Description Category 1 Edited\",\r\n    \"urlImage\": \"public/images/Editedimg1.png\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -475,15 +550,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"GET By ID Category Status ok\", function () {\r",
+									"pm.test(\"GET By ID Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET By ID Category has Body\", function () {\r",
+									"pm.test(\"GET By ID has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET By ID Category return JSON\", function () {\r",
+									"pm.test(\"GET By ID return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});"
 								],
@@ -516,15 +591,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"GET ALL Category Status ok\", function () {\r",
+									"pm.test(\"GET ALL Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET ALL Category has Body\", function () {\r",
+									"pm.test(\"GET ALL has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET ALL Category return JSON\", function () {\r",
+									"pm.test(\"GET ALL return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});"
 								],
@@ -556,15 +631,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"DELETE By ID Category Status ok\", function () {\r",
+									"pm.test(\"DELETE By ID Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"DELETE By ID Category has Body\", function () {\r",
+									"pm.test(\"DELETE By ID has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"DELETE By ID Category return Deleted\", function () {\r",
+									"pm.test(\"DELETE By ID return Deleted\", function () {\r",
 									"     pm.response.to.have.body(\"Deleted\");\r",
 									"});"
 								],
@@ -602,19 +677,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"POST City Status ok\", function () {\r",
+									"pm.test(\"POST Status ok\", function () {\r",
 									"     pm.response.to.have.status(201);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"POST City has Body\", function () {\r",
+									"pm.test(\"POST has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"POST City return JSON\", function () {\r",
+									"pm.test(\"POST return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"POST City request body is equal response json\", () => {\r",
+									"pm.test(\"POST request body is equal response json\", () => {\r",
 									"\r",
 									"  const responseJson = pm.response.json();\r",
 									"  const requestBody = JSON.parse(pm.request.body.raw);\r",
@@ -632,7 +707,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"city 125\",\r\n    \"country\": \"India\"\r\n}",
+							"raw": "{\r\n    \"name\": \"City 1\",\r\n    \"country\": \"Brasil\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -660,15 +735,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"GET ALL City Status ok\", function () {\r",
+									"pm.test(\"GET ALL Status ok\", function () {\r",
 									"     pm.response.to.be.ok;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET ALL City has Body\", function () {\r",
+									"pm.test(\"GET ALL has Body\", function () {\r",
 									"     pm.response.to.be.withBody;\r",
 									"});\r",
 									"\r",
-									"pm.test(\"GET ALL City return JSON\", function () {\r",
+									"pm.test(\"GET ALL return JSON\", function () {\r",
 									"     pm.response.to.be.json;\r",
 									"});"
 								],
@@ -688,6 +763,271 @@
 							"port": "8080",
 							"path": [
 								"city"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"POST Status ok\", function () {\r",
+									"     pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"POST has Body\", function () {\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"POST return JSON\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"POST request body is equal response json\", () => {\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  const requestBody = JSON.parse(pm.request.body.raw);\r",
+									"\r",
+									"  pm.expect(responseJson.name).to.eql(requestBody.name);\r",
+									"  pm.expect(responseJson.lastName).to.eql(requestBody.lastName);\r",
+									"  pm.expect(responseJson.email).to.eql(requestBody.email);\r",
+									"  pm.expect(responseJson.username).to.eql(requestBody.username);\r",
+									"  pm.expect(responseJson.password).to.eql(requestBody.passwordl);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Leonardo\",\r\n    \"lastName\": \"Santino\",\r\n    \"email\": \"leonardosantino@email.com\",\r\n    \"password\": \"leonardosantino@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User GET ALL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET ALL Status ok\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET ALL has Body\", function () {\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET ALL return JSON\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User GET BY ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET By ID Status ok\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET By ID has Body\", function () {\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET By ID return JSON\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservations",
+			"item": [
+				{
+					"name": "Reservation POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"POST Status ok\", function () {\r",
+									"     pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"POST has Body\", function () {\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"POST return JSON\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"POST request body is equal response json\", () => {\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  const requestBody = JSON.parse(pm.request.body.raw);\r",
+									"\r",
+									"  pm.expect(responseJson.startDate).to.eql(requestBody.startDate);\r",
+									"  pm.expect(responseJson.endDate).to.eql(requestBody.endDate);\r",
+									"  pm.expect(responseJson.entryTime).to.eql(requestBody.entryTime);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\":\"2022/03/28\",\r\n    \"endDate\": \"2022/03/29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/reservation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reservation GET ALL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET ALL Status ok\", function () {\r",
+									"     pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET ALL has Body\", function () {\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"GET ALL return JSON\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\":\"2022/03/28\",\r\n    \"endDate\": \"2022/03/29\",\r\n    \"product\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/reservation/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reservation",
+								"2"
 							]
 						}
 					},
