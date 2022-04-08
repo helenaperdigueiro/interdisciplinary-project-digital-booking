@@ -41,7 +41,7 @@ public class UserAccount implements UserDetails{
     private List<Role> roles;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userAccount")
-    @JsonIgnoreProperties("userAccount")
+
     private List<Reservation> reservations;
 
     @Override
