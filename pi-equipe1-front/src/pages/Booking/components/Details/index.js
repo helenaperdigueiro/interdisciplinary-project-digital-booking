@@ -33,10 +33,9 @@ const Details = () => {
             startDate: dateReservation[0],
             endDate: dateReservation[1],
             entryTime: checkinTime,
-            // userAccount: { id: user.id },
+            userAccount: { id: user.id },
             product: { id: product.id }
         }, { headers: {"Authorization" : `Bearer ${user.token}`} }).then((response) => { 
-            const { startDate, endDate} = response.data;
             setDateReservation('');
             setCheckinTime('');
             setUserCity('');
