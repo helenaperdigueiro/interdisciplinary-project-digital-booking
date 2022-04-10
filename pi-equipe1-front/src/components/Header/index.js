@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 import { useUserContext } from '../../contexts/UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { useMediaQuery } from 'react-responsive';
 
 const Header = () => {
 
     const { user, setUser } = useUserContext();
+
+    const mediaQuery = useMediaQuery({ minWidth: 768 });
 
     if (user) {
         return (
@@ -20,7 +23,12 @@ const Header = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                     <Nav >
-                        <Nav.Link className="d-flex align-items-center" as={Link} to="/"><div id="avatar" className="me-1">{user.name.charAt(0)}{user.lastName.charAt(0)}</div><p className="m-0 greeting">Olá, {user.name}!</p></Nav.Link>
+                        <Nav.Link className="access" as={Link} to={`/${user.id}/reservas`}><button className="logout">reservas</button></Nav.Link>
+                        
+                        {mediaQuery && <div id="separator">|</div>}
+
+                        <Nav.Link className="d-flex align-items-center noPointer" as={Link} to="/"><div id="avatar" className="me-1">{user.name.charAt(0)}{user.lastName.charAt(0)}</div><p className="m-0 greeting">Olá, {user.name}!</p></Nav.Link>
+
                         <Nav.Link className="access d-flex align-items-center" as={Link} to="/" onClick={() => {
                             localStorage.removeItem('signed');
                             setUser();

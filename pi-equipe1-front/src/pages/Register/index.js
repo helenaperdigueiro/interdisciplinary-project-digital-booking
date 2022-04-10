@@ -9,7 +9,7 @@ import { useUserContext } from '../../contexts/UserContext';
 
 const Register = ({ onSubmit }) => {
 
-    const { user, setUser } = useUserContext();
+    const { setUser } = useUserContext();
 
     const navigate = useNavigate();
 

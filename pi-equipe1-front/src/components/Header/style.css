@@ -91,3 +91,14 @@
 .greeting{
     font-weight: 600;
 }
+
+#separator {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.noPointer:hover {
+    cursor: default;
+}
