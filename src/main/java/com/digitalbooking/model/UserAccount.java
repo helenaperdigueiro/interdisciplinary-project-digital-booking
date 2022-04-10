@@ -36,8 +36,9 @@ public class UserAccount implements UserDetails{
 //    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "userAccounts") //adicionamos (separar depois)
 //    private List<Role> roles;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "userAccount_role", joinColumns = @JoinColumn(name = "userAccount_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JsonIgnoreProperties("userAccounts")
     private List<Role> roles;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userAccount")
