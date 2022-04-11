@@ -41,6 +41,7 @@ public class SecurityConfiguration<MyUserDetailsService, JwtRequestFilter> exten
                 .antMatchers(HttpMethod.GET, "/city/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/reservation/**").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/reservation/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/characteristic/**").permitAll()
                 .antMatchers("/role/**").permitAll()
                 .antMatchers("/authenticate/**").permitAll()
                 .antMatchers("/user/**").permitAll()
