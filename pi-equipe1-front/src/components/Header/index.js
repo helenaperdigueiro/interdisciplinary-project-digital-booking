@@ -25,7 +25,7 @@ const Header = () => {
                     <Nav >
                         {user.role === "user" && <Nav.Link className="access" as={Link} to={`/${user.id}/reservas`}><button className="logout">reservas</button></Nav.Link>}
                         
-                        {user.role === "admin" && <Nav.Link className="access" as={Link} to={`/${user.id}/administracao`}><button className="logout">administração</button></Nav.Link>}
+                        {user.role === "admin" && <Nav.Link className="access" as={Link} to={`/administracao`}><button className="logout">administração</button></Nav.Link>}
 
                         {mediaQuery && <div id="separator">|</div>}
 
