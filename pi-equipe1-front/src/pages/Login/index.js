@@ -31,8 +31,11 @@ const { user, setUser } = useUserContext();
           name: response.data.name,
           lastName: response.data.lastName,
           email: response.data.email,
+          // roles: { name: response.data.roles[0]?.name },
+          role: response.data.roles[0]?.name,
           token: userToken
         };
+        console.log(response);
         localStorage.setItem('signed', JSON.stringify(userData));
         setUser(userData)
       })
