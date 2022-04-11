@@ -44,7 +44,7 @@ const RouteList = () => (
                                     <Route path=':userId/reservas' element={<MyReservations />} />
                                     <Route path='/reserva-confirmada' element={<ConfirmedBooking />} />
                                     <Route path='/novo-produto-criado' element={<ConfirmedNewProduct />} />
-                                    <Route path='/criar-novo-produto' element={<CreateNewProduct />} />
+                                    <Route path='/administracao' element={<CreateNewProduct />} />
                                 </Routes>
                                 <Footer />
                             </UserCityProvider>

@@ -21,30 +21,25 @@
     /* width: 100%; */
 }
 
-#formCreateNewProduct .field {
-    background-color: rgb(242, 242, 242);
-    border: none;
-    height: 2rem;
-    box-shadow: inset 0px 1px 2px #00000014;
-    padding-left: 0.5rem;
+#formCreateNewProduct .field, #formCreateNewProduct .textarea {
+    background-color: rgb(255, 255, 255);
+    box-shadow:  1.5px 1.5px 2px 1px #0000001a inset, 0 0 0 30px rgb(255, 255, 255) inset !important;
 }
 
 #formCreateNewProduct .textarea {
-    background-color: rgb(242, 242, 242);
+    border-radius: 0.2rem;
     border: none;
-    box-shadow: inset 0px 1px 2px #00000014;
-    padding-left: 0.5rem;
+    padding: 0.5rem;
 }
 
-.dataLeftCol, .dataRightCol {
-    display: flex;
-    flex-direction: column;
+#newProductDescriptionWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
 }
-
-
 
 @media only screen and (min-width: 600px) {
     #newProductInfoWrapper {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 1rem;
     }
