@@ -26,10 +26,10 @@ public class Reservation {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userAccount_id")
+    @JsonIgnoreProperties("reservations")
     private UserAccount userAccount;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
-
 }

@@ -21,7 +21,15 @@ public class ReservationService {
         return repository.findAll();
     }
 
+    public Reservation getById(Integer id) {
+        return repository.getById(id);
+    }
+
     public List<Reservation> findByProduct(Integer id) {
-        return repository.findByProduct(id);
+        return repository.findByProductId(id);
+    }
+
+    public List<Reservation> findByUser(Integer id) {
+        return repository.findByUserAccountId(id);
     }
 }

@@ -1,5 +1,6 @@
 package com.digitalbooking.controller;
 
+import com.digitalbooking.model.Product;
 import com.digitalbooking.model.Reservation;
 import com.digitalbooking.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class ReservationController {
         return ResponseEntity.status(201).body(service.save(reservation));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Reservation> getById(@PathVariable Integer id) {
+        return ResponseEntity.ok(service.getById(id));
+    }
+
     @GetMapping
     public ResponseEntity<List<Reservation>> findAll() {
         return ResponseEntity.ok(service.findAll());
@@ -29,5 +35,10 @@ public class ReservationController {
     @GetMapping("/product/{id}")
     public ResponseEntity<List<Reservation>> findByProduct(@PathVariable Integer id) {
         return ResponseEntity.ok(service.findByProduct(id));
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<Reservation>> findByUser(@PathVariable Integer id) {
+        return ResponseEntity.ok(service.findByUser(id));
     }
 }
