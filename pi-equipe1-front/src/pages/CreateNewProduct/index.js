@@ -49,7 +49,11 @@ const CreateNewProduct = () => {
                         category: '',
                         city: '',
                         description: '',
-                        addedCharacteristics: []
+                        addedCharacteristics: [],
+                        houseRulesDescription: '',
+                        healthSecurityDescription: '',
+                        cancellationDescription: '',
+                        imageUrl: []
                     }}
                     validationSchema={Yup.object({
                         name: Yup.string().required('Obrigatório'),
@@ -57,6 +61,9 @@ const CreateNewProduct = () => {
                         category: Yup.string().required('Obrigatório'),
                         city: Yup.string().required('Obrigatório'),
                         description: Yup.string().required('Obrigatório'),
+                        houseRulesDescription: Yup.string().required('Obrigatório'),
+                        healthSecurityDescription: Yup.string().required('Obrigatório'),
+                        cancellationDescription: Yup.string().required('Obrigatório'),
                     })}
                     onSubmit={handleSubmit}
                 >
@@ -109,7 +116,7 @@ const CreateNewProduct = () => {
                             </div>
                         </div>
 
-                        <div id="newProductCharacteristic">
+                        <div id="newProductCharacteristicWrapper">
                             <h5>Adicionar atributos</h5>
                             <div className="addCharacteristic">
 
@@ -131,12 +138,12 @@ const CreateNewProduct = () => {
                         <div id="newProductPoliciesWrapper">
                             <h5>Políticas do produto</h5>
 
-                            <div>
+                            <div id="newProductPolicies">
 
                                 <div id="newProductHouseRules">
                                     <h6>Regras da casa</h6>
                                     <label htmlFor="houseRulesDescription">Descrição</label>
-                                    <Field id="houseRulesDescription" className="textarea" name="houseRulesDescription" component="textarea" rows={4} placeholder="Descrição" />
+                                    <Field id="houseRulesDescription" className="textarea" name="houseRulesDescription" component="textarea" rows={4} />
                                     <div className="errorMessage">
                                         <ErrorMessage name="houseRulesDescription">{msg => msg ? msg : ''}</ErrorMessage>
                                     </div>
@@ -145,7 +152,7 @@ const CreateNewProduct = () => {
                                 <div id="newProductHealthSecurity">
                                     <h6>Saúde e segurança</h6>
                                     <label htmlFor="healthSecurityDescription">Descrição</label>
-                                    <Field id="healthSecurityDescription" className="textarea" name="healthSecurityDescription" component="textarea" rows={4} placeholder="Descrição" />
+                                    <Field id="healthSecurityDescription" className="textarea" name="healthSecurityDescription" component="textarea" rows={4} />
                                     <div className="errorMessage">
                                         <ErrorMessage name="healthSecurityDescription">{msg => msg ? msg : ''}</ErrorMessage>
                                     </div>
@@ -154,7 +161,7 @@ const CreateNewProduct = () => {
                                 <div id="newProductCancellation">
                                     <h6>Política de cancelamento</h6>
                                     <label htmlFor="cancellationDescription">Descrição</label>
-                                    <Field id="cancellationDescription" className="textarea" name="cancellationDescription" component="textarea" rows={4} placeholder="Descrição" />
+                                    <Field id="cancellationDescription" className="textarea" name="cancellationDescription" component="textarea" rows={4} />
                                     <div className="errorMessage">
                                         <ErrorMessage name="cancellationDescription">{msg => msg ? msg : ''}</ErrorMessage>
                                     </div>
@@ -168,7 +175,7 @@ const CreateNewProduct = () => {
 
                                 <div className="addImage">
 
-                                    <label htmlFor="imageUrl">Nome</label>
+                                    <label htmlFor="imageUrl">Endereço da imagem</label>
                                     <Field id="imageUrl" className="field" name="imageUrl" type="text" />
                                     <div className="errorMessage">
                                         <ErrorMessage name="imageUrl">{msg => msg ? msg : ""}</ErrorMessage>
