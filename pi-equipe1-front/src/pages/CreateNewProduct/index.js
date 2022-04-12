@@ -1,5 +1,5 @@
 import useAxios from '../../hooks/useAxios';
-import { ErrorMessage, Form, Field, Formik } from 'formik';
+import { FieldArray, ErrorMessage, Form, Field, Formik } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import './style.css';
@@ -16,12 +16,12 @@ const CreateNewProduct = () => {
 
     const handleSubmit = async values => {
         let characteristicsObject = [];
-        values.addedCharacteristics.map(id => characteristicsObject.push({"id": parseInt(id)}));
+        values.addedCharacteristics.map(id => characteristicsObject.push({ "id": parseInt(id) }));
         console.log(characteristicsObject);
     }
 
     const handleChange = () => {
-        
+
     }
 
     const history = createBrowserHistory();
@@ -53,7 +53,12 @@ const CreateNewProduct = () => {
                         houseRulesDescription: '',
                         healthSecurityDescription: '',
                         cancellationDescription: '',
-                        imageUrl: []
+                        images: [
+                            {
+                                original: '',
+                                thumbnail: '',
+                              },
+                        ]
                     }}
                     validationSchema={Yup.object({
                         name: Yup.string().required('Obrigatório'),
@@ -67,6 +72,7 @@ const CreateNewProduct = () => {
                     })}
                     onSubmit={handleSubmit}
                 >
+                    {({ values }) => (
                     <Form id="formCreateNewProduct" className="data" onChange={handleChange}>
                         <div id="newProductInfoWrapper">
 
@@ -121,7 +127,7 @@ const CreateNewProduct = () => {
                             <div className="addCharacteristic">
 
                                 {
-                                    characteristics.map(({id, name}) => {
+                                    characteristics.map(({ id, name }) => {
                                         // console.log(id);
                                         return (
                                             <div className="addCharacteristicInfo" key={id}>
@@ -175,22 +181,67 @@ const CreateNewProduct = () => {
 
                                 <div className="addImage">
 
-                                    <label htmlFor="imageUrl">Endereço da imagem</label>
+                                    {/* <label htmlFor="imageUrl">Endereço da imagem</label>
                                     <Field id="imageUrl" className="field" name="imageUrl" type="text" />
                                     <div className="errorMessage">
                                         <ErrorMessage name="imageUrl">{msg => msg ? msg : ""}</ErrorMessage>
                                     </div>
 
-                                    <FontAwesomeIcon icon={faCheck} size="lg" />
+                                    <FontAwesomeIcon icon={faCheck} size="lg" /> */}
                                 </div>
 
                             </div>
 
-                                <button type='submit'>
-                                    Enviar
-                                </button>
+                            <FieldArray name="images">
+                                {({ insert, remove, push }) => (
+                                    <div>
+                                        {values.images.length > 0 &&
+                                            values.images.map((image, index) => (
+                                                <div className="row" key={index}>
+                                                    <div className="col">
+                                                        <label htmlFor={`images.${index}.original`}>Name</label>
+                                                        <Field
+                                                            name={`images.${index}.original`}
+                                                            type="text"
+                                                        />
+                                                        <ErrorMessage
+                                                            name={`images.${index}.original`}
+                                                            component="div"
+                                                            className="field-error"
+                                                        />
+                                                    </div>
+                                                    
+                                                    <div className="col">
+                                                        <button
+                                                            type="button"
+                                                            className="secondary"
+                                                            onClick={() => remove(index)}
+                                                        >
+                                                            X
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        <button
+                                            type="button"
+                                            className="secondary"
+                                            onClick={() => {
+                                                push({ original: '', thumbnail: '' })
+                                                console.log(values.images);
+                                            }}
+                                        >
+                                            Add Friend
+                                        </button>
+                                    </div>
+                                )}
+                            </FieldArray>
+
+                            <button type='submit'>
+                                Enviar
+                            </button>
                         </div>
                     </Form >
+                    )}
                 </Formik>
 
             </div>
