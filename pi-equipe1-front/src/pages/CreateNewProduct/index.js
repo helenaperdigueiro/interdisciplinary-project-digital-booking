@@ -11,13 +11,17 @@ import { createBrowserHistory } from "history";
 const CreateNewProduct = () => {
 
     const categories = useAxios('/category');
+    const characteristics = useAxios('/characteristic');
+    // console.log(characteristics);
 
-    const handleSubmit = () => {
-
+    const handleSubmit = async values => {
+        let characteristicsObject = [];
+        values.addedCharacteristics.map(id => characteristicsObject.push({"id": parseInt(id)}));
+        console.log(characteristicsObject);
     }
 
     const handleChange = () => {
-
+        
     }
 
     const history = createBrowserHistory();
@@ -45,7 +49,7 @@ const CreateNewProduct = () => {
                         category: '',
                         city: '',
                         description: '',
-
+                        addedCharacteristics: []
                     }}
                     validationSchema={Yup.object({
                         name: Yup.string().required('Obrigatório'),
@@ -80,7 +84,7 @@ const CreateNewProduct = () => {
 
                                     {categories.map(category => {
                                         return (
-                                            <option value={category.title} key={category.title}>{category.title}</option>
+                                            <option value={category.title} key={category.title} >{category.title}</option>
                                         )
                                     })}
                                 </Field>
@@ -106,25 +110,20 @@ const CreateNewProduct = () => {
                         </div>
 
                         <div id="newProductCharacteristic">
-                            <h5>Características</h5>
+                            <h5>Adicionar atributos</h5>
                             <div className="addCharacteristic">
-                                <div className="addCharacteristicInfo">
 
-                                    <label htmlFor="characteristicName">Nome</label>
-                                    <Field id="characteristicName" className="field" name="characteristicName" type="text" />
-                                    <div className="errorMessage">
-                                        <ErrorMessage name="characteristicName">{msg => msg ? msg : ""}</ErrorMessage>
-                                    </div>
-
-                                    <label htmlFor="characteristicIcon">Ícone</label>
-                                    <Field id="characteristicIcon" className="field" name="characteristicIcon" type="text" />
-                                    <div className="errorMessage">
-                                        <ErrorMessage name="characteristicIcon">{msg => msg ? msg : ""}</ErrorMessage>
-                                    </div>
-
-                                    <FontAwesomeIcon icon={faCheck} size="lg" />
-
-                                </div>
+                                {
+                                    characteristics.map(({id, name}) => {
+                                        // console.log(id);
+                                        return (
+                                            <div className="addCharacteristicInfo" key={id}>
+                                                <Field id={name} name="addedCharacteristics" type="checkbox" value={`${id}`} />
+                                                <label htmlFor="addedCharacteristics">{name}</label>
+                                            </div>
+                                        )
+                                    })
+                                }
 
                             </div>
                         </div>
@@ -180,8 +179,11 @@ const CreateNewProduct = () => {
 
                             </div>
 
+                                <button type='submit'>
+                                    Enviar
+                                </button>
                         </div>
-                    </Form>
+                    </Form >
                 </Formik>
 
             </div>
