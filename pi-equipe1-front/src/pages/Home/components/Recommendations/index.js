@@ -77,7 +77,7 @@ const Recommendations = () => {
 
                             <div className="location">
                                 <FontAwesomeIcon icon={faLocationDot} />
-                                <p>{product.city?.country}, {product.city.name} </p>
+                                <p>{product.city.name}, {product.city?.country}</p>
                             </div>
 
                             <div className="characteristics">

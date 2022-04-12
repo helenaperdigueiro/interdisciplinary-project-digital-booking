@@ -13,8 +13,6 @@ const Login = ({ onSubmit }) => {
 
 const { user, setUser } = useUserContext();
 
-// console.log(location);
-
   const navigate = useNavigate();
 
   const handleSubmit = async values => {
@@ -31,7 +29,6 @@ const { user, setUser } = useUserContext();
           name: response.data.name,
           lastName: response.data.lastName,
           email: response.data.email,
-          // roles: { name: response.data.roles[0]?.name },
           role: response.data.roles[0]?.name,
           token: userToken
         };

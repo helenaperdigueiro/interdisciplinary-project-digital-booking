@@ -26,8 +26,6 @@ const MyReservations = () => {
     //     });
     //     }, [user.id]);
 
-    console.log(reservations);
-
     const convert = (url) => {
         switch (url) {
             case 'faSink':
@@ -70,7 +68,7 @@ const MyReservations = () => {
 
                     {reservations.map(reservation =>
 
-                        <div key={reservation.id} id={`recommendation${reservation.id}`} className="recommendation">
+                        <div key={reservation.product.id} id={`recommendation${reservation.product.id}`} className="recommendation">
 
                             <img src={reservation.product.images[0]?.original} alt="" />
 
