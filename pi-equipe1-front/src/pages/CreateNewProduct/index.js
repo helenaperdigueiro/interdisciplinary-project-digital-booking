@@ -49,16 +49,11 @@ const CreateNewProduct = () => {
                         category: '',
                         city: '',
                         description: '',
-                        addedCharacteristics: [],
+                        addedCharacteristics: '',
                         houseRulesDescription: '',
                         healthSecurityDescription: '',
                         cancellationDescription: '',
-                        images: [
-                            {
-                                original: '',
-                                thumbnail: '',
-                              },
-                        ]
+                        images: ['']
                     }}
                     validationSchema={Yup.object({
                         name: Yup.string().required('Obrigatório'),
@@ -199,13 +194,13 @@ const CreateNewProduct = () => {
                                             values.images.map((image, index) => (
                                                 <div className="row" key={index}>
                                                     <div className="col">
-                                                        <label htmlFor={`images.${index}.original`}>Name</label>
+                                                        <label htmlFor={`images.${index}`}>Name</label>
                                                         <Field
-                                                            name={`images.${index}.original`}
+                                                            name={`images.${index}`}
                                                             type="text"
                                                         />
                                                         <ErrorMessage
-                                                            name={`images.${index}.original`}
+                                                            name={`images.${index}`}
                                                             component="div"
                                                             className="field-error"
                                                         />
@@ -226,7 +221,7 @@ const CreateNewProduct = () => {
                                             type="button"
                                             className="secondary"
                                             onClick={() => {
-                                                push({ original: '', thumbnail: '' })
+                                                push('')
                                                 console.log(values.images);
                                             }}
                                         >
@@ -237,7 +232,7 @@ const CreateNewProduct = () => {
                             </FieldArray>
 
                             <button type='submit'>
-                                Enviar
+                                Cadastrar
                             </button>
                         </div>
                     </Form >
