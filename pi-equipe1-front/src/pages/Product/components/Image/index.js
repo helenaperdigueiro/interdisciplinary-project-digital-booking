@@ -43,7 +43,7 @@ const Image = () => {
                                
                                 return (
                                     <div className={`thumbnailProduct${index + 1}`} key={index}>
-                                        <img className="thumbnailImage" src={productImage.original} alt="" width={210} height={157} />
+                                        <img className="thumbnailImage" src={productImage.original} alt="" />
                                     </div>
                                 )
                             })

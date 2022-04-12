@@ -16,7 +16,7 @@ const Categories = () => {
             <div id="categories">
             {categories.map(category => 
                 <Link key={category.id} to={`/categoria/${category.title}`}><div  className="category">
-                    <img src={category.urlImage} alt="" width={300} height={190} />
+                    <img src={category.urlImage} alt="" />
                     <div className="categoryInfo">
                         <h5>{category.title}</h5>
                         <p>{3 * (543 - (category.id * 63))} resultados</p>
