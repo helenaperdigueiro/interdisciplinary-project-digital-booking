@@ -22,6 +22,9 @@ const Register = ({ onSubmit }) => {
                 email: values.email,
                 username: values.name,
                 password: values.password,
+                roles: [
+                    {"id": 1 }
+                ]
             }).then((response) => {
                 api.post('/authenticate', {
                     username: values.email,
@@ -35,6 +38,7 @@ const Register = ({ onSubmit }) => {
                         name: response.data.name,
                         lastName: response.data.lastName,
                         email: response.data.email,
+                        role: response.data.roles[0]?.name,
                         token: userToken
                       };
                       localStorage.setItem('signed', JSON.stringify(userData));

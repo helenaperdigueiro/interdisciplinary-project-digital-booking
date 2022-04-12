@@ -23,8 +23,10 @@ const Header = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                     <Nav >
-                        <Nav.Link className="access" as={Link} to={`/${user.id}/reservas`}><button className="logout">reservas</button></Nav.Link>
+                        {user.role === "user" && <Nav.Link className="access" as={Link} to={`/${user.id}/reservas`}><button className="logout">reservas</button></Nav.Link>}
                         
+                        {user.role === "admin" && <Nav.Link className="access" as={Link} to={`/administracao`}><button className="logout">administração</button></Nav.Link>}
+
                         {mediaQuery && <div id="separator">|</div>}
 
                         <Nav.Link className="d-flex align-items-center noPointer" as={Link} to="/"><div id="avatar" className="me-1">{user.name.charAt(0)}{user.lastName.charAt(0)}</div><p className="m-0 greeting">Olá, {user.name}!</p></Nav.Link>
