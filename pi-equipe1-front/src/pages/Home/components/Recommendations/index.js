@@ -56,7 +56,7 @@ const Recommendations = () => {
 
                     <div key={product.id} id={`recommendation${product.id}`} className="recommendation">
 
-                        <img src={product.images[0]?.original} alt="" width={300} height={310} />
+                        <img src={product.images[0]?.original} alt="" />
 
                         <div className="recommendationInfo">
                             <div className='productInfo'>

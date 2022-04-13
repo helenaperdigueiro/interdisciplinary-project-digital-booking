@@ -49,16 +49,11 @@ const CreateNewProduct = () => {
                         category: '',
                         city: '',
                         description: '',
-                        addedCharacteristics: [],
+                        addedCharacteristics: '',
                         houseRulesDescription: '',
                         healthSecurityDescription: '',
                         cancellationDescription: '',
-                        images: [
-                            {
-                                original: '',
-                                thumbnail: '',
-                            },
-                        ]
+                        images: ['']
                     }}
                     validationSchema={Yup.object({
                         name: Yup.string().required('Obrigatório'),
@@ -192,55 +187,55 @@ const CreateNewProduct = () => {
 
                                 </div>
 
-                                <FieldArray name="images">
-                                    {({ insert, remove, push }) => (
-                                        <div>
-                                            {values.images.length > 0 &&
-                                                values.images.map((image, index) => (
-                                                    <div className="row" key={index}>
-                                                        <div className="col">
-                                                            <label htmlFor={`images.${index}.original`}>Name</label>
-                                                            <Field
-                                                                name={`images.${index}.original`}
-                                                                type="text"
-                                                            />
-                                                            <ErrorMessage
-                                                                name={`images.${index}.original`}
-                                                                component="div"
-                                                                className="field-error"
-                                                            />
-                                                        </div>
-
-                                                        <div className="col">
-                                                            <button
-                                                                type="button"
-                                                                className="secondary"
-                                                                onClick={() => remove(index)}
-                                                            >
-                                                                X
-                                                            </button>
-                                                        </div>
+                            <FieldArray name="images">
+                                {({ insert, remove, push }) => (
+                                    <div>
+                                        {values.images.length > 0 &&
+                                            values.images.map((image, index) => (
+                                                <div className="row" key={index}>
+                                                    <div className="col">
+                                                        <label htmlFor={`images.${index}`}>Name</label>
+                                                        <Field
+                                                            name={`images.${index}`}
+                                                            type="text"
+                                                        />
+                                                        <ErrorMessage
+                                                            name={`images.${index}`}
+                                                            component="div"
+                                                            className="field-error"
+                                                        />
                                                     </div>
-                                                ))}
-                                            <button
-                                                type="button"
-                                                className="secondary"
-                                                onClick={() => {
-                                                    push({ original: '', thumbnail: '' })
-                                                    console.log(values.images);
-                                                }}
-                                            >
-                                                Add Friend
-                                            </button>
-                                        </div>
-                                    )}
-                                </FieldArray>
+                                                    
+                                                    <div className="col">
+                                                        <button
+                                                            type="button"
+                                                            className="secondary"
+                                                            onClick={() => remove(index)}
+                                                        >
+                                                            X
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        <button
+                                            type="button"
+                                            className="secondary"
+                                            onClick={() => {
+                                                push('')
+                                                console.log(values.images);
+                                            }}
+                                        >
+                                            Add Friend
+                                        </button>
+                                    </div>
+                                )}
+                            </FieldArray>
 
-                                <button type='submit'>
-                                    Enviar
-                                </button>
-                            </div>
-                        </Form >
+                            <button type='submit'>
+                                Cadastrar
+                            </button>
+                        </div>
+                    </Form >
                     )}
                 </Formik>
 
