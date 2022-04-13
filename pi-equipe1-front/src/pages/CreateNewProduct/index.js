@@ -1,14 +1,18 @@
+import './style.css';
+import * as Yup from 'yup';
 import useAxios from '../../hooks/useAxios';
 import { FieldArray, ErrorMessage, Form, Field, Formik } from 'formik';
-import { Link } from 'react-router-dom';
-import * as Yup from 'yup';
-import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faPlus, faChevronLeft, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { createBrowserHistory } from "history";
+import { useUserContext } from '../../contexts/UserContext';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CreateNewProduct = () => {
+
+    const { user } = useUserContext();
+
+    const navigate = useNavigate();
 
     const categories = useAxios('/category');
     const characteristics = useAxios('/characteristic');
@@ -26,221 +30,237 @@ const CreateNewProduct = () => {
 
     const history = createBrowserHistory();
 
-    return (
-        <>
-            <div id="productTitle">
+    if (user) {
+        if (user.role === "admin") {
 
-                <button onClick={() => history.goBack()} id="previousButton">
-                    <FontAwesomeIcon icon={faChevronLeft} />
-                </button>
+            return (
+                <>
+                    <div id="productTitle">
 
-                <div id="informationsTitle">
-                    <h3>Administração de produtos</h3>
+                        <button onClick={() => history.goBack()} id="previousButton">
+                            <FontAwesomeIcon icon={faChevronLeft} />
+                        </button>
+
+                        <div id="informationsTitle">
+                            <h3>Administração de produtos</h3>
+                        </div>
+                    </div>
+
+                    <div id="createNewProductContainer">
+                        <h4>Criar propriedade</h4>
+
+                        <Formik
+                            initialValues={{
+                                name: '',
+                                address: '',
+                                category: '',
+                                city: '',
+                                description: '',
+                                addedCharacteristics: '',
+                                houseRulesDescription: '',
+                                healthSecurityDescription: '',
+                                cancellationDescription: '',
+                                images: ['']
+                            }}
+                            validationSchema={Yup.object({
+                                name: Yup.string().required('Obrigatório'),
+                                address: Yup.string().required('Obrigatório'),
+                                category: Yup.string().required('Obrigatório'),
+                                city: Yup.string().required('Obrigatório'),
+                                description: Yup.string().required('Obrigatório'),
+                                houseRulesDescription: Yup.string().required('Obrigatório'),
+                                healthSecurityDescription: Yup.string().required('Obrigatório'),
+                                cancellationDescription: Yup.string().required('Obrigatório'),
+                            })}
+                            onSubmit={handleSubmit}
+                        >
+                            {({ values }) => (
+                                <Form id="formCreateNewProduct" className="data" onChange={handleChange}>
+                                    <div id="newProductInfoWrapper">
+
+                                        <div className='dataLeftCol'>
+                                            <label htmlFor="name">Nome da propriedade</label>
+                                            <Field id="name" className="field" name="name" type="text" />
+                                            <div className="errorMessage">
+                                                <ErrorMessage name="name">{msg => msg ? msg : ""}</ErrorMessage>
+                                            </div>
+
+                                            <label htmlFor="address">Endereço</label>
+                                            <Field id="address" className="field" name="address" type="text" />
+                                            <div className="errorMessage">
+                                                <ErrorMessage name="address">{msg => msg ? msg : ""}</ErrorMessage>
+                                            </div>
+                                        </div>
+
+                                        <div className='dataRightCol'>
+                                            <label htmlFor="category">Categoria</label>
+                                            <Field id="category" className="field" name="category" as="select" >
+                                                <option value="" label="Selecione" />
+
+                                                {categories.map(category => {
+                                                    return (
+                                                        <option value={category.title} key={category.title} >{category.title}</option>
+                                                    )
+                                                })}
+                                            </Field>
+                                            <div className="errorMessage">
+                                                <ErrorMessage name="category">{msg => msg ? msg : ""}</ErrorMessage>
+                                            </div>
+
+                                            <label htmlFor="city">Cidade</label>
+                                            <Field id="city" className="field" name="city" type="text" />
+                                            <div className="errorMessage">
+                                                <ErrorMessage name="city">{msg => msg ? msg : ''}</ErrorMessage>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div id="newProductDescriptionWrapper">
+                                        <label htmlFor="description">Descrição</label>
+                                        <Field id="description" className="textarea" name="description" component="textarea" rows={4} />
+                                        <div className="errorMessage">
+                                            <ErrorMessage name="description">{msg => msg ? msg : ''}</ErrorMessage>
+                                        </div>
+                                    </div>
+
+                                    <div id="newProductCharacteristicWrapper">
+                                        <h5>Adicionar atributos</h5>
+                                        <div className="addCharacteristic">
+
+                                            {
+                                                characteristics.map(({ id, name }) => {
+                                                    // console.log(id);
+                                                    return (
+                                                        <div className="addCharacteristicInfo" key={id}>
+                                                            <Field id={name} name="addedCharacteristics" type="checkbox" value={`${id}`} />
+                                                            <label htmlFor="addedCharacteristics">{name}</label>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+
+                                        </div>
+                                    </div>
+
+                                    <div id="newProductPoliciesWrapper">
+                                        <h5>Políticas do produto</h5>
+
+                                        <div id="newProductPolicies">
+
+                                            <div id="newProductHouseRules">
+                                                <h6>Regras da casa</h6>
+                                                <label htmlFor="houseRulesDescription">Descrição</label>
+                                                <Field id="houseRulesDescription" className="textarea" name="houseRulesDescription" component="textarea" rows={4} />
+                                                <div className="errorMessage">
+                                                    <ErrorMessage name="houseRulesDescription">{msg => msg ? msg : ''}</ErrorMessage>
+                                                </div>
+                                            </div>
+
+                                            <div id="newProductHealthSecurity">
+                                                <h6>Saúde e segurança</h6>
+                                                <label htmlFor="healthSecurityDescription">Descrição</label>
+                                                <Field id="healthSecurityDescription" className="textarea" name="healthSecurityDescription" component="textarea" rows={4} />
+                                                <div className="errorMessage">
+                                                    <ErrorMessage name="healthSecurityDescription">{msg => msg ? msg : ''}</ErrorMessage>
+                                                </div>
+                                            </div>
+
+                                            <div id="newProductCancellation">
+                                                <h6>Política de cancelamento</h6>
+                                                <label htmlFor="cancellationDescription">Descrição</label>
+                                                <Field id="cancellationDescription" className="textarea" name="cancellationDescription" component="textarea" rows={4} />
+                                                <div className="errorMessage">
+                                                    <ErrorMessage name="cancellationDescription">{msg => msg ? msg : ''}</ErrorMessage>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <FieldArray name="images">
+                                        {({ insert, remove, push }) => (
+
+                                            <div id="newProductImagesWrapper">
+                                                <h5>Carregar imagens</h5>
+                                                {values.images.length > 0 &&
+                                                    values.images.map((image, index) => (
+                                                        <div className="row" key={index}>
+                                                            <div className="addImage">
+
+                                                                <Field
+                                                                    name={`images.${index}`}
+                                                                    type="text"
+                                                                    className="field"
+                                                                    placeholder="Insira http://"
+                                                                />
+                                                                <button
+                                                                    type="button"
+                                                                    className="btnRemoveImage"
+                                                                    onClick={() => remove(index)}
+                                                                >
+                                                                    <FontAwesomeIcon icon={faXmark} />
+                                                                </button>
+                                                                <ErrorMessage
+                                                                    name={`images.${index}`}
+                                                                    component="div"
+                                                                    className="field-error"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    ))}
+
+                                                <button 
+                                                    type="button"
+                                                    className="btnAddImage"
+                                                    onClick={() => {
+                                                        push('');
+                                                    }}
+                                                >
+                                                    <FontAwesomeIcon icon={faPlus} />
+                                                </button>
+                                            </div>
+                                        )}
+                                    </FieldArray>
+
+                                    <button type='submit' className="buttonForm">
+                                        Cadastrar
+                                    </button>
+
+                                </Form >
+                            )}
+                        </Formik>
+                    </div>
+                </>
+            )
+        }
+
+        return (
+
+            <div id='confirmedWrapper'>
+                <div id='confirmedBooking'>
+                    <FontAwesomeIcon className="forbiddenIcon" icon={faCircleXmark} />
+                    <h3>Oops!</h3>
+                    <h5>Acesso negado!</h5>
+                    <Link to={'/'}><button className='confirmBtn'>Home</button></Link>
                 </div>
             </div>
-
-            <div id="createNewProductContainer">
-                <h4>Criar propriedade</h4>
-
-                <Formik
-                    initialValues={{
-                        name: '',
-                        address: '',
-                        category: '',
-                        city: '',
-                        description: '',
-                        addedCharacteristics: '',
-                        houseRulesDescription: '',
-                        healthSecurityDescription: '',
-                        cancellationDescription: '',
-                        images: ['']
-                    }}
-                    validationSchema={Yup.object({
-                        name: Yup.string().required('Obrigatório'),
-                        address: Yup.string().required('Obrigatório'),
-                        category: Yup.string().required('Obrigatório'),
-                        city: Yup.string().required('Obrigatório'),
-                        description: Yup.string().required('Obrigatório'),
-                        houseRulesDescription: Yup.string().required('Obrigatório'),
-                        healthSecurityDescription: Yup.string().required('Obrigatório'),
-                        cancellationDescription: Yup.string().required('Obrigatório'),
-                    })}
-                    onSubmit={handleSubmit}
-                >
-                    {({ values }) => (
-                        <Form id="formCreateNewProduct" className="data" onChange={handleChange}>
-                            <div id="newProductInfoWrapper">
-
-                                <div className='dataLeftCol'>
-                                    <label htmlFor="name">Nome da propriedade</label>
-                                    <Field id="name" className="field" name="name" type="text" />
-                                    <div className="errorMessage">
-                                        <ErrorMessage name="name">{msg => msg ? msg : ""}</ErrorMessage>
-                                    </div>
-
-                                    <label htmlFor="address">Endereço</label>
-                                    <Field id="address" className="field" name="address" type="text" />
-                                    <div className="errorMessage">
-                                        <ErrorMessage name="address">{msg => msg ? msg : ""}</ErrorMessage>
-                                    </div>
-                                </div>
-
-                                <div className='dataRightCol'>
-                                    <label htmlFor="category">Categoria</label>
-                                    <Field id="category" className="field" name="category" as="select" >
-                                        <option value="" label="Selecione" />
-
-                                        {categories.map(category => {
-                                            return (
-                                                <option value={category.title} key={category.title} >{category.title}</option>
-                                            )
-                                        })}
-                                    </Field>
-                                    <div className="errorMessage">
-                                        <ErrorMessage name="category">{msg => msg ? msg : ""}</ErrorMessage>
-                                    </div>
-
-                                    <label htmlFor="city">Cidade</label>
-                                    <Field id="city" className="field" name="city" type="text" />
-                                    <div className="errorMessage">
-                                        <ErrorMessage name="city">{msg => msg ? msg : ''}</ErrorMessage>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div id="newProductDescriptionWrapper">
-                                <label htmlFor="description">Descrição</label>
-                                <Field id="description" className="textarea" name="description" component="textarea" rows={4} />
-                                <div className="errorMessage">
-                                    <ErrorMessage name="description">{msg => msg ? msg : ''}</ErrorMessage>
-                                </div>
-                            </div>
-
-                            <div id="newProductCharacteristicWrapper">
-                                <h5>Adicionar atributos</h5>
-                                <div className="addCharacteristic">
-
-                                    {
-                                        characteristics.map(({ id, name }) => {
-                                            // console.log(id);
-                                            return (
-                                                <div className="addCharacteristicInfo" key={id}>
-                                                    <Field id={name} name="addedCharacteristics" type="checkbox" value={`${id}`} />
-                                                    <label htmlFor="addedCharacteristics">{name}</label>
-                                                </div>
-                                            )
-                                        })
-                                    }
-
-                                </div>
-                            </div>
-
-                            <div id="newProductPoliciesWrapper">
-                                <h5>Políticas do produto</h5>
-
-                                <div id="newProductPolicies">
-
-                                    <div id="newProductHouseRules">
-                                        <h6>Regras da casa</h6>
-                                        <label htmlFor="houseRulesDescription">Descrição</label>
-                                        <Field id="houseRulesDescription" className="textarea" name="houseRulesDescription" component="textarea" rows={4} />
-                                        <div className="errorMessage">
-                                            <ErrorMessage name="houseRulesDescription">{msg => msg ? msg : ''}</ErrorMessage>
-                                        </div>
-                                    </div>
-
-                                    <div id="newProductHealthSecurity">
-                                        <h6>Saúde e segurança</h6>
-                                        <label htmlFor="healthSecurityDescription">Descrição</label>
-                                        <Field id="healthSecurityDescription" className="textarea" name="healthSecurityDescription" component="textarea" rows={4} />
-                                        <div className="errorMessage">
-                                            <ErrorMessage name="healthSecurityDescription">{msg => msg ? msg : ''}</ErrorMessage>
-                                        </div>
-                                    </div>
-
-                                    <div id="newProductCancellation">
-                                        <h6>Política de cancelamento</h6>
-                                        <label htmlFor="cancellationDescription">Descrição</label>
-                                        <Field id="cancellationDescription" className="textarea" name="cancellationDescription" component="textarea" rows={4} />
-                                        <div className="errorMessage">
-                                            <ErrorMessage name="cancellationDescription">{msg => msg ? msg : ''}</ErrorMessage>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="newProductImagesWrapper">
-
-                                    <h5>Carregar imagens</h5>
-
-                                    <div className="addImage">
-
-                                        {/* <label htmlFor="imageUrl">Endereço da imagem</label>
-                                    <Field id="imageUrl" className="field" name="imageUrl" type="text" />
-                                    <div className="errorMessage">
-                                        <ErrorMessage name="imageUrl">{msg => msg ? msg : ""}</ErrorMessage>
-                                    </div>
-
-                                    <FontAwesomeIcon icon={faCheck} size="lg" /> */}
-                                    </div>
-
-                                </div>
-
-                            <FieldArray name="images">
-                                {({ insert, remove, push }) => (
-                                    <div>
-                                        {values.images.length > 0 &&
-                                            values.images.map((image, index) => (
-                                                <div className="row" key={index}>
-                                                    <div className="col">
-                                                        <label htmlFor={`images.${index}`}>Name</label>
-                                                        <Field
-                                                            name={`images.${index}`}
-                                                            type="text"
-                                                        />
-                                                        <ErrorMessage
-                                                            name={`images.${index}`}
-                                                            component="div"
-                                                            className="field-error"
-                                                        />
-                                                    </div>
-                                                    
-                                                    <div className="col">
-                                                        <button
-                                                            type="button"
-                                                            className="secondary"
-                                                            onClick={() => remove(index)}
-                                                        >
-                                                            X
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        <button
-                                            type="button"
-                                            className="secondary"
-                                            onClick={() => {
-                                                push('')
-                                                console.log(values.images);
-                                            }}
-                                        >
-                                            Add Friend
-                                        </button>
-                                    </div>
-                                )}
-                            </FieldArray>
-
-                            <button type='submit'>
-                                Cadastrar
-                            </button>
-                        </div>
-                    </Form >
-                    )}
-                </Formik>
-
-            </div>
+        )
+    }
+    return (
+        <>
+        {navigate("/login")};
         </>
+
+        // <div id='confirmedWrapper'>
+        //     <div id='confirmedBooking'>
+        //         <FontAwesomeIcon className="forbiddenIcon" icon={faCircleXmark} />
+        //         <h3>Oops!</h3>
+        //         <h5>Você precisa estar logado para acessar esta página!</h5>
+        //         <Link to={'/login'}><button className='confirmBtn'>Login</button></Link>
+        //     </div>
+        // </div>
     )
 }
 
