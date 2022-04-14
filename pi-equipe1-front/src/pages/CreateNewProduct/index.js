@@ -7,6 +7,7 @@ import { faXmark, faPlus, faChevronLeft, faCircleXmark } from '@fortawesome/free
 import { createBrowserHistory } from "history";
 import { useUserContext } from '../../contexts/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
+import api from '../../services/api';
 
 const CreateNewProduct = () => {
 
@@ -19,9 +20,20 @@ const CreateNewProduct = () => {
     // console.log(characteristics);
 
     const handleSubmit = async values => {
-        let characteristicsObject = [];
-        values.addedCharacteristics.map(id => characteristicsObject.push({ "id": parseInt(id) }));
-        console.log(characteristicsObject);
+        let selectedCharacteristics = [];
+        values.addedCharacteristics.map(id => selectedCharacteristics.push({ "id": parseInt(id) }));
+        console.log(selectedCharacteristics);
+
+        api.post('/product', {
+            name: values.name,
+            description: values.description,
+            address: values.address,
+            // images: [{url: 'url'}, {url: 'url2'}],
+            category: {id: values.category},
+            // city: {id: values.city}
+            characteristics: selectedCharacteristics
+        }, { headers: { "Authorization": `Bearer ${user.token}` } })
+        .then(navigate('/produto-criado'));
     }
 
     const handleChange = () => {
@@ -66,7 +78,7 @@ const CreateNewProduct = () => {
                                 name: Yup.string().required('Obrigatório'),
                                 address: Yup.string().required('Obrigatório'),
                                 category: Yup.string().required('Obrigatório'),
-                                city: Yup.string().required('Obrigatório'),
+                                // city: Yup.string().required('Obrigatório'),
                                 description: Yup.string().required('Obrigatório'),
                                 houseRulesDescription: Yup.string().required('Obrigatório'),
                                 healthSecurityDescription: Yup.string().required('Obrigatório'),
@@ -99,7 +111,7 @@ const CreateNewProduct = () => {
 
                                                 {categories.map(category => {
                                                     return (
-                                                        <option value={category.title} key={category.title} >{category.title}</option>
+                                                        <option value={category.id} key={category.title} >{category.title}</option>
                                                     )
                                                 })}
                                             </Field>

@@ -43,7 +43,7 @@ const RouteList = () => (
                                     <Route path='/produto/:productId/reserva' element={<Booking />} />
                                     <Route path=':userId/reservas' element={<MyReservations />} />
                                     <Route path='/reserva-confirmada' element={<ConfirmedBooking />} />
-                                    <Route path='/novo-produto-criado' element={<ConfirmedNewProduct />} />
+                                    <Route path='/produto-criado' element={<ConfirmedNewProduct />} />
                                     <Route path='/administracao' element={<CreateNewProduct />} />
                                 </Routes>
                                 <Footer />
