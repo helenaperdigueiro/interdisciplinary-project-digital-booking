@@ -27,6 +27,9 @@ public class Product {
     @Column(length = 300, nullable = false)
     private String description;
 
+    @Column(length = 300, nullable = false)
+    private String address;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @JsonIgnoreProperties("product")
     private List<Image> images;
