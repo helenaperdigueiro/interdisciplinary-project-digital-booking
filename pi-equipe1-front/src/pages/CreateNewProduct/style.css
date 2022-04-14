@@ -5,6 +5,7 @@
 #formCreateNewProduct {
     box-shadow: 0 0.5rem 1rem #b8b8b8;
     border-radius: 0.5rem;
+    margin-bottom: 5rem;
 }
 
 .errorMessage {
@@ -70,10 +71,29 @@
     margin-top: 0.8rem;
 }
 
-.addImage {
+#newProductImagesWrapper {
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 0.5rem;
+}
+
+.addImage {
+    display: grid;
+    grid-template-columns: 11fr 1fr;
+}
+
+.btnRemoveImage, .btnAddImage {
+    border: none;
+    background: none;
+}
+
+.btnAddImage {
+    width: 2rem;
+    margin: 0.5rem 0;
+}
+
+.forbiddenIcon {
+    color: rgb(213, 51, 51);
+    font-size: 3.5rem;
 }
 
 @media only screen and (min-width: 600px) {
