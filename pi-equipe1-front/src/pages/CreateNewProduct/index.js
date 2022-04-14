@@ -70,7 +70,7 @@ const CreateNewProduct = () => {
                                 description: Yup.string().required('Obrigatório'),
                                 houseRulesDescription: Yup.string().required('Obrigatório'),
                                 healthSecurityDescription: Yup.string().required('Obrigatório'),
-                                cancellationDescription: Yup.string().required('Obrigatório'),
+                                cancellationDescription: Yup.string().required('Obrigatório')
                             })}
                             onSubmit={handleSubmit}
                         >
@@ -174,9 +174,7 @@ const CreateNewProduct = () => {
                                                     <ErrorMessage name="cancellationDescription">{msg => msg ? msg : ''}</ErrorMessage>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                     </div>
 
                                     <FieldArray name="images">
