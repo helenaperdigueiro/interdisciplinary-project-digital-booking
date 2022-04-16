@@ -7,13 +7,9 @@ input {
 .downshift-dropdown {
   position: absolute;
   top: auto;
-  left: 1rem;
-  right: 1rem;
   margin-top: .5rem;
   background-color: white;
   border: none;
-  /* width: 100%;  */
-
   z-index: 2;
 }
 
@@ -23,7 +19,6 @@ input {
   font-size: 1rem;
   text-align: left;
   background-color: rgba(255, 255, 255, 0.774) !important;
-
   border-radius: .25rem;
   border: none;
 }
@@ -50,39 +45,3 @@ input {
   background-color: var(--light-grey) !important;
 }
 
-@media (min-width: 600px) {
-
-  .downshift-dropdown {
-    left: auto;
-    right: auto;
-    width: 14.5rem;
-  }
-}
-
-@media (min-width: 650px) {
-
-  .downshift-dropdown {
-    width: 15rem;
-  }
-}
-
-@media (min-width: 700px) {
-
-  .downshift-dropdown {
-    width: 16.5rem;
-  }
-}
-
-@media (min-width: 760px) {
-
-  .downshift-dropdown {
-    width: 17rem;
-  }
-}
-
-@media (min-width: 1200px) {
-
-  .downshift-dropdown {
-    width: 20rem;
-  }
-}
