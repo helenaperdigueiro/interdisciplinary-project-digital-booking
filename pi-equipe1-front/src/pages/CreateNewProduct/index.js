@@ -25,12 +25,14 @@ const CreateNewProduct = () => {
         let selectedCharacteristics = [];
         values.addedCharacteristics.map(id => selectedCharacteristics.push({ "id": parseInt(id) }));
         console.log(selectedCharacteristics);
+        let addedImages = [];
+        values.images.map(url => addedImages.push({title: values.name, original: url, thumbnail: url}))
 
         api.post('/product', {
             name: values.name,
             description: values.description,
             address: values.address,
-            // images: [{url: 'url'}, {url: 'url2'}],
+            images: addedImages,
             category: { id: values.category },
             city: { id: selectdCity },
             characteristics: selectedCharacteristics

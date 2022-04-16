@@ -41,11 +41,6 @@
 }
 
 .field div input {
-    /* background-color: rgb(255, 255, 255);
-    box-shadow:  1.5px 1.5px 2px 1px #0000001a inset, 0 0 0 30px rgb(255, 255, 255) inset !important;
-    border: none;
-    height: 2rem;
-    padding-left: 0.5rem; */
     background-color: inherit;
     box-shadow: inherit;
     border: inherit;
