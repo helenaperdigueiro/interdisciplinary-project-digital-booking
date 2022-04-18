@@ -30,7 +30,7 @@ public class Product {
     @Column(length = 300, nullable = false)
     private String address;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.PERSIST)
     @JsonIgnoreProperties("product")
     private List<Image> images;
 

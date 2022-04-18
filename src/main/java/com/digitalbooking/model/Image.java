@@ -16,10 +16,10 @@ public class Image {
     @Column(length = 50, nullable = false)
     private String title;
 
-    @Column(length = 300, nullable = false)
+    @Column(nullable = false)
     private String original;
 
-    @Column(length = 300, nullable = false)
+    @Column(nullable = false)
     private String thumbnail;
 
     @ManyToOne(fetch = FetchType.LAZY)
