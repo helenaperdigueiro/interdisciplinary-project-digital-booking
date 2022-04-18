@@ -18,15 +18,13 @@ const CreateNewProduct = () => {
 
     const categories = useAxios('/category');
     const characteristics = useAxios('/characteristic');
-    let selectdCity;
-    // console.log(characteristics);
 
     const handleSubmit = async values => {
         let selectedCharacteristics = [];
         values.addedCharacteristics.map(id => selectedCharacteristics.push({ "id": parseInt(id) }));
-        console.log(selectedCharacteristics);
+
         let addedImages = [];
-        values.images.map(url => addedImages.push({title: values.name, original: url, thumbnail: url}))
+        values.images.map(url => addedImages.push({ title: values.name, original: url, thumbnail: url }))
 
         api.post('/product', {
             name: values.name,
@@ -34,19 +32,10 @@ const CreateNewProduct = () => {
             address: values.address,
             images: addedImages,
             category: { id: values.category },
-            city: { id: selectdCity },
+            city: { id: values.city },
             characteristics: selectedCharacteristics
         }, { headers: { "Authorization": `Bearer ${user.token}` } })
             .then(navigate('/produto-criado'));
-    }
-
-    function handleChangeAutoComplete(value) {
-        selectdCity = value.id;
-        console.log(value.id);
-    }
-
-    const handleChange = () => {
-
     }
 
     const history = createBrowserHistory();
@@ -89,7 +78,7 @@ const CreateNewProduct = () => {
                                     name: Yup.string().required('Obrigatório'),
                                     address: Yup.string().required('Obrigatório'),
                                     category: Yup.string().required('Obrigatório'),
-                                    // city: Yup.string().required('Obrigatório'),
+                                    city: Yup.string().required('Obrigatório'),
                                     description: Yup.string().required('Obrigatório'),
                                     houseRulesDescription: Yup.string().required('Obrigatório'),
                                     healthSecurityDescription: Yup.string().required('Obrigatório'),
@@ -97,8 +86,8 @@ const CreateNewProduct = () => {
                                 })}
                                 onSubmit={handleSubmit}
                             >
-                                {({ values }) => (
-                                    <Form id="formCreateNewProduct" className="data" onChange={handleChange}>
+                                {({ values, setFieldValue }) => (
+                                    <Form id="formCreateNewProduct" className="data">
                                         <div id="newProductInfoWrapper">
 
                                             <div className='dataLeftCol'>
@@ -109,8 +98,12 @@ const CreateNewProduct = () => {
                                                 </div>
 
                                                 <label htmlFor="city">Cidade</label>
-                                                <div className="field" id="cityField"><AutoComplete onChange={handleChangeAutoComplete} /></div>
-                                                {/* <Field id="city" className="field" name="city" type="text" /> */}
+                                                <div className="field" id="cityField"><AutoComplete onChange={
+                                                    (event, value) => {
+                                                        setFieldValue("city", value.selectedItem.id);
+                                                    }
+                                                }
+                                                /></div>
                                                 <div className="errorMessage">
                                                     <ErrorMessage name="city">{msg => msg ? msg : ''}</ErrorMessage>
                                                 </div>
