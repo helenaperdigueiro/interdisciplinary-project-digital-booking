@@ -21,9 +21,4 @@ public class Image {
 
     @Column(nullable = false)
     private String thumbnail;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product; //testar sem
-
 }

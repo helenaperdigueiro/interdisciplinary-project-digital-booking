@@ -1,20 +1,15 @@
 package com.digitalbooking.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idProduct")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
 
     @Id
@@ -30,8 +25,8 @@ public class Product {
     @Column(length = 300, nullable = false)
     private String address;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.PERSIST)
-    @JsonIgnoreProperties("product")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
     private List<Image> images;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -47,7 +42,7 @@ public class Product {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "product_characteristic", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "characteristic_id"))
     @JsonIgnoreProperties("products")
-    private Set<Characteristic> characteristics;
+    private List<Characteristic> characteristics;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @JsonIgnoreProperties("product")
