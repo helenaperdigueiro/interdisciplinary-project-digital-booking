@@ -72,7 +72,7 @@ const CreateNewProduct = () => {
                                     houseRulesDescription: '',
                                     healthSecurityDescription: '',
                                     cancellationDescription: '',
-                                    images: ['']
+                                    images: ['', '', '', '', '']
                                 }}
                                 validationSchema={Yup.object({
                                     name: Yup.string().required('Obrigatório'),
@@ -212,17 +212,22 @@ const CreateNewProduct = () => {
                                                                         className="field"
                                                                         placeholder="Insira http://"
                                                                     />
-                                                                    <button
-                                                                        type="button"
-                                                                        className="btnRemoveImage"
-                                                                        onClick={() => remove(index)}
-                                                                    >
-                                                                        <FontAwesomeIcon icon={faXmark} />
-                                                                    </button>
+                                                                    {index > 4 ?
+                                                                        <button
+                                                                            type="button"
+                                                                            className="btnRemoveImage"
+                                                                            onClick={() => remove(index)}
+                                                                        >
+                                                                            <FontAwesomeIcon icon={faXmark} />
+                                                                        </button>
+                                                                        :
+                                                                        <div />
+                                                                    }
+
                                                                     <ErrorMessage
                                                                         name={`images.${index}`}
                                                                         component="div"
-                                                                        className="errorMessage" 
+                                                                        className="errorMessage"
                                                                     />
                                                                 </div>
                                                             </div>
