@@ -18,8 +18,6 @@ const MandatoryLogin = ({ onSubmit }) => {
 
     const history = createBrowserHistory();
 
-    // console.log(location);
-
     const navigate = useNavigate();
 
     const handleSubmit = async values => {

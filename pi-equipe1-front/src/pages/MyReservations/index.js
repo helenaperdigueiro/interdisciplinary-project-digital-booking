@@ -18,14 +18,6 @@ const MyReservations = () => {
 
     const reservations = useAxios(`/reservation/user/${user.id}`);
 
-    // useEffect(() => {
-    //     api(`/reservation/user/${user.id}`).then((response) => {
-    //         console.log(response.data)
-    //     }).catch((error) => {
-    //         console.error(error)
-    //     });
-    //     }, [user.id]);
-
     const convert = (url) => {
         switch (url) {
             case 'faSink':

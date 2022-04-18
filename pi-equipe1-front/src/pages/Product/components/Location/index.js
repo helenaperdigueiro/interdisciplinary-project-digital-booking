@@ -8,8 +8,6 @@ const Location = () => {
 
     const { product } = useProductContext();
 
-    console.log(product);
-
     return (
         <div id="locationProduct">
             <div id="locationInfo">

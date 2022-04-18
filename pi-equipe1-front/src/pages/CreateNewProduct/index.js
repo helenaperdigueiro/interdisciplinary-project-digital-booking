@@ -35,7 +35,11 @@ const CreateNewProduct = () => {
             city: { id: values.city },
             characteristics: selectedCharacteristics
         }, { headers: { "Authorization": `Bearer ${user.token}` } })
-            .then(navigate('/produto-criado'));
+
+            .then(navigate('/produto-criado')) //esta indo pra esse rapidinho antes de ir pro login
+            .catch((error) => {
+                navigate('/login')
+            })
     }
 
     const history = createBrowserHistory();
@@ -149,7 +153,6 @@ const CreateNewProduct = () => {
 
                                                 {
                                                     characteristics.map(({ id, name }) => {
-                                                        // console.log(id);
                                                         return (
                                                             <div className="addCharacteristicInfo" key={id}>
                                                                 <Field id={name} name="addedCharacteristics" type="checkbox" value={`${id}`} />

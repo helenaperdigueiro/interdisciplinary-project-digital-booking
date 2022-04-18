@@ -32,6 +32,7 @@ const Image = () => {
                     showIndex={true}
                     autoPlay={true}
                     slideDuration={3000}
+                    
                 />
 
                 :
@@ -44,7 +45,7 @@ const Image = () => {
                                
                                 return (
                                     <div className={`thumbnailProduct${index + 1}`} key={index}>
-                                        <img className="thumbnailImage" src={productImage.original} alt="" />
+                                        <img loading="lazy" className="thumbnailImage" src={productImage.original} alt="" />
                                     </div>
                                 )
                             })
