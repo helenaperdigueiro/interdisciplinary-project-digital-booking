@@ -16,9 +16,9 @@ public class Image {
     @Column(length = 50, nullable = false)
     private String title;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "longtext", nullable = false)
     private String original;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "longtext", nullable = false)
     private String thumbnail;
 }
