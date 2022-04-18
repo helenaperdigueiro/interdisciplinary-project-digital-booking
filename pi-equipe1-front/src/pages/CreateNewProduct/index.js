@@ -82,7 +82,8 @@ const CreateNewProduct = () => {
                                     description: Yup.string().required('Obrigatório'),
                                     houseRulesDescription: Yup.string().required('Obrigatório'),
                                     healthSecurityDescription: Yup.string().required('Obrigatório'),
-                                    cancellationDescription: Yup.string().required('Obrigatório')
+                                    cancellationDescription: Yup.string().required('Obrigatório'),
+                                    images: Yup.array().of(Yup.string().required('Obrigatório'))
                                 })}
                                 onSubmit={handleSubmit}
                             >
@@ -221,7 +222,7 @@ const CreateNewProduct = () => {
                                                                     <ErrorMessage
                                                                         name={`images.${index}`}
                                                                         component="div"
-                                                                        className="field-error"
+                                                                        className="errorMessage" 
                                                                     />
                                                                 </div>
                                                             </div>
