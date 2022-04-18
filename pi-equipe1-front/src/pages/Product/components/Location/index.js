@@ -8,6 +8,8 @@ const Location = () => {
 
     const { product } = useProductContext();
 
+    console.log(product);
+
     return (
         <div id="locationProduct">
             <div id="locationInfo">
@@ -16,7 +18,7 @@ const Location = () => {
                 <div id="adress">
                     <p>{ product.city?.name }, { product.city?.country }</p>
                     <p>Cidade de { product.city?.name }</p>
-                    <p>940 m para o centro</p>
+                    <p>{ product.address }</p>
                 </div>
             </div>
 

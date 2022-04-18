@@ -22,7 +22,8 @@ const Policy = () => {
                 </div>
                 <div id="cancellation">
                     <h5>Política de cancelamento</h5>
-                    <p>Adicione as datas da viagem para obter detalhes de cancelamento para esta estadia</p>
+                    <p>Até 7 dias de antecedência à entrada, a devolução do valor pago será integral</p>
+                    <p>De 6 dias até a data de ínicio da entrada, haverá a restituição de 75% do valor pago</p>
                 </div>
             </div>
         </div>
