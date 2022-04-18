@@ -7,9 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -33,7 +31,7 @@ public class Product {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
-    private Set<Image> images;
+    private List<Image> images;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
@@ -48,7 +46,7 @@ public class Product {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "product_characteristic", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "characteristic_id"))
     @JsonIgnoreProperties("products")
-    private Set<Characteristic> characteristics;
+    private List<Characteristic> characteristics;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @JsonIgnoreProperties("product")
