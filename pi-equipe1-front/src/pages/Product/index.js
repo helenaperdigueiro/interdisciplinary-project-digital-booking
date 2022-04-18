@@ -18,8 +18,6 @@ const Product = () => {
 
     const { product, setProduct } = useProductContext();
 
-    // const productData = useAxios(`/product/${productId}`);
-
     useEffect(() => {
         api(`/product/${productId}`).then((response) => {
             localStorage.setItem('product', JSON.stringify(response.data));
@@ -28,8 +26,6 @@ const Product = () => {
             console.error(error)
         });
         }, [setProduct, productId]);
-
-        // console.log(product);
 
     return (
         <>

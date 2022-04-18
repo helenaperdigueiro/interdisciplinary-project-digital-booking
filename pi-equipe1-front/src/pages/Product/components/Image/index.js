@@ -10,6 +10,8 @@ const Image = () => {
 
     const { product } = useProductContext();
 
+    const displayImages = product.images.slice(0, 5);
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -30,16 +32,15 @@ const Image = () => {
                     showIndex={true}
                     autoPlay={true}
                     slideDuration={3000}
-                    // showBullets={true}
-                    // showNav={false}
                 />
 
                 :
 
                 <div id="galleryImage">
                     <div id="galleryThumbnail">
+
                         {
-                            product.images?.map((productImage, index) => {
+                            displayImages?.map((productImage, index) => {
                                
                                 return (
                                     <div className={`thumbnailProduct${index + 1}`} key={index}>
@@ -58,7 +59,7 @@ const Image = () => {
                         <Modal show={show} onHide={handleClose} size="lg" centered>
 
                             <Modal.Header bsPrefix="modal-header" closeButton></Modal.Header>
-                            
+
                             <Modal.Body bsPrefix="modal-body">
 
                                 <ImageGallery
