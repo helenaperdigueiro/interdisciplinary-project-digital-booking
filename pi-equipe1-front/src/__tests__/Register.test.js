@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import Register from '../pages/Register';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { ErrorMessage } from 'formik';
 
 test('Register with correct info', async () => {
 
@@ -204,72 +203,3 @@ test('Register valid inputs', async () => {
         expect(screen.queryByText('Obrigatório')).not.toBeInTheDocument()
     }) 
 })
-
-test('Register testo', async () => {
-
-    const handleSubmit = jest.fn()
-    render(
-        <BrowserRouter>
-            <HelmetProvider>
-                <Register onSubmit={handleSubmit} />
-            </HelmetProvider>
-        </BrowserRouter>
-    )
-    userEvent.type(screen.getByLabelText(/Nome/), 'Carol')
-    userEvent.type(screen.getByLabelText(/Sobrenome/), 'Hakamada')
-    userEvent.type(screen.getByLabelText(/Email/), 'usere@mail.com') 
-    userEvent.type(screen.getByLabelText(/Confirmar email/), 'user@email.com')
-    userEvent.type(screen.getByLabelText(/Senha/), '12345679')
-
-    await waitFor(() => {
-        expect(screen.getByTitle('testo')).toContainHTML("") 
-    })
-})
-
-test('Register testo2', async () => {
-
-    const handleSubmit = jest.fn()
-    render(
-        <BrowserRouter>
-            <HelmetProvider>
-                <Register onSubmit={handleSubmit} />
-            </HelmetProvider>
-        </BrowserRouter>
-    )
-    userEvent.type(screen.getByLabelText(/Nome/), 'User')
-    userEvent.type(screen.getByLabelText(/Sobrenome/), 'Last Name')
-    userEvent.type(screen.getByLabelText(/Email/), 'user@email.com')
-    userEvent.type(screen.getByLabelText(/Confirmar email/), 'user@email.com')
-    userEvent.type(screen.getByLabelText(/Senha/), '12345679')
-
-    userEvent.click(screen.getByRole('button', { name: /Registrar/ }))
-
-    await waitFor(() => {
-        expect(screen.getByTitle('testo2')).toHaveTextContent("") 
-    })
-})
-
-
-// test('Register valid inputsX', async () => {
-
-//     const handleSubmit = jest.fn()
-//     render(
-//         <BrowserRouter>
-//             <HelmetProvider>
-//                 <Register onSubmit={handleSubmit} />
-//             </HelmetProvider>
-//         </BrowserRouter>
-//     )
-
-//     userEvent.type(screen.getByLabelText(/Nome/), '')
-//     userEvent.type(screen.getByLabelText(/Sobrenome/), 'Hakamada')
-//     userEvent.type(screen.getByLabelText(/Email/), 'usere@mail.com')
-//     userEvent.type(screen.getByLabelText(/Confirmar email/), 'user@email.com')
-//     userEvent.type(screen.getByLabelText(/Senha/), '12345679')
-
-//     userEvent.click(screen.getByRole('button', { name: /Registrar/ }))
-
-//     await waitFor(() => {
-//         expect(screen.getByTitle('testo')).toHaveTextContent(' ')
-//     }) 
-// })

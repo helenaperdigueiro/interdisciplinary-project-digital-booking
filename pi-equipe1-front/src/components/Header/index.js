@@ -29,7 +29,7 @@ const Header = () => {
 
                         {mediaQuery && <div id="separator">|</div>}
 
-                        <Nav.Link className="d-flex align-items-center noPointer" as={Link} to="/"><div id="avatar" className="me-1">{user.name.charAt(0)}{user.lastName.charAt(0)}</div><p className="m-0 greeting">Olá, {user.name}!</p></Nav.Link>
+                        <Nav.Link className="d-flex align-items-center noPointer" as={Link} to="/"><div id="avatar" className="me-2">{user.name.charAt(0)}{user.lastName.charAt(0)}</div><p className="m-0 greeting">Olá, {user.name}!</p></Nav.Link>
 
                         <Nav.Link className="access d-flex align-items-center" as={Link} to="/" onClick={() => {
                             localStorage.removeItem('signed');
