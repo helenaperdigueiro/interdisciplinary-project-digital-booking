@@ -1,4 +1,5 @@
 import './style.css';
+import Swal from "sweetalert2";
 import * as Yup from 'yup';
 import useAxios from '../../hooks/useAxios';
 import { FieldArray, ErrorMessage, Form, Field, Formik } from 'formik';
@@ -41,7 +42,11 @@ const CreateNewProduct = () => {
         }).then((response) => {
             navigate('/produto-criado')
         }).catch((error) => {
-            navigate('/login')
+            Swal.fire({
+                title: "Infelizmente a sua propriedade não pôde ser inserida",
+                icon: 'error',
+                text: error,
+            })
         })
     }
 
