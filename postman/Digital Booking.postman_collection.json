@@ -55,7 +55,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Product 1\",\r\n    \"description\": \"description Product 1\"\r\n}",
+							"raw": "{\r\n    \"name\": \"product with image\",\r\n    \"description\": \"product with image\",\r\n    \"address\": \"rua das marmotas\",\r\n    \r\n    \"images\": [\r\n        {\r\n            \"title\": \"image with product\",\r\n            \"original\":\"image with product\",\r\n            \"thumbnail\": \"image with product\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -861,7 +861,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 3,\r\n    \"name\":\"Leonardo\",\r\n    \"lastName\": \"Santino\",\r\n    \"username\": \"leonardosantino\",\r\n    \"email\": \"leonardosantino@email.com\",\r\n    \"password\": \"leonardosantino\",\r\n    \"roles\": [\r\n        {\"id\": 2}\r\n    ]\r\n}",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\":\"Leonardo\",\r\n    \"lastName\": \"Santino\",\r\n    \"username\": \"leonardosantino\",\r\n    \"email\": \"leonardosantino@email.com\",\r\n    \"password\": \"leonardosantino\",\r\n    \"roles\": [\r\n        {\"id\": 2}\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1239,7 +1239,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"user\",\r\n    \"userAccounts\": [\r\n        {\"id\": 3}\r\n    ]\r\n}",
+							"raw": "{\r\n    \"name\": \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
