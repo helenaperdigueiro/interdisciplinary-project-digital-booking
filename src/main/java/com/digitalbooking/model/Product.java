@@ -48,4 +48,13 @@ public class Product {
     @JsonIgnoreProperties("product")
     private List<Reservation> reservations;
 
+    @Column(length = 300, nullable = false)
+    private String houseRulesPolicy;
+
+    @Column(length = 300, nullable = false)
+    private String healthSecurityPolicy;
+
+    @Column(length = 300, nullable = false)
+    private String cancellationPolicy;
+
 }
