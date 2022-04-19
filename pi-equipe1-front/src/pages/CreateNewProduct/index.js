@@ -33,13 +33,16 @@ const CreateNewProduct = () => {
             images: addedImages,
             category: { id: values.category },
             city: { id: values.city },
-            characteristics: selectedCharacteristics
-        }, { headers: { "Authorization": `Bearer ${user.token}` } })
-
-            .then(navigate('/produto-criado')) //esta indo pra esse rapidinho antes de ir pro login
-            .catch((error) => {
-                navigate('/login')
-            })
+            characteristics: selectedCharacteristics,
+            houseRulesPolicy: values.houseRulesDescription,
+            healthSecurityPolicy: values.healthSecurityDescription,
+            cancellationPolicy: values.cancellationDescription
+        }, { headers: { "Authorization": `Bearer ${user.token}` }
+        }).then((response) => {
+            navigate('/produto-criado')
+        }).catch((error) => {
+            navigate('/login')
+        })
     }
 
     const history = createBrowserHistory();
