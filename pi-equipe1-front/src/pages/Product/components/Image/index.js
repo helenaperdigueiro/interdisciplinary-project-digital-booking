@@ -10,7 +10,7 @@ const Image = () => {
 
     const { product } = useProductContext();
 
-    const displayImages = product.images.slice(0, 5);
+    const displayImages = product.images?.slice(0, 5);
 
     const [show, setShow] = useState(false);
 
